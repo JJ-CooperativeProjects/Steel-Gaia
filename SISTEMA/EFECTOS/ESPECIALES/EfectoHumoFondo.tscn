@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Particle_Soft.png" type="Texture" id=1]
+[ext_resource path="res://SISTEMA/EFECTOS/ESPECIALES/Polvo decorativo_material.tres" type="Material" id=2]
+
+[node name="EfectoHumoFondo" type="Node2D"]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 100
+lifetime = 10.0
+preprocess = 50.0
+process_material = ExtResource( 2 )
+texture = ExtResource( 1 )

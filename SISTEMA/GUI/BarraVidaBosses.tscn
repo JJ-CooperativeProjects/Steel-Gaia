@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://RECURSOS/IMAGENES/ENEMIGOS/MiniBoss/FotoMiniBoss.png" type="Texture" id=1]
+
+[sub_resource type="Gradient" id=28]
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=29]
+gradient = SubResource( 28 )
+
+[sub_resource type="Gradient" id=30]
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.601563, 0.601563, 1 )
+
+[sub_resource type="GradientTexture2D" id=31]
+gradient = SubResource( 30 )
+fill_to = Vector2( 0, 0.510417 )
+repeat = 2
+
+[node name="CanvasLayer_BarraVida" type="CanvasLayer"]
+layer = 10
+visible = false
+
+[node name="GUI_miniboss" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="barra_vida" type="TextureProgress" parent="GUI_miniboss"]
+margin_left = 480.0
+margin_top = 992.0
+margin_right = 1504.0
+margin_bottom = 1024.0
+max_value = 600.0
+value = 10.0
+texture_under = SubResource( 29 )
+texture_progress = SubResource( 31 )
+nine_patch_stretch = true
+
+[node name="TextureRect" type="TextureRect" parent="GUI_miniboss"]
+margin_left = 361.0
+margin_top = 958.0
+margin_right = 457.0
+margin_bottom = 1054.0
+texture = ExtResource( 1 )
+expand = true

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UTILIZABLES/Trampas/Ballesta/Ballesta_piso.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/OBJETOS/TRAMPAS/Ballesta_Pared_dercha.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 142, 115.5 )
+
+[node name="Ballesta_Pared_dercha" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+rondas = 1
+tiempo_entre_ciclos = 1.0
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 16, 22 )
+scale = Vector2( -1, 1 )
+
+[node name="CollisionShape2D2" parent="ZonaActivacion" index="1"]
+position = Vector2( -116, 1.5 )
+shape = SubResource( 1 )

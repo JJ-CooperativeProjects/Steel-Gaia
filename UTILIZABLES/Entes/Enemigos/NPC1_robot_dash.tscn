@@ -1,0 +1,595 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://SISTEMA/ENTES/Enemigo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/ENTES/Usados/MEF_NPC1.gd" type="Script" id=2]
+[ext_resource path="res://RECURSOS/IMAGENES/ENEMIGOS/NPC1_spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://SISTEMA/ENTES/Usados/NPC1.gd" type="Script" id=4]
+[ext_resource path="res://RECURSOS/SHADERS/Pixelar_Sprite.gdshader" type="Shader" id=5]
+[ext_resource path="res://SISTEMA/ENTES/Usados/Escudo.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 36, 26 )
+
+[sub_resource type="ShaderMaterial" id=13]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/pixelFactor = 0.35
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 6, 26.5 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 8.5, 19.5 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 177.5, 48 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cuerpo/Position2D/Area2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cuerpo/Position2D/Area2D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cuerpo/Position2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2, -16 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/Position2D:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Cuerpo/Position2D/Area2D:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Cuerpo/Position2D/Escudo/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Cuerpo/Position2D/Escudo:collision_mask")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "ataque"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 52, 53, 54, 55 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "SacudirCamara"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cuerpo/Position2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2, -16 ), Vector2( -11, -14 ), Vector2( 23, -10 ), Vector2( 29, 7 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cuerpo/Position2D:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -109.542, -129.419, -45.0677, -5.89433 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/Position2D/Area2D:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Cuerpo/Position2D/Escudo/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "bloquear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 13 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cuerpo/Position2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 26, 7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cuerpo/Position2D/Area2D:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cuerpo/Position2D/Escudo/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "caminar"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 39, 40, 41, 42, 43, 44, 45, 46, 47 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "cargar_camina"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 26, 27, 28, 29, 30, 31, 32, 33, 34 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "corriendo"
+length = 0.45
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 78, 79, 80, 81, 82, 83, 84, 85, 86 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cuerpo/Position2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 28, 7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cuerpo/Position2D/Area2D:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cuerpo/Position2D/Area2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, -7 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/Position2D/Escudo/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "descargar_quieto"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 34, 33, 32, 31, 30, 29, 28 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "preparar_para_correr"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 65, 66, 67, 68 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "quieto"
+length = 1.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cuerpo/Position2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 29, 7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cuerpo/Position2D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -2.00823 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cuerpo/Position2D/Escudo/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/Position2D/Area2D:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 20.5 )
+
+[node name="NPC1" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+script = ExtResource( 4 )
+velocidad_movimiento = 25.0
+vitalidad = 40
+damage = 10.0
+posibles_objetos_soltar = [ "res://OBJETOS/COLECTABLES/USADOS/Alma_NPC1.tscn" ]
+
+[node name="MEF" parent="." index="0"]
+script = ExtResource( 2 )
+tiempo_minimo_espera = 3.0
+tiempo_maximo_espera = 6.0
+coeficiente_correr = 0.25
+
+[node name="Area2_jugador_cerca" type="Area2D" parent="." index="1"]
+visible = false
+position = Vector2( 0, -23 )
+collision_layer = 2
+input_pickable = false
+monitorable = false
+
+[node name="Area2D" type="CollisionShape2D" parent="Area2_jugador_cerca" index="0"]
+position = Vector2( 1, -3 )
+shape = SubResource( 12 )
+
+[node name="Cuerpo" parent="." index="2"]
+position = Vector2( 0, -32 )
+
+[node name="Sprite" parent="Cuerpo" index="0"]
+visible = true
+material = SubResource( 13 )
+scale = Vector2( -0.3, 0.3 )
+texture = ExtResource( 3 )
+hframes = 13
+vframes = 7
+
+[node name="AnimatedSprite" parent="Cuerpo" index="1"]
+visible = false
+material = SubResource( 13 )
+
+[node name="rayo_suelo_izq" type="RayCast2D" parent="Cuerpo" index="2"]
+visible = false
+position = Vector2( -11, 31 )
+enabled = true
+cast_to = Vector2( 0, 25 )
+collision_mask = 528
+
+[node name="rayo_suelo_der" type="RayCast2D" parent="Cuerpo" index="3"]
+visible = false
+position = Vector2( 9, 31 )
+enabled = true
+cast_to = Vector2( 0, 25 )
+collision_mask = 528
+
+[node name="rayo_frente" type="RayCast2D" parent="Cuerpo" index="4"]
+visible = false
+position = Vector2( 9, 26 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 512
+
+[node name="Position2D" type="Position2D" parent="Cuerpo" index="5"]
+visible = false
+position = Vector2( -2, -16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Escudo" type="KinematicBody2D" parent="Cuerpo/Position2D" index="0"]
+collision_layer = 2
+collision/safe_margin = 2.0
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerpo/Position2D/Escudo" index="0"]
+modulate = Color( 1, 0.984314, 0, 1 )
+position = Vector2( -2, 0.5 )
+shape = SubResource( 8 )
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="Cuerpo/Position2D" index="1"]
+visible = false
+collision_layer = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerpo/Position2D/Area2D" index="0"]
+position = Vector2( -0.5, 7.5 )
+shape = SubResource( 9 )
+
+[node name="Area_detectar_jugador" type="Area2D" parent="Cuerpo" index="6"]
+visible = false
+collision_layer = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerpo/Area_detectar_jugador" index="0"]
+modulate = Color( 0.992157, 0, 1, 1 )
+position = Vector2( 56.5, -15 )
+shape = SubResource( 10 )
+
+[node name="rayo_mirar_jugador" type="RayCast2D" parent="Cuerpo" index="7"]
+visible = false
+modulate = Color( 0.992157, 0, 1, 1 )
+position = Vector2( -13, -9 )
+enabled = true
+exclude_parent = false
+cast_to = Vector2( 300, 0 )
+collision_mask = 3
+
+[node name="AnimationPlayer" parent="." index="3"]
+playback_speed = 0.5
+anims/RESET = SubResource( 2 )
+anims/ataque = SubResource( 11 )
+anims/bloquear = SubResource( 4 )
+anims/caminar = SubResource( 6 )
+anims/cargar_camina = SubResource( 5 )
+anims/corriendo = SubResource( 15 )
+anims/descargar_quieto = SubResource( 7 )
+anims/preparar_para_correr = SubResource( 14 )
+anims/quieto = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="5"]
+visible = false
+position = Vector2( 1, -21 )
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="7"]
+visible = false
+position = Vector2( -2, -46 )
+scale = Vector2( 20.55, 4.725 )
+
+[connection signal="body_entered" from="Area2_jugador_cerca" to="MEF" method="_on_Area2_jugador_cerca_body_entered"]
+[connection signal="body_exited" from="Area2_jugador_cerca" to="MEF" method="_on_Area2_jugador_cerca_body_exited"]
+[connection signal="body_entered" from="Cuerpo/Position2D/Area2D" to="MEF" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Cuerpo/Area_detectar_jugador" to="MEF" method="_on_Area_detectar_jugador_body_entered"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="MEF" method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="MEF" method="_on_VisibilityNotifier2D_screen_exited"]

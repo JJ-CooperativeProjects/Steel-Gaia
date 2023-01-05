@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SISTEMA/ENTES/Ente.gd" type="Script" id=1]
+[ext_resource path="res://SISTEMA/GLOBAL/MEF_base.gd" type="Script" id=2]
+
+[node name="Ente" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="MEF" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Cuerpo" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="RecibeDamage" from="." to="." method="_on_Ente_RecibeDamage"]

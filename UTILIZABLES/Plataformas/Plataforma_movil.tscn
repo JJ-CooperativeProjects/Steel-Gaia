@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Plataforma_movil.gd" type="Script" id=1]
+[ext_resource path="res://SISTEMA/OBJETOS/PLATAFORMAS/Plataforma.tscn" type="PackedScene" id=2]
+
+[node name="Plataforma_movil" instance=ExtResource( 2 )]
+motion/sync_to_physics = true
+script = ExtResource( 1 )
+tipo_movimiento = 0
+es_bucle = true
+sentido = 1
+tiempo_recorrido = 5.5
+tiempo_espera = 2.5
+max_distancia = 0.0
+
+[node name="TileMap" parent="." index="1"]
+modulate = Color( 1, 1, 1, 1 )
+tile_data = PoolIntArray( -1, 35, 0, -65536, 35, 0, -65535, 35, 0 )
+
+[node name="CollisionShape2D" parent="." index="2"]
+visible = false
+position = Vector2( 15.5, -16 )
+
+[node name="Area2D" parent="." index="3"]
+visible = false

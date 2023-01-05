@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SISTEMA/OBJETOS/ESCALERAS/Escaleras.gd" type="Script" id=1]
+
+[node name="Escaleras" type="Area2D"]
+collision_layer = 8
+input_pickable = false
+monitorable = false
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+collision_use_parent = true
+format = 1
+
+[connection signal="body_entered" from="." to="." method="_on_Escaleras_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Escaleras_body_exited"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SISTEMA/HABILIDADES/HABILIDAD.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/HABILIDADES/Habilidad_gancho.gd" type="Script" id=2]
+
+[node name="HabilidadGancho" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+maximo_largo_gancho = 800.0
+velocidad_gancho = 8.0
+velocidad_recogida = 450.0

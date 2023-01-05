@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://AreaDisparadorEvento_por_tecla.gd" type="Script" id=1]
+[ext_resource path="res://SISTEMA/GLOBAL/AREAS/AreaDisparadorEvento.tscn" type="PackedScene" id=2]
+
+[node name="AreaDisparadorEvento_por_tecla" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+inputs = [  ]
+
+[connection signal="body_exited" from="." to="." method="_on_AreaDisparadorEvento_por_tecla_body_exited"]

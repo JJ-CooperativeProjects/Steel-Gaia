@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://SISTEMA/EFECTOS/ESPECIALES/Llama.gd" type="Script" id=1]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Fire_Single.png" type="Texture" id=2]
+[ext_resource path="res://SISTEMA/GLOBAL/AREAS/AreaDamage.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AreaDamage:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "inicio_efecto"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 3.8, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.3, 0.3 ), Vector2( 0.3, 0.3 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AreaDamage:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16.7044, 31.4042 )
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 16.5, 34.1844 )
+
+[node name="Llama" type="Particles2D"]
+emitting = false
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 11.56, 1.16, 0, 1 )
+position = Vector2( -0.00904083, -0.181732 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 2 )
+offset = Vector2( -2.75268, -111.046 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/inicio_efecto = SubResource( 1 )
+
+[node name="DetectarParedes" type="Area2D" parent="."]
+collision_layer = 524288
+collision_mask = 528
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectarParedes"]
+position = Vector2( -0.852882, -32.4802 )
+shape = SubResource( 3 )
+
+[node name="AreaDamage" type="Area2D" parent="."]
+collision_layer = 0
+input_pickable = false
+monitoring = false
+monitorable = false
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDamage"]
+position = Vector2( -0.944931, -26.6591 )
+shape = SubResource( 4 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="DetectarParedes" to="." method="_on_DetectarParedes_area_entered"]
+[connection signal="body_entered" from="DetectarParedes" to="." method="_on_DetectarParedes_body_entered"]
+[connection signal="area_entered" from="AreaDamage" to="AreaDamage" method="_on_AreaDamage_area_entered"]
+[connection signal="body_entered" from="AreaDamage" to="AreaDamage" method="_on_AreaDamage_body_entered"]

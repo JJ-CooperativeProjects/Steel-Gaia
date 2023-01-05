@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UTILIZABLES/z1_Avanzados/Intercambiador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/GLOBAL/AREAS/AreaDisparadorEvento_por_tecla.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RECURSOS/IMAGENES/OBJETOS/Puerta_cuarto_dinoboss.png" type="Texture" id=3]
+[ext_resource path="res://SISTEMA/OBJETOS/PORTAL/Usados/Intercambiador_por_tecla.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 38, 49 )
+
+[node name="Intercambiador_por_tecla" groups=["Persistentes"] instance=ExtResource( 1 )]
+z_index = -4
+script = ExtResource( 4 )
+
+[node name="AreaDisparadorEvento_por_tecla" parent="." index="0" instance=ExtResource( 2 )]
+activo = false
+inputs = [ "interactuar" ]
+
+[node name="CollisionShape2D" parent="AreaDisparadorEvento_por_tecla" index="0"]
+position = Vector2( 6, -48 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2( -32, -96 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Position2D" type="Position2D" parent="." index="2"]
+position = Vector2( 6, -15 )
+
+[editable path="AreaDisparadorEvento_por_tecla"]

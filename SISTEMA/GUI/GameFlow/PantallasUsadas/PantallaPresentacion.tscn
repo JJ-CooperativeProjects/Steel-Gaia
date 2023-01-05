@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SISTEMA/GUI/GameFlow/Pantalla.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RECURSOS/FONTS/my-standard.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaPresentacion.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+extra_spacing_char = 3
+font_data = ExtResource( 2 )
+
+[node name="PantallaPresentacion" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+proxima_pantalla = "res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaMenuPrincipal.tscn"
+
+[node name="TextureRect" parent="." index="0"]
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="." index="1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1015.5
+margin_top = -115.5
+margin_right = 1015.5
+margin_bottom = 115.5
+custom_fonts/font = SubResource( 1 )
+text = "El siguiente videojuego,
+es una obra totalmente gratuita y de carácter educativo. Conseguida
+gracias a la colaboración de varios artistas."
+align = 1

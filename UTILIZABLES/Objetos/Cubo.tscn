@@ -1,0 +1,207 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://SISTEMA/OBJETOS/COLECTABLES/Objeto_colectable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/OBJETOS/COLECTABLES/USADOS/Cubo.gd" type="Script" id=2]
+[ext_resource path="res://RECURSOS/IMAGENES/OBJETOS/Cubo/Cubo_v2.png" type="Texture" id=3]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Star.png" type="Texture" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="Animation" id=1]
+resource_name = "efect1"
+length = 3.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("star_1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 0.7, 1.2, 2.1, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.690629 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("star_2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.9, 2.4, 2.7, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("star_3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.1, 1.6, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("star_4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.1, 1.3, 1.7, 2.3, 2.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.854902, 1, 0.866667, 0 ), Color( 0.854902, 1, 0.866667, 1 ), Color( 0.854902, 1, 0.866667, 1 ), Color( 0.854902, 1, 0.866667, 0 ), Color( 0.854902, 1, 0.866667, 1 ), Color( 0.854902, 1, 0.866667, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("star_1:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("star_1:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9, 1.4, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 0.07, 0.07 ), Vector2( 0.07, 0.07 ), Vector2( 0.02, 0.03 ), Vector2( 0.05, 0.07 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("star_2:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("star_2:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.06, 0.06 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("star_3:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("star_3:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.1, 1.8, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.04, 0.04 ), Vector2( 0.04, 0.04 ), Vector2( 0.06, 0.04 ), Vector2( 0.02, 0.05 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("star_4:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("star_4:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.04, 0.04 ) ]
+}
+
+[node name="Cubo" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="star_1" type="Sprite" parent="Sprite" index="0"]
+modulate = Color( 1, 1, 1, 0.859377 )
+self_modulate = Color( 0, 1.74, 0, 1 )
+material = SubResource( 3 )
+position = Vector2( 8, -8 )
+scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 4 )
+
+[node name="star_2" type="Sprite" parent="Sprite" index="1"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 0, 1.74, 0, 1 )
+material = SubResource( 4 )
+position = Vector2( 4, 6 )
+scale = Vector2( 0.06, 0.06 )
+texture = ExtResource( 4 )
+
+[node name="star_3" type="Sprite" parent="Sprite" index="2"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 0, 1.74, 0, 1 )
+material = SubResource( 4 )
+position = Vector2( -6, -5 )
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 4 )
+
+[node name="star_4" type="Sprite" parent="Sprite" index="3"]
+modulate = Color( 0.854902, 1, 0.866667, 0 )
+self_modulate = Color( 0, 1.74, 0, 1 )
+material = SubResource( 4 )
+position = Vector2( -6, 6 )
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite" index="4"]
+anims/efect1 = SubResource( 1 )
+
+[node name="Area2D" parent="." index="1"]
+visible = false
+
+[connection signal="es_recogido" from="." to="." method="_on_Cubo_es_recogido"]

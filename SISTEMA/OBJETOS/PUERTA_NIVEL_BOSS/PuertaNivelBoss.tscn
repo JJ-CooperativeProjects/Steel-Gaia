@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://AreaDisparadorEvento_por_tecla.gd" type="Script" id=1]
+[ext_resource path="res://SISTEMA/OBJETOS/PUERTA_NIVEL_BOSS/PuertaNivelBoss.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="PuertaNivelBoss_puzzle" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="AreaDisparadorEvento_por_tecla" type="Area2D" parent="."]
+collision_layer = 0
+input_pickable = false
+monitorable = false
+script = ExtResource( 1 )
+inputs = [ "interactuar" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDisparadorEvento_por_tecla"]
+modulate = Color( 0.898039, 0, 1, 1 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = -24.0
+margin_right = 40.0
+margin_bottom = -10.0
+
+[connection signal="body_entered" from="AreaDisparadorEvento_por_tecla" to="AreaDisparadorEvento_por_tecla" method="_on_AreaDisparadorEvento_body_entered"]
+[connection signal="body_exited" from="AreaDisparadorEvento_por_tecla" to="AreaDisparadorEvento_por_tecla" method="_on_AreaDisparadorEvento_por_tecla_body_exited"]

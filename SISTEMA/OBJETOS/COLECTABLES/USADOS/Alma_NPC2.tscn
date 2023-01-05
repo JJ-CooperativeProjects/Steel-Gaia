@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SISTEMA/OBJETOS/COLECTABLES/Alma.tscn" type="PackedScene" id=1]
+
+[node name="Alma_NPC2" instance=ExtResource( 1 )]
+tipo_alma = 1
+
+[node name="Sprite" parent="." index="0"]
+modulate = Color( 0, 0.04, 2.89, 1 )

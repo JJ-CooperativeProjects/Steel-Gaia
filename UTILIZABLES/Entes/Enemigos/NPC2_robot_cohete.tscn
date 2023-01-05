@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://SISTEMA/ENTES/Enemigo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RECURSOS/SHADERS/Pixelar_Sprite.gdshader" type="Shader" id=2]
+[ext_resource path="res://SISTEMA/ENTES/Usados/animacion_NPC2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SISTEMA/ENTES/Usados/MEF_NPC2.gd" type="Script" id=4]
+[ext_resource path="res://SISTEMA/ENTES/Usados/NPC2/animacion_NPC2.tscn" type="PackedScene" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/pixelFactor = 0.35
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 25.5 )
+
+[node name="NPC2" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 512
+posibles_objetos_soltar = [ "res://OBJETOS/COLECTABLES/USADOS/Alma_NPC2.tscn" ]
+
+[node name="Viewport" type="Viewport" parent="." index="0"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="control_base" parent="Viewport" index="0" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 150, 150 )
+scale = Vector2( 0.999999, 0.999999 )
+
+[node name="control_base2" parent="Viewport" index="1" instance=ExtResource( 5 )]
+position = Vector2( 150, 150 )
+scale = Vector2( 1, 1 )
+
+[node name="MEF" parent="." index="1"]
+script = ExtResource( 4 )
+
+[node name="Sprite" parent="Cuerpo" index="0"]
+visible = true
+material = SubResource( 1 )
+position = Vector2( 0, 0 )
+texture = SubResource( 3 )
+offset = Vector2( -6.602, -70 )
+
+[node name="AnimatedSprite" parent="Cuerpo" index="1"]
+visible = false
+material = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="5"]
+visible = false
+position = Vector2( -1, -25.5 )
+shape = SubResource( 2 )

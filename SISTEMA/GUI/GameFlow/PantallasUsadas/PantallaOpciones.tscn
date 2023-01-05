@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SISTEMA/GUI/GameFlow/Pantalla.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/BotonesUsados/BotonVolver.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/BotonesUsados/BotonMostrarCreditos.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaOpciones.gd" type="Script" id=4]
+
+[node name="PantallaOpciones" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="TextureRect" parent="." index="0"]
+modulate = Color( 0.203922, 0.2, 0.407843, 1 )
+
+[node name="BotonVolver" parent="." index="1" instance=ExtResource( 2 )]
+pause_mode = 0
+margin_left = 64.0
+margin_top = 960.0
+margin_right = 392.0
+margin_bottom = 1026.0
+
+[node name="BotonMostrarCreditos" parent="." index="2" instance=ExtResource( 3 )]
+pause_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.5
+margin_top = -33.0
+margin_right = 316.5
+margin_bottom = 33.0
+
+[connection signal="button_up" from="BotonVolver" to="." method="_on_BotonVolver_button_up"]
+[connection signal="pressed" from="BotonMostrarCreditos" to="." method="_on_BotonMostrarCreditos_pressed"]

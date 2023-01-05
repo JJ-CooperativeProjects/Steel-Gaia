@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://SISTEMA/GLOBAL/RESOURCES/SAVE_DATA/BaseSaveData.gd" type="Script" id=1]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource( 1 )
+tiene_orbe = false
+cubos = 0
+almas_NPC1 = 0
+almas_NPC2 = 0
+almas_NPC3 = 0
+almas_NPC4 = 0
+vida_actual = 0
+vida_max = 0
+damage = 0.0
+direccion_mira = 0
+energia_actual = 0
+max_energia = 0
+posicion_actual = Vector2( 0, 0 )
+niveles_visitados = [  ]

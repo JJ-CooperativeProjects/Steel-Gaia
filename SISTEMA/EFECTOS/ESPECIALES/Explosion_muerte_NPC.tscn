@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://SISTEMA/EFECTOS/ESPECIALES/Explosion_muerte_NPC.gd" type="Script" id=1]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/explosion_blanca_low_resolucion.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=7]
+code = "// NOTE: Shader automatically converted from Godot Engine 3.5.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+uniform int particles_anim_h_frames;
+uniform int particles_anim_v_frames;
+uniform bool particles_anim_loop;
+
+uniform float pixelFactor: hint_range(0,50) = 5;
+
+
+void vertex() {
+	float h_frames = float(particles_anim_h_frames);
+	float v_frames = float(particles_anim_v_frames);
+	VERTEX.xy /= vec2(h_frames, v_frames);
+	float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
+	float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
+	if (!particles_anim_loop) {
+		particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
+	} else {
+		particle_frame = mod(particle_frame, particle_total_frames);
+	}	UV /= vec2(h_frames, v_frames);
+	UV += vec2(mod(particle_frame, h_frames) / h_frames, floor((particle_frame + 0.5) / h_frames) / v_frames);
+}
+
+void fragment(){
+	
+	vec2 pixelNumber = vec2(textureSize(TEXTURE, 0)) * pixelFactor;
+	vec2 pixelatedUV = round(UV * pixelNumber) / pixelNumber;
+	
+	COLOR  = texture(TEXTURE, pixelatedUV);
+}"
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/particles_anim_h_frames = 3
+shader_param/particles_anim_v_frames = 1
+shader_param/particles_anim_loop = false
+shader_param/pixelFactor = 0.35
+
+[sub_resource type="Curve" id=2]
+max_value = 10.0
+_data = [ Vector2( 0, 2.09091 ), 0.0, 0.0, 0, 0, Vector2( 0.388889, 8.27273 ), 3.81818, 3.81818, 0, 0, Vector2( 1, 10 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.213592, 0.633053 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+lifetime_randomness = 0.1
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -30, 0 )
+spread = 15.11
+flatness = 0.34
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 86.92
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 14.0
+color_ramp = SubResource( 5 )
+anim_speed = 1.0
+anim_speed_curve = SubResource( 3 )
+
+[node name="ExplosionMuerteNPC" type="Particles2D"]
+material = SubResource( 8 )
+scale = Vector2( 0.5, 0.5 )
+amount = 1
+lifetime = 0.6
+explosiveness = 0.88
+randomness = 0.19
+process_material = SubResource( 6 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )

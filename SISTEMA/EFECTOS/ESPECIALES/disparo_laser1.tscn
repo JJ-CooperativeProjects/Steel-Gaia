@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/LazerMain02_horizontal.png" type="Texture" id=1]
+[ext_resource path="res://SISTEMA/OBJETOS/TRAMPAS/disparo_ametralladora.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Aurora_R.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 16.5, 5.5 )
+
+[node name="disparo_laser1" instance=ExtResource( 2 )]
+velocidad_bala = 1500.0
+max_rebotes = 3
+
+[node name="Sprite" parent="." index="0"]
+modulate = Color( 2.31, 17.44, 16.76, 1 )
+position = Vector2( 0, 0 )
+scale = Vector2( -0.259766, 0.150391 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="AreaDamage" parent="." index="2"]
+visible = false
+
+[node name="CollisionShape2D" parent="AreaDamage" index="0"]
+position = Vector2( 0.5, -0.5 )
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" parent="." index="3"]
+visible = false
+
+[node name="Light2D" type="Light2D" parent="." index="4"]
+texture = ExtResource( 1 )
+texture_scale = 0.7
+color = Color( 1, 0.0313726, 0.0980392, 1 )
+energy = 4.0

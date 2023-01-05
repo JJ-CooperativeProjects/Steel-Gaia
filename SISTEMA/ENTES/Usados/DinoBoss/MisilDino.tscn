@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://SISTEMA/OBJETOS/DisparoBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RECURSOS/IMAGENES/OBJETOS/Disparos/Missil.png" type="Texture" id=2]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Kenney/magic_05.png" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Area2D
+class_name AreaDamage
+\"\"\"
+BASE PARA CONSTRUIR AREAS DE DAÑO.
+\"\"\"
+var objetivo:Ente = null
+export (float) var damage:float = 10
+
+func _on_AreaDamage_body_entered(body):
+	if objetivo!= null:
+		damage = objetivo.damage
+	if body.puede_recibir_damage == true:
+		body.emit_signal(\"RecibeDamage\",damage)
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 7.5, 4 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "disparo"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:velocidad_bala")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.149456, 627.826, 1500, -0.770463, -1.728, 0.25, 0 ),
+"times": PoolRealArray( 0, 2 )
+}
+
+[node name="MisilDino" instance=ExtResource( 1 )]
+velocidad_bala = 1500.0
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2( -10, 0 )
+scale = Vector2( -0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="AreaDamage" parent="." index="3"]
+collision_mask = 0
+monitoring = false
+script = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDamage" index="0"]
+position = Vector2( -2.5, 0 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+anims/disparo = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="." index="5"]
+position = Vector2( -22, 0 )
+texture = ExtResource( 3 )
+texture_scale = 0.1

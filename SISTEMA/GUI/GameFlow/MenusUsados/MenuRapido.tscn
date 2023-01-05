@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://SISTEMA/GUI/GameFlow/MenuBotones.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/BotonesUsados/BotonSalirJuego.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/BotonesUsados/BotonCargarPartida.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/BotonesUsados/BotonOpciones.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/BotonesUsados/BotonContinuar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/BotonesUsados/BotonSalirMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/MenusUsados/MenuRapido.gd" type="Script" id=7]
+
+[node name="MenuRapido" instance=ExtResource( 1 )]
+pause_mode = 2
+margin_left = -272.0
+margin_top = -192.0
+margin_right = 272.0
+margin_bottom = 192.0
+script = ExtResource( 7 )
+
+[node name="VBoxContainer" parent="." index="0"]
+margin_right = 510.0
+margin_bottom = 370.0
+
+[node name="BotonContinuar" parent="VBoxContainer" index="0" instance=ExtResource( 5 )]
+margin_right = 510.0
+
+[node name="BotonCargarPartida" parent="VBoxContainer" index="1" instance=ExtResource( 3 )]
+margin_top = 76.0
+margin_right = 510.0
+margin_bottom = 142.0
+
+[node name="BotonOpciones" parent="VBoxContainer" index="2" instance=ExtResource( 4 )]
+margin_top = 152.0
+margin_right = 510.0
+margin_bottom = 218.0
+
+[node name="BotonSalirMenu" parent="VBoxContainer" index="3" instance=ExtResource( 6 )]
+margin_top = 228.0
+margin_right = 510.0
+margin_bottom = 294.0
+
+[node name="BotonSalirJuego" parent="VBoxContainer" index="4" instance=ExtResource( 2 )]
+margin_top = 304.0
+margin_right = 510.0
+margin_bottom = 370.0
+
+[connection signal="button_up" from="VBoxContainer/BotonContinuar" to="." method="_on_BotonContinuar_button_up"]
+[connection signal="button_up" from="VBoxContainer/BotonCargarPartida" to="." method="_on_BotonCargarPartida_button_up"]
+[connection signal="button_up" from="VBoxContainer/BotonOpciones" to="." method="_on_BotonOpciones_button_up"]
+[connection signal="pressed" from="VBoxContainer/BotonSalirMenu" to="." method="_on_BotonSalirMenu_pressed"]
+[connection signal="button_up" from="VBoxContainer/BotonSalirJuego" to="." method="_on_BotonSalirJuego_button_up"]

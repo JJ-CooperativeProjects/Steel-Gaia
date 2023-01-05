@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SISTEMA/ENTES/Usados/DinoBoss/Roca.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Roca" parent="." instance=ExtResource( 1 )]
+position = Vector2( 586.407, 539.685 )
+
+[node name="Roca2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 605.762, 559.04 )
+
+[node name="Roca3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 577.73, 559.708 )
+
+[node name="Roca4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 603.76, 537.015 )

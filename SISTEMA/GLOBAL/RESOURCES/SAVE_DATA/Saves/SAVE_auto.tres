@@ -1,0 +1,41 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://SISTEMA/GLOBAL/RESOURCES/SAVE_DATA/BaseSaveData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+tiene_orbe = false
+cubos = 0
+almas_NPC1 = 0
+almas_NPC2 = 0
+almas_NPC3 = 0
+almas_NPC4 = 0
+vida_actual = 100
+vida_max = 100
+damage = 5.0
+direccion_mira = 1
+energia_actual = 100
+max_energia = 100
+posicion_actual = Vector2( 95, 463.99 )
+niveles_visitados = [ {
+"Nivel_Pruebas": "res://NIVELES/Usados/Nivel_pruebas.tscn",
+"persistentes": [ {
+"desactivado": false,
+"ruta_file": "res://OBJETOS/PORTAL/Usados/Intercambiador_por_tecla.tscn",
+"ruta_nodo": NodePath("/root/Nivel_Pruebas/AREAS_EVENTOS/Intercambiador_hacia_DinoBoss")
+} ]
+}, {
+"Nivel_DinoBoss": "res://UTILIZABLES/Niveles/Usados/PuebasPrototipo/Nivel_DinoBoss.tscn",
+"persistentes": [ {
+"desactivado": false,
+"ruta_file": "res://SISTEMA/OBJETOS/PORTAL/Usados/Intercambiador_por_tecla.tscn",
+"ruta_nodo": NodePath("/root/Nivel_DinoBoss/AREAS_EVENTOS/Intercambiador_hacia_nivel_1")
+} ]
+}, {
+"Nivel_1": "res://UTILIZABLES/Niveles/Usados/PuebasPrototipo/Nivel_1.tscn",
+"persistentes": [ {
+"desactivado": false,
+"ruta_file": "res://SISTEMA/OBJETOS/PORTAL/Usados/Intercambiador_por_tecla.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/AREAS_EVENTOS/Intercambiador_hacia_DinoBoss")
+} ]
+} ]

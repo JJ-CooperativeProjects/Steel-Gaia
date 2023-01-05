@@ -1,0 +1,480 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "AreaDisparadorEvento",
+"class": "AreaActivarTrampas",
+"language": "GDScript",
+"path": "res://SISTEMA/GLOBAL/AREAS/Usados/AreaDisparadorEvento_activa_trampas.gd"
+}, {
+"base": "Area2D",
+"class": "AreaDamage",
+"language": "GDScript",
+"path": "res://SISTEMA/GLOBAL/AREAS/AreaDamage.gd"
+}, {
+"base": "Area2D",
+"class": "AreaDetectarObstaculos",
+"language": "GDScript",
+"path": "res://SISTEMA/GLOBAL/AREAS/AreaDetectarObstaculos.gd"
+}, {
+"base": "Area2D",
+"class": "AreaDisparadorEvento",
+"language": "GDScript",
+"path": "res://SISTEMA/GLOBAL/AREAS/AreaDisparadorEvento.gd"
+}, {
+"base": "AreaDisparadorEvento",
+"class": "AreaDisparadorEventoPorTecla",
+"language": "GDScript",
+"path": "res://AreaDisparadorEvento_por_tecla.gd"
+}, {
+"base": "Resource",
+"class": "BaseSaveData",
+"language": "GDScript",
+"path": "res://SISTEMA/GLOBAL/RESOURCES/SAVE_DATA/BaseSaveData.gd"
+}, {
+"base": "Button",
+"class": "BotonBase",
+"language": "GDScript",
+"path": "res://SISTEMA/GUI/GameFlow/BotonBase.gd"
+}, {
+"base": "Path2D",
+"class": "Carril",
+"language": "GDScript",
+"path": "res://SISTEMA/ENTES/NPC3_carril.gd"
+}, {
+"base": "TextureRect",
+"class": "CuboPuzzle",
+"language": "GDScript",
+"path": "res://SISTEMA/GUI/Puzzle/Cubo.gd"
+}, {
+"base": "Sprite",
+"class": "DashEffect",
+"language": "GDScript",
+"path": "res://SISTEMA/EFECTOS/DashEffect.gd"
+}, {
+"base": "Enemigo",
+"class": "DinoBoss",
+"language": "GDScript",
+"path": "res://SISTEMA/ENTES/Usados/DinoBoss.gd"
+}, {
+"base": "Node2D",
+"class": "DisparadorTrampas",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/TRAMPAS/Disparador_Trampas.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "DisparoBase",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/DisparoBase.gd"
+}, {
+"base": "Node",
+"class": "Efecto",
+"language": "GDScript",
+"path": "res://SISTEMA/EFECTOS/Efecto.gd"
+}, {
+"base": "Particles2D",
+"class": "EfectoEspecialControlado",
+"language": "GDScript",
+"path": "res://SISTEMA/EFECTOS/ESPECIALES/EfectoEspecial_controlado_por_animacion.gd"
+}, {
+"base": "Efecto",
+"class": "EfectoTemporal",
+"language": "GDScript",
+"path": "res://SISTEMA/EFECTOS/EfectoTemporal.gd"
+}, {
+"base": "Ente",
+"class": "Enemigo",
+"language": "GDScript",
+"path": "res://SISTEMA/ENTES/Enemigo.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Ente",
+"language": "GDScript",
+"path": "res://SISTEMA/ENTES/Ente.gd"
+}, {
+"base": "Area2D",
+"class": "Escalera",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/ESCALERAS/Escaleras.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Escudo",
+"language": "GDScript",
+"path": "res://SISTEMA/ENTES/Usados/Escudo.gd"
+}, {
+"base": "CanvasLayer",
+"class": "Gui_jugador",
+"language": "GDScript",
+"path": "res://SISTEMA/GUI/VentanaJugador/GUI_jugador.gd"
+}, {
+"base": "MEF_base",
+"class": "Habilidad",
+"language": "GDScript",
+"path": "res://SISTEMA/HABILIDADES/HABILIDAD.gd"
+}, {
+"base": "Node2D",
+"class": "Intercambiador",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/PORTAL/Intercambiador.gd"
+}, {
+"base": "Ente",
+"class": "Jugador",
+"language": "GDScript",
+"path": "res://SISTEMA/ENTES/Jugador.gd"
+}, {
+"base": "MEF_base",
+"class": "MEF_NPC1",
+"language": "GDScript",
+"path": "res://SISTEMA/ENTES/Usados/MEF_NPC1.gd"
+}, {
+"base": "Node",
+"class": "MEF_base",
+"language": "GDScript",
+"path": "res://SISTEMA/GLOBAL/MEF_base.gd"
+}, {
+"base": "Control",
+"class": "MensajeTomaDecisiones",
+"language": "GDScript",
+"path": "res://SISTEMA/GUI/Mensaje Toma de Decisiones/MensajeTomarDecisiones.gd"
+}, {
+"base": "ScrollContainer",
+"class": "MenuBotones",
+"language": "GDScript",
+"path": "res://SISTEMA/GUI/GameFlow/PantallasUsadas/MenuBotones.gd"
+}, {
+"base": "Trampa",
+"class": "MinaNeutral",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/TRAMPAS/MinaNeutral.gd"
+}, {
+"base": "Enemigo",
+"class": "MiniBoss",
+"language": "GDScript",
+"path": "res://SISTEMA/ENTES/Usados/MiniBoss/MiniBoss.gd"
+}, {
+"base": "Enemigo",
+"class": "NPC1",
+"language": "GDScript",
+"path": "res://SISTEMA/ENTES/Usados/NPC1.gd"
+}, {
+"base": "RigidBody2D",
+"class": "NanoBola",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/NANO-BOLA/NanoBola.gd"
+}, {
+"base": "Enemigo",
+"class": "NanoBot",
+"language": "GDScript",
+"path": "res://SISTEMA/ENTES/Usados/NanoBot.gd"
+}, {
+"base": "Node2D",
+"class": "Nivel",
+"language": "GDScript",
+"path": "res://SISTEMA/NIVELES/Nivel.gd"
+}, {
+"base": "Node2D",
+"class": "ObjetoColectable",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/COLECTABLES/Objeto_colectable.gd"
+}, {
+"base": "ObjetoColectable",
+"class": "ObjetoColectableAlma",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/COLECTABLES/Alma.gd"
+}, {
+"base": "Control",
+"class": "Pantalla",
+"language": "GDScript",
+"path": "res://SISTEMA/GUI/GameFlow/Pantalla.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Plataforma",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/PLATAFORMAS/Plataforma.gd"
+}, {
+"base": "Plataforma",
+"class": "PlataformaFalsa",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/PLATAFORMAS/Plataforma_falsa.gd"
+}, {
+"base": "Plataforma",
+"class": "PlataformaMovil",
+"language": "GDScript",
+"path": "res://Plataforma_movil.gd"
+}, {
+"base": "Control",
+"class": "Puzzle",
+"language": "GDScript",
+"path": "res://SISTEMA/GUI/Puzzle/Puzzle.gd"
+}, {
+"base": "Node2D",
+"class": "Trampa",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/TRAMPAS/Trampa.gd"
+}, {
+"base": "Trampa",
+"class": "TrampaAmetralladora",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/TRAMPAS/Ametralladora.gd"
+}, {
+"base": "Trampa",
+"class": "TrampaLanzallamas",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/TRAMPAS/Lanzallamas.gd"
+}, {
+"base": "TrampaLanzallamas",
+"class": "TrampaLanzallamasActivar",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/TRAMPAS/Lanzallamas_activar.gd"
+}, {
+"base": "Trampa",
+"class": "TrampaMinaElectromagnetica",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/TRAMPAS/MinaElectromagnetica.gd"
+}, {
+"base": "Trampa",
+"class": "TrampaNanoBots",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/TRAMPAS/NanoBots.gd"
+}, {
+"base": "Node2D",
+"class": "TrayectoriasDisparosSierras",
+"language": "GDScript",
+"path": "res://SISTEMA/GLOBAL/Trayectorias_disparo_sierras.gd"
+} ]
+_global_script_class_icons={
+"AreaActivarTrampas": "",
+"AreaDamage": "",
+"AreaDetectarObstaculos": "",
+"AreaDisparadorEvento": "",
+"AreaDisparadorEventoPorTecla": "",
+"BaseSaveData": "",
+"BotonBase": "",
+"Carril": "",
+"CuboPuzzle": "",
+"DashEffect": "",
+"DinoBoss": "",
+"DisparadorTrampas": "",
+"DisparoBase": "",
+"Efecto": "",
+"EfectoEspecialControlado": "",
+"EfectoTemporal": "",
+"Enemigo": "",
+"Ente": "",
+"Escalera": "",
+"Escudo": "",
+"Gui_jugador": "",
+"Habilidad": "",
+"Intercambiador": "",
+"Jugador": "",
+"MEF_NPC1": "",
+"MEF_base": "",
+"MensajeTomaDecisiones": "",
+"MenuBotones": "",
+"MinaNeutral": "",
+"MiniBoss": "",
+"NPC1": "",
+"NanoBola": "",
+"NanoBot": "",
+"Nivel": "",
+"ObjetoColectable": "",
+"ObjetoColectableAlma": "",
+"Pantalla": "",
+"Plataforma": "",
+"PlataformaFalsa": "",
+"PlataformaMovil": "",
+"Puzzle": "",
+"Trampa": "",
+"TrampaAmetralladora": "",
+"TrampaLanzallamas": "",
+"TrampaLanzallamasActivar": "",
+"TrampaMinaElectromagnetica": "",
+"TrampaNanoBots": "",
+"TrayectoriasDisparosSierras": ""
+}
+
+[application]
+
+config/name="Steel Gaia"
+run/main_scene="res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaPresentacion.tscn"
+boot_splash/use_filter=false
+config/icon="res://RECURSOS/IMAGENES/ICO/ico_v1.png"
+config/windows_native_icon="res://RECURSOS/IMAGENES/ICO/ico_v2.ico"
+
+[autoload]
+
+Memoria="*res://SISTEMA/GLOBAL/Memoria.gd"
+CambioSuave="*res://SISTEMA/GUI/GameFlow/CambioSuave.tscn"
+GuiJugador="*res://SISTEMA/GUI/VentanaJugador/GUI_jugador.tscn"
+MenusGlobales="*res://SISTEMA/GLOBAL/MenusGlobales.tscn"
+ScriptsGlobales="*res://SISTEMA/GLOBAL/ScriptsGlobales.gd"
+
+[debug]
+
+shapes/collision/shape_color=Color( 1, 1, 1, 0.513726 )
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/always_on_top=true
+window/size/test_width=640
+window/size/test_height=360
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[global]
+
+paralla=false
+buff=false
+memor=false
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777222,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+F1={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777244,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+atacar={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+salto={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+escopeta={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+dash={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+gancho={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+escape={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+interactuar={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+salvar={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777248,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+cargar={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777253,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="jugador"
+2d_physics/layer_2="enemigos"
+2d_physics/layer_3="objetos"
+2d_physics/layer_4="escaleras"
+2d_physics/layer_5="plataformas"
+2d_physics/layer_6="voladores"
+2d_physics/layer_10="suelo"
+2d_physics/layer_11="otros1"
+2d_physics/layer_12="otros2"
+2d_physics/layer_13="DetectarMiniBossAreas"
+
+[memory]
+
+limits/message_queue/max_size_kb=20480
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

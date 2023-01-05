@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://RECURSOS/IMAGENES/PARALLAX/Diseño1_parallax.png" type="Texture" id=1]
+[ext_resource path="res://RECURSOS/IMAGENES/PARALLAX/Diseño1_parallax2.png" type="Texture" id=2]
+[ext_resource path="res://RECURSOS/IMAGENES/PARALLAX/Diseño1_fondo.png" type="Texture" id=3]
+[ext_resource path="res://SISTEMA/EFECTOS/ESPECIALES/EfectoHumoFondo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://RECURSOS/SHADERS/colorear_pixelart.gdshader" type="Shader" id=5]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Fog001.png" type="Texture" id=6]
+
+[sub_resource type="Gradient" id=1]
+interpolation_mode = 1
+offsets = PoolRealArray( 0.176471, 0.294118, 0.625668, 0.855615 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.229492, 0.217712, 0.177498, 1, 0.358398, 0.344398, 0.344398, 1, 0.889648, 0.869965, 0.802769, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 5 )
+shader_param/Colormap = SubResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0.187166, 0.673797, 1 )
+colors = PoolColorArray( 0.8, 0.8, 0.8, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+lifetime_randomness = 0.5
+emission_shape = 2
+emission_box_extents = Vector3( 10, 500, 1 )
+flag_disable_z = true
+spread = 73.85
+flatness = 0.08
+gravity = Vector3( -50, 0, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.71
+linear_accel_random = 0.32
+scale = 10.0
+scale_random = 0.86
+color = Color( 0.529412, 0.52549, 0.52549, 0.447059 )
+color_ramp = SubResource( 5 )
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.0666667 )
+position = Vector2( 970.5, 530.75 )
+scale = Vector2( 1.09876, 1.53596 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.11, 0.02 )
+motion_offset = Vector2( 1000, 500 )
+motion_mirroring = Vector2( 1772, 723 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer3"]
+modulate = Color( 0.74902, 0.74902, 1, 0.160784 )
+position = Vector2( -36, -137 )
+texture = ExtResource( 2 )
+centered = false
+region_rect = Rect2( 0, 0, 160, 120 )
+
+[node name="EfectoHumoFondo2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 888, 572 )
+z_index = -1
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.22, 0.05 )
+motion_offset = Vector2( 500, 0 )
+motion_mirroring = Vector2( 1772, 723 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
+modulate = Color( 0.74902, 0.74902, 0.92549, 0.690196 )
+position = Vector2( -36, -137 )
+texture = ExtResource( 2 )
+centered = false
+region_rect = Rect2( 0, 0, 160, 120 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 1772, 723 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+material = SubResource( 3 )
+position = Vector2( -33, -137 )
+texture = ExtResource( 1 )
+centered = false
+region_rect = Rect2( 0, 0, 160, 120 )
+
+[node name="EfectoHumoFondo" type="Node2D" parent="."]
+visible = false
+z_as_relative = false
+
+[node name="Particles2D" type="Particles2D" parent="EfectoHumoFondo"]
+position = Vector2( 1280, 300 )
+amount = 20
+lifetime = 10.0
+preprocess = 50.0
+process_material = SubResource( 6 )
+texture = ExtResource( 6 )

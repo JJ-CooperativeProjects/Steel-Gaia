@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://SISTEMA/ENTES/Enemigo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/ENTES/Usados/MEF_nanobot.gd" type="Script" id=2]
+[ext_resource path="res://SISTEMA/ENTES/Usados/NanoBot.gd" type="Script" id=3]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/NanoBot.png-7f2d40198ac49f3fe9fd466c0f5c4877.stex"
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1.8213, 1.10758 )
+
+[node name="NanoBot" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 528
+script = ExtResource( 3 )
+velocidad_movimiento = 60.0
+velocidad_salto = 250.0
+vitalidad = 2
+damage = 3.0
+tiempo_de_vida = 6.0
+
+[node name="MEF" parent="." index="0"]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="Cuerpo" index="0"]
+visible = true
+material = null
+position = Vector2( 0, 0 )
+texture = SubResource( 1 )
+
+[node name="AnimatedSprite" parent="Cuerpo" index="1"]
+visible = false
+material = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="4"]
+position = Vector2( -0.290188, 0.162431 )
+shape = SubResource( 3 )
+
+[node name="Label_debug" parent="." index="5"]
+margin_left = -2.61872
+margin_top = -15.8388
+margin_right = 19.3813
+margin_bottom = -1.83883
+text = "asd"

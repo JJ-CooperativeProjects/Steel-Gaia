@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://SISTEMA/ENTES/Enemigo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/ENTES/Usados/NPC3_base_anim.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RECURSOS/SHADERS/Pixelar_Sprite.gdshader" type="Shader" id=3]
+[ext_resource path="res://SISTEMA/ENTES/Usados/NPC3.gd" type="Script" id=4]
+[ext_resource path="res://SISTEMA/ENTES/Usados/Viewport_world.gd" type="Script" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/pixelFactor = 0.41
+
+[sub_resource type="ViewportTexture" id=7]
+viewport_path = NodePath("Cuerpo/Viewport")
+
+[sub_resource type="Animation" id=2]
+resource_name = "ataque_frontal"
+
+[sub_resource type="Animation" id=3]
+resource_name = "ataque_vertical"
+
+[sub_resource type="Animation" id=4]
+resource_name = "camina"
+
+[sub_resource type="Animation" id=5]
+resource_name = "quieto"
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 11.5, 13 )
+
+[node name="NPC3" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 4 )
+max_vitalidad = 20
+vitalidad = 20
+posibles_objetos_soltar = [ "res://OBJETOS/COLECTABLES/USADOS/Alma_NPC3.tscn" ]
+
+[node name="MEF" parent="." index="0"]
+script = null
+
+[node name="Viewport" type="Viewport" parent="Cuerpo" index="0"]
+size = Vector2( 100, 100 )
+transparent_bg = true
+handle_input_locally = false
+hdr = false
+usage = 0
+render_target_v_flip = true
+script = ExtResource( 5 )
+
+[node name="Base" parent="Cuerpo/Viewport" index="0" instance=ExtResource( 2 )]
+position = Vector2( 50, 50 )
+
+[node name="Sprite" parent="Cuerpo" index="1"]
+visible = true
+material = SubResource( 1 )
+position = Vector2( 0, 0 )
+scale = Vector2( 0.4, 0.4 )
+texture = SubResource( 7 )
+offset = Vector2( -2.5, -32.5 )
+region_rect = Rect2( 66.1091, 7.02753, 41.1091, 37.4199 )
+
+[node name="Position2D" type="Position2D" parent="Cuerpo/Sprite" index="0"]
+visible = false
+position = Vector2( -2.5, -55 )
+
+[node name="Position2D2" type="Position2D" parent="Cuerpo/Sprite" index="1"]
+visible = false
+position = Vector2( -2.5, -87.5 )
+
+[node name="Position2D3" type="Position2D" parent="Cuerpo/Sprite" index="2"]
+visible = false
+position = Vector2( 45, -55 )
+
+[node name="AnimatedSprite" parent="Cuerpo" index="2"]
+visible = false
+material = SubResource( 1 )
+
+[node name="RayCast2D2" type="RayCast2D" parent="Cuerpo" index="3"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 2, -25 )
+enabled = true
+cast_to = Vector2( 200, 0 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Cuerpo" index="4"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 0, -25 )
+enabled = true
+cast_to = Vector2( 0, -300 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/ataque_frontal = SubResource( 2 )
+anims/ataque_vertical = SubResource( 3 )
+anims/camina = SubResource( 4 )
+anims/quieto = SubResource( 5 )
+
+[node name="CollisionShape2D" parent="." index="4"]
+visible = false
+position = Vector2( -0.5, -16 )
+shape = SubResource( 6 )
+
+[node name="Label_debug" parent="." index="5"]
+margin_left = -8.0
+margin_top = -46.0
+margin_right = 32.0
+margin_bottom = -32.0
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="6"]
+visible = false
+position = Vector2( -0.500001, -15 )
+scale = Vector2( 1.05, 1.4 )
+
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

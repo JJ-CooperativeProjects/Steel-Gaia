@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://SISTEMA/GUI/VentanaJugador/GUI_jugador.gd" type="Script" id=1]
+[ext_resource path="res://RECURSOS/IMAGENES/OBJETOS/Orbe/Orbe.png" type="Texture" id=2]
+[ext_resource path="res://RECURSOS/FONTS/Boleh.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://RECURSOS/IMAGENES/OBJETOS/Cubo/Cubo_v2.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 8 )
+
+[sub_resource type="Gradient" id=9]
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.601563, 0.601563, 1 )
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 9 )
+fill_to = Vector2( 0, 0.510417 )
+repeat = 2
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 0.363281, 0.363281, 0.363281, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=6]
+gradient = SubResource( 5 )
+fill_to = Vector2( 0, 0.495833 )
+repeat = 2
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = ExtResource( 3 )
+
+[node name="Gui_jugador" type="CanvasLayer"]
+layer = 50
+visible = false
+script = ExtResource( 1 )
+
+[node name="GUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="barra_vida" type="TextureProgress" parent="GUI"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 544.0
+margin_bottom = 64.0
+value = 10.0
+texture_under = SubResource( 2 )
+texture_progress = SubResource( 4 )
+nine_patch_stretch = true
+
+[node name="barra_energia" type="TextureProgress" parent="GUI"]
+margin_left = 32.0
+margin_top = 72.0
+margin_right = 544.0
+margin_bottom = 104.0
+value = 10.0
+texture_under = SubResource( 2 )
+texture_progress = SubResource( 6 )
+nine_patch_stretch = true
+
+[node name="Orbe" type="TextureRect" parent="GUI"]
+margin_left = 64.0
+margin_top = 128.0
+margin_right = 128.0
+margin_bottom = 192.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Cubos" type="TextureRect" parent="GUI"]
+margin_left = 160.0
+margin_top = 128.0
+margin_right = 224.0
+margin_bottom = 192.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Label" type="Label" parent="GUI/Cubos"]
+margin_left = 70.0
+margin_right = 166.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 7 )
+text = "x 10"
+
+[connection signal="value_changed" from="GUI/barra_vida" to="." method="_on_barra_vida_value_changed"]
+[connection signal="value_changed" from="GUI/barra_energia" to="." method="_on_barra_energia_value_changed"]

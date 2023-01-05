@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SISTEMA/GUI/GameFlow/Pantalla.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/BotonesUsados/BotonVolver.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaMenuCargarPartida.gd" type="Script" id=3]
+
+[node name="PantallaMenuCargarPartida" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="TextureRect" parent="." index="0"]
+pause_mode = 2
+modulate = Color( 0.439216, 0.25098, 0.25098, 1 )
+
+[node name="BotonVolver" parent="." index="1" instance=ExtResource( 2 )]
+margin_left = 64.0
+margin_top = 960.0
+margin_right = 392.0
+margin_bottom = 1026.0
+
+[connection signal="button_up" from="BotonVolver" to="." method="_on_BotonVolver_button_up"]

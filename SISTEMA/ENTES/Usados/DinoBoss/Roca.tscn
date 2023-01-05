@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://SISTEMA/GLOBAL/AREAS/AreaDamage.gd" type="Script" id=1]
+[ext_resource path="res://RECURSOS/IMAGENES/ENEMIGOS/DinoBoss/Roca.png" type="Texture" id=2]
+[ext_resource path="res://SISTEMA/ENTES/Usados/DinoBoss/Roca.gd" type="Script" id=3]
+[ext_resource path="res://RECURSOS/IMAGENES/ENEMIGOS/DinoBoss/Roca_silueta.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 13.8121, 13.6292 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.0697674, 0.64186 )
+colors = PoolColorArray( 1, 1, 1, 0.207843, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 3 )
+
+[node name="Roca" type="RigidBody2D"]
+z_index = -1
+angular_velocity = 50.0
+applied_torque = 500.0
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="AreaDamage" type="Area2D" parent="."]
+collision_layer = 0
+input_pickable = false
+monitorable = false
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDamage"]
+position = Vector2( -0.432785, 0.787363 )
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+z_index = -1
+amount = 20
+lifetime = 0.7
+local_coords = false
+process_material = SubResource( 4 )
+texture = ExtResource( 4 )
+
+[connection signal="area_entered" from="AreaDamage" to="AreaDamage" method="_on_AreaDamage_area_entered"]
+[connection signal="body_entered" from="AreaDamage" to="AreaDamage" method="_on_AreaDamage_body_entered"]
