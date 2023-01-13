@@ -162,6 +162,7 @@ tracks/11/keys = {
 
 [node name="Cubo" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+ID = "Cubo"
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
@@ -203,5 +204,3 @@ anims/efect1 = SubResource( 1 )
 
 [node name="Area2D" parent="." index="1"]
 visible = false
-
-[connection signal="es_recogido" from="." to="." method="_on_Cubo_es_recogido"]

@@ -22,8 +22,8 @@ func _on_BotonVolver_button_up():
 			CambioSuave.CambiarEscena(Memoria.historial_pantallas.pop_back())
 
 		else:
-			visible = false
-			print("ddd")
+			MenusGlobales.PonerMenu(MenusGlobales.get_node("PantallaOpciones").get_path())
+			$AnimationPlayer.stop(true)
 	pass # Replace with function body.
 
 

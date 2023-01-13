@@ -163,7 +163,7 @@ script = ExtResource( 5 )
 max_vitalidad = 20
 vitalidad = 20
 velocidad_actual_y = 0.0
-posibles_objetos_soltar = [ "res://OBJETOS/COLECTABLES/USADOS/Alma_NPC4.tscn" ]
+posibles_objetos_soltar = [ "res://SISTEMA/OBJETOS/COLECTABLES/USADOS/Alma_NPC4.tscn" ]
 tiempo_ronda_patrulla = 2.0
 posicion_inicial_mira = 1
 

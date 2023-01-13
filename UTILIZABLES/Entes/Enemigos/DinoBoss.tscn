@@ -40,7 +40,7 @@ gradient = SubResource( 30 )
 fill_to = Vector2( 0, 0.510417 )
 repeat = 2
 
-[node name="DinoBoss" instance=ExtResource( 1 )]
+[node name="DinoBoss" groups=["Persistentes"] instance=ExtResource( 1 )]
 collision_layer = 128
 collision_mask = 512
 script = ExtResource( 5 )

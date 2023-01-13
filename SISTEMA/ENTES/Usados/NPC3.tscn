@@ -35,7 +35,7 @@ collision_mask = 0
 script = ExtResource( 4 )
 max_vitalidad = 20
 vitalidad = 20
-posibles_objetos_soltar = [ "res://OBJETOS/COLECTABLES/USADOS/Alma_NPC3.tscn" ]
+posibles_objetos_soltar = [ "res://SISTEMA/OBJETOS/COLECTABLES/USADOS/Alma_NPC3.tscn" ]
 
 [node name="MEF" parent="." index="0"]
 script = null

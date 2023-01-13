@@ -4,9 +4,10 @@ var jugador:Jugador
 var activa:bool = false
 
 func _ready():
-	yield(get_tree(),"idle_frame")
-	jugador = Memoria.jugador
+#	yield(Memoria,"datos_cargados")
+#	jugador = Memoria.jugador
 	connect("body_exited",self,"Desactivar")
+	Memoria.connect("datos_cargados",self,"AsignarJugador")
 
 func _physics_process(delta):
 	#Hacer que el jugador siga caminando:
@@ -30,3 +31,6 @@ func EsActivada():
 func Desactivar(body):
 	CambioSuave.CambiarEscena("res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaCreditos.tscn",3.5,1.5)
 	pass
+
+func AsignarJugador():
+	jugador = Memoria.jugador

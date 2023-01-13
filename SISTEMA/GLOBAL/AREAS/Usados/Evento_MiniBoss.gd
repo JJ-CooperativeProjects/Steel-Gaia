@@ -3,8 +3,6 @@ extends AreaDisparadorEvento
 
 
 
-
-
 func EsActivada():
 	if not evento_terminado:
 		var miniboss:MiniBoss = load("res://SISTEMA/ENTES/Usados/MiniBoss/MiniBoss.tscn").instance()

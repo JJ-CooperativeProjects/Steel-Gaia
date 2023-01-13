@@ -1,7 +1,6 @@
 extends MenuBotones
 
 
-
 func _on_BotonContinuar_button_up():
 	if not Memoria.modo_cinematica_activo:
 		var minijuego:Puzzle = Memoria.nivel_actual.get_node_or_null("CanvasLayer/Puzzle")
@@ -16,7 +15,6 @@ func _on_BotonContinuar_button_up():
 				get_tree().paused = false
 	
 	pass # Replace with function body.
-
 
 
 func _on_BotonSalirMenu_pressed():

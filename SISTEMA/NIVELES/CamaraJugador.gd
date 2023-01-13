@@ -10,7 +10,7 @@ func _ready():
 #	if event.is_action_released("atacar"):
 #		$Camera2D.sacudir(50)
 func _process(delta):
-	var coe_x:float = stepify(lerp(vector_pluss.x,mi_jugador.movimiento.x,0.002),0.1)
+	var coe_x:float = stepify(lerp(vector_pluss.x,mi_jugador.movimiento.x,0.002),1)
 	var coe_y:float 
 	if mi_jugador.movimiento.y <= 0:
 		coe_y= stepify(lerp(vector_pluss.y,mi_jugador.movimiento.y,0.023),0.1)

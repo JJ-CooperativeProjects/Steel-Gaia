@@ -43,7 +43,7 @@ func mecanica(delta):
 
 
 func crear_explosion():
-	var explosion:MinaNeutral = load("res://SISTEMA/OBJETOS/TRAMPAS/MinaNeutral.tscn").instance()
+	var explosion:MinaNeutral = load("res://UTILIZABLES/Trampas/MinaNeutral.tscn").instance()
 	explosion.global_position = global_position
 	explosion.activa = false
 	

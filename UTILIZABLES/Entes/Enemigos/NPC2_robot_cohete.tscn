@@ -20,7 +20,7 @@ extents = Vector2( 16, 25.5 )
 [node name="NPC2" instance=ExtResource( 1 )]
 collision_layer = 2
 collision_mask = 512
-posibles_objetos_soltar = [ "res://OBJETOS/COLECTABLES/USADOS/Alma_NPC2.tscn" ]
+posibles_objetos_soltar = [ "res://SISTEMA/OBJETOS/COLECTABLES/USADOS/Alma_NPC2.tscn" ]
 
 [node name="Viewport" type="Viewport" parent="." index="0"]
 size = Vector2( 300, 300 )

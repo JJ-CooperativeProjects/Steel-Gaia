@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SISTEMA/MISIONES/Objetivo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/MISIONES/Objetivo_obtener_objetos.gd" type="Script" id=2]
+
+[node name="Objetivo_obtener_objetos" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+objetos = {
+}

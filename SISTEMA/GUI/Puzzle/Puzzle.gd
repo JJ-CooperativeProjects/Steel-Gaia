@@ -16,6 +16,9 @@ var game_data:Array = []
 
 var cords_inicio:Dictionary = {}
 
+var tiene_orbe:bool = false
+var tiene_cubos:bool = false
+var total_cubos:int  = 0
 
 onready var cubo = preload("res://SISTEMA/GUI/Puzzle/Cubo.tscn")
 onready var cubo_recto = preload("res://SISTEMA/GUI/Puzzle/CuboRecto.tscn")
@@ -319,7 +322,7 @@ func DeterminarCubo(pos_antes:Vector2, pos_actual:Vector2, pos_despues:Vector2,s
 #Crea los cubos disponibles en la lista basado en la cantidad de cubos que el jugador tenga:
 func LlenarListaCubos():
 	var cubos:Array = []
-	for i in range(Memoria.cubos):
+	for i in range(total_cubos):
 		var new_cubo:CuboPuzzle
 		var dic:Dictionary = game_data[i]
 		if dic.tipo_cubo == "curvo":
@@ -546,15 +549,12 @@ func PonerPuntosInicioFinal():
 	
 
 func Chequear_si_orbe()->bool:
-	if Memoria.tiene_orbe:
+	if tiene_orbe:
 		return true
 	return false
 ####
 func _on_Puzzle_juego_ganado():
-	var puert_dino:Intercambiador = get_parent().get_parent().get_node("AREAS_EVENTOS/Intercambiador_hacia_DinoBoss")
-	puert_dino.desactivado = false
-	get_tree().paused = false
-	queue_free()
+	
 #	en_pausa = true
 #	$Mensaje/Mensaje.text = "felicitaciones, ha ganado!"
 #	$Mensaje.visible = true
@@ -565,20 +565,7 @@ func _on_Puzzle_juego_ganado():
 
 
 func _on_Puzzle_juego_perdido(id:int):
-#	var mina:MinaNeutral = load("res://OBJETOS/TRAMPAS/MinaNeutral.tscn").instance()
-#	mina.global_position = Memoria.jugador.global_position
-#	Memoria.nivel_actual.get_node("TRAMPAS/MINAS").add_child(mina)
-#	mina.explotar()
-#	get_tree().paused = false
-#
-#	queue_free()
-	
-#	en_pausa = true
-#	$Mensaje.visible = true
-#	$Mensaje/Mensaje.text = "Ha perdido! :("
-#
-#	for i in $PuntosInicioFinal.get_children():
-#		i.queue_free()
+#	
 	pass # Replace with function body.
 
 
@@ -590,7 +577,7 @@ func _on_Button_button_up():
 
 
 func _on_Button2_button_up():
-	if Memoria.tiene_orbe and Memoria.cubos == 10:
+	if Chequear_si_orbe() and tiene_cubos:
 		emit_signal("juego_perdido",2)
 	else:
 		emit_signal("juego_perdido",0)

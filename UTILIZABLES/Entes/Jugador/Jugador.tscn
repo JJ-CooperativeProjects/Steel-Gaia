@@ -864,7 +864,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[node name="Jugador" instance=ExtResource( 1 )]
+[node name="Jugador" groups=["Persistentes"] instance=ExtResource( 1 )]
 z_index = -2
 collision_mask = 532
 script = ExtResource( 2 )
@@ -990,5 +990,6 @@ collision_mask = 528
 
 [node name="Listener2D" type="Listener2D" parent="." index="13"]
 
+[connection signal="tree_exiting" from="." to="." method="_on_Jugador_tree_exiting"]
 [connection signal="area_entered" from="Cuerpo/AreaDamageEscopeta" to="Cuerpo/AreaDamageEscopeta" method="_on_AreaDamage_area_entered"]
 [connection signal="body_entered" from="Cuerpo/AreaDamageEscopeta" to="Cuerpo/AreaDamageEscopeta" method="_on_AreaDamage_body_entered"]

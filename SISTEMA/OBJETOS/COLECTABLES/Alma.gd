@@ -12,6 +12,7 @@ func _physics_process(delta):
 
 
 func _on_Area2D_body_entered(body):
+	print("alma toca")
 	match tipo_alma:
 		0:
 			Memoria.almas_NPC1 += 1

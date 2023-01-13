@@ -1,0 +1,142 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://SISTEMA/GLOBAL/RESOURCES/SAVE_DATA/BaseSaveData.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.5, 224 )
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 40, 48 )
+
+[resource]
+script = ExtResource( 1 )
+almas_NPC1 = 0
+almas_NPC2 = 0
+almas_NPC3 = 0
+almas_NPC4 = 0
+misiones = [ SubResource( 1 ) ]
+misiones_terminadas = [  ]
+niveles_visitados = [ {
+"hijos": [ {
+"energia": 100.0,
+"global_position": Vector2( 112, 368 ),
+"habilidades": [ {
+"nombre": "Habilidad_recoger_objetos(jugador)",
+"ruta_file": "res://SISTEMA/HABILIDADES/Habilidad_recoger_objetos(jugador).tscn"
+}, {
+"nombre": "Habilidad_modo_cinematica",
+"ruta_file": "res://SISTEMA/HABILIDADES/Habilidad_modo_cinematica.tscn"
+} ],
+"nivel_arbol": 4,
+"nombre": "Jugador",
+"ruta_file": "res://UTILIZABLES/Entes/Jugador/Jugador.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/JUGADORES/Jugador"),
+"vitalidad": 100
+}, {
+"desactivado": true,
+"direccion_del_jugador": 1,
+"global_position": Vector2( 1116, 383 ),
+"hijos": [ {
+"activo": false,
+"es_persistente": true,
+"es_repetible": false,
+"evento_terminado": false,
+"inputs": [ "interactuar" ],
+"nodos_del_evento": [  ],
+"nombre": "AreaDisparadorEvento_por_tecla",
+"position": Vector2( 0, 0 ),
+"ruta_file": "res://SISTEMA/GLOBAL/AREAS/AreaDisparadorEvento_por_tecla.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/AREAS_EVENTOS/Intercambiador_hacia_DinoBoss/AreaDisparadorEvento_por_tecla"),
+"shape": SubResource( 2 ),
+"shape_position": Vector2( 8, -48 ),
+"zona_activa": false
+} ],
+"id_spawn_point": "Intercambiador_hacia_nivel_1",
+"nombre": "Intercambiador_hacia_DinoBoss",
+"ruta_file": "res://SISTEMA/OBJETOS/PORTAL/Usados/Intercambiador_por_tecla.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/AREAS_EVENTOS/Intercambiador_hacia_DinoBoss"),
+"ruta_proximo_nivel": "res://UTILIZABLES/Niveles/Usados/PuebasPrototipo/Nivel_DinoBoss.tscn"
+}, {
+"cantidad": 1,
+"global_position": Vector2( 304, 232 ),
+"nivel_arbol": 4,
+"nombre": "Cubo",
+"ruta_file": "res://UTILIZABLES/Objetos/Cubo.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/OBJETOS/Cubo")
+}, {
+"cantidad": 1,
+"global_position": Vector2( 360, 200 ),
+"nivel_arbol": 4,
+"nombre": "Cubo2",
+"ruta_file": "res://UTILIZABLES/Objetos/Cubo.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/OBJETOS/Cubo2")
+}, {
+"cantidad": 1,
+"global_position": Vector2( 416, 232 ),
+"nivel_arbol": 4,
+"nombre": "Cubo3",
+"ruta_file": "res://UTILIZABLES/Objetos/Cubo.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/OBJETOS/Cubo3")
+}, {
+"cantidad": 1,
+"global_position": Vector2( 480, 200 ),
+"nivel_arbol": 4,
+"nombre": "Cubo4",
+"ruta_file": "res://UTILIZABLES/Objetos/Cubo.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/OBJETOS/Cubo4")
+}, {
+"cantidad": 1,
+"global_position": Vector2( 536, 232 ),
+"nivel_arbol": 4,
+"nombre": "Cubo5",
+"ruta_file": "res://UTILIZABLES/Objetos/Cubo.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/OBJETOS/Cubo5")
+}, {
+"cantidad": 1,
+"global_position": Vector2( 568, 296 ),
+"nivel_arbol": 4,
+"nombre": "Cubo6",
+"ruta_file": "res://UTILIZABLES/Objetos/Cubo.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/OBJETOS/Cubo6")
+}, {
+"cantidad": 1,
+"global_position": Vector2( 624, 264 ),
+"nivel_arbol": 4,
+"nombre": "Cubo7",
+"ruta_file": "res://UTILIZABLES/Objetos/Cubo.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/OBJETOS/Cubo7")
+}, {
+"cantidad": 1,
+"global_position": Vector2( 680, 296 ),
+"nivel_arbol": 4,
+"nombre": "Cubo8",
+"ruta_file": "res://UTILIZABLES/Objetos/Cubo.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/OBJETOS/Cubo8")
+}, {
+"cantidad": 1,
+"global_position": Vector2( 744, 264 ),
+"nivel_arbol": 4,
+"nombre": "Cubo9",
+"ruta_file": "res://UTILIZABLES/Objetos/Cubo.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/OBJETOS/Cubo9")
+}, {
+"cantidad": 1,
+"global_position": Vector2( 800, 296 ),
+"nivel_arbol": 4,
+"nombre": "Cubo10",
+"ruta_file": "res://UTILIZABLES/Objetos/Cubo.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/OBJETOS/Cubo10")
+}, {
+"cantidad": 1,
+"global_position": Vector2( 632, 200 ),
+"nivel_arbol": 4,
+"nombre": "Orbe",
+"ruta_file": "res://SISTEMA/OBJETOS/COLECTABLES/USADOS/Orbe.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1/OBJETOS/Orbe")
+} ],
+"nombre": "Nivel_1",
+"ruta_file": "res://UTILIZABLES/Niveles/Usados/PuebasPrototipo/Nivel_1.tscn",
+"ruta_nodo": NodePath("/root/Nivel_1")
+} ]
+ultimo_nivel = "res://UTILIZABLES/Niveles/Usados/PuebasPrototipo/Nivel_1.tscn"

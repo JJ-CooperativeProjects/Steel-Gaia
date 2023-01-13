@@ -54,7 +54,7 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=5]
 radius = 16.0
 
-[node name="Puerta" type="Node2D"]
+[node name="Puerta" type="Node2D" groups=["Persistentes"]]
 z_index = -2
 script = ExtResource( 2 )
 

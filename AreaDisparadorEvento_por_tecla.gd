@@ -18,7 +18,6 @@ func _ready():
 	
 func _input(event):
 	if activo:
-		
 		for i in inputs:
 			if event.is_action_pressed(i):
 				count_pulsadas += 1
@@ -53,3 +52,20 @@ func _on_AreaDisparadorEvento_body_entered(body):
 func _on_AreaDisparadorEvento_por_tecla_body_exited(body):
 	EsDesactivada()
 	pass # Replace with function body.
+
+
+func Salvar(data_vacio:Dictionary= {})->Dictionary:
+	data_vacio = .Salvar({})
+	data_vacio.merge({
+		"inputs": inputs,
+		"zona_activa": zona_activa,
+	})
+	
+	return data_vacio
+	pass
+
+func Cargar(data:Dictionary):
+	.Cargar(data)
+	
+	inputs = data.inputs
+	zona_activa = data.zona_activa

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SISTEMA/MISIONES/Mision.gd" type="Script" id=1]
+
+[node name="Mision" type="Node"]
+script = ExtResource( 1 )
+
+[connection signal="mision_terminada" from="." to="." method="_on_Mision_mision_terminada"]

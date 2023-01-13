@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 224 )
 
-[node name="AreaDisparadorEvento" type="Area2D"]
+[node name="AreaDisparadorEvento" type="Area2D" groups=["Persistentes"]]
 collision_layer = 0
 input_pickable = false
 monitorable = false
@@ -16,3 +16,4 @@ modulate = Color( 0.898039, 0, 1, 1 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_AreaDisparadorEvento_body_entered"]
+[connection signal="tree_entered" from="." to="." method="_on_AreaDisparadorEvento_tree_entered"]

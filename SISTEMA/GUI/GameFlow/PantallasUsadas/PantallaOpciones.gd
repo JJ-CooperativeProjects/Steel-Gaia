@@ -8,7 +8,7 @@ func _on_BotonVolver_button_up():
 			CambioSuave.CambiarEscena(Memoria.historial_pantallas.pop_back())
 
 		else:
-			visible = false
+			MenusGlobales.PonerMenu(MenusGlobales.get_node("PantallaMenuRapido").get_path())
 		pass # Replace with function body.
 
 

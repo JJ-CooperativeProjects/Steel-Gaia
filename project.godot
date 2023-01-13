@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://SISTEMA/GUI/GameFlow/BotonBase.gd"
 }, {
+"base": "TextureButton",
+"class": "BotonSalva",
+"language": "GDScript",
+"path": "res://SISTEMA/GUI/GameFlow/Boton_Salva.gd"
+}, {
 "base": "Path2D",
 "class": "Carril",
 "language": "GDScript",
@@ -58,6 +63,11 @@ _global_script_classes=[ {
 "class": "DashEffect",
 "language": "GDScript",
 "path": "res://SISTEMA/EFECTOS/DashEffect.gd"
+}, {
+"base": "Panel",
+"class": "DebuggInGame",
+"language": "GDScript",
+"path": "res://SISTEMA/GUI/Debug_in_game.gd"
 }, {
 "base": "Enemigo",
 "class": "DinoBoss",
@@ -109,6 +119,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://SISTEMA/ENTES/Usados/Escudo.gd"
 }, {
+"base": "Node",
+"class": "GestorMisiones",
+"language": "GDScript",
+"path": "res://SISTEMA/MISIONES/GestorMisiones.gd"
+}, {
 "base": "CanvasLayer",
 "class": "Gui_jugador",
 "language": "GDScript",
@@ -159,6 +174,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://SISTEMA/ENTES/Usados/MiniBoss/MiniBoss.gd"
 }, {
+"base": "Node",
+"class": "Mision",
+"language": "GDScript",
+"path": "res://SISTEMA/MISIONES/Mision.gd"
+}, {
 "base": "Enemigo",
 "class": "NPC1",
 "language": "GDScript",
@@ -178,6 +198,16 @@ _global_script_classes=[ {
 "class": "Nivel",
 "language": "GDScript",
 "path": "res://SISTEMA/NIVELES/Nivel.gd"
+}, {
+"base": "Node",
+"class": "Objetivo",
+"language": "GDScript",
+"path": "res://SISTEMA/MISIONES/Objetivo.gd"
+}, {
+"base": "Objetivo",
+"class": "ObjetivoObtenerObjetos",
+"language": "GDScript",
+"path": "res://SISTEMA/MISIONES/Objetivo_obtener_objetos.gd"
 }, {
 "base": "Node2D",
 "class": "ObjetoColectable",
@@ -257,9 +287,11 @@ _global_script_class_icons={
 "AreaDisparadorEventoPorTecla": "",
 "BaseSaveData": "",
 "BotonBase": "",
+"BotonSalva": "",
 "Carril": "",
 "CuboPuzzle": "",
 "DashEffect": "",
+"DebuggInGame": "",
 "DinoBoss": "",
 "DisparadorTrampas": "",
 "DisparoBase": "",
@@ -270,6 +302,7 @@ _global_script_class_icons={
 "Ente": "",
 "Escalera": "",
 "Escudo": "",
+"GestorMisiones": "",
 "Gui_jugador": "",
 "Habilidad": "",
 "Intercambiador": "",
@@ -280,10 +313,13 @@ _global_script_class_icons={
 "MenuBotones": "",
 "MinaNeutral": "",
 "MiniBoss": "",
+"Mision": "",
 "NPC1": "",
 "NanoBola": "",
 "NanoBot": "",
 "Nivel": "",
+"Objetivo": "",
+"ObjetivoObtenerObjetos": "",
 "ObjetoColectable": "",
 "ObjetoColectableAlma": "",
 "Pantalla": "",
@@ -311,10 +347,11 @@ config/windows_native_icon="res://RECURSOS/IMAGENES/ICO/ico_v2.ico"
 [autoload]
 
 Memoria="*res://SISTEMA/GLOBAL/Memoria.gd"
+MenusGlobales="*res://SISTEMA/GLOBAL/MenusGlobales.tscn"
 CambioSuave="*res://SISTEMA/GUI/GameFlow/CambioSuave.tscn"
 GuiJugador="*res://SISTEMA/GUI/VentanaJugador/GUI_jugador.tscn"
-MenusGlobales="*res://SISTEMA/GLOBAL/MenusGlobales.tscn"
 ScriptsGlobales="*res://SISTEMA/GLOBAL/ScriptsGlobales.gd"
+GestorMisiones_global="*res://SISTEMA/MISIONES/GestorMisiones.tscn"
 
 [debug]
 
@@ -330,11 +367,9 @@ window/size/test_height=360
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
-[global]
+[editor]
 
-paralla=false
-buff=false
-memor=false
+convert_text_resources_to_binary_on_export=true
 
 [gui]
 
@@ -369,37 +404,59 @@ texture={
 ui_accept={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777222,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
  ]
+}
+ui_select={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_focus_next={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_focus_prev={
+"deadzone": 0.5,
+"events": [  ]
 }
 ui_left={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 ui_right={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 ui_up={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 ui_down={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
+}
+ui_page_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_page_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_home={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_end={
+"deadzone": 0.5,
+"events": [  ]
 }
 F1={
 "deadzone": 0.5,
@@ -453,6 +510,11 @@ cargar={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777253,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+debugg={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777245,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -466,10 +528,6 @@ cargar={
 2d_physics/layer_11="otros1"
 2d_physics/layer_12="otros2"
 2d_physics/layer_13="DetectarMiniBossAreas"
-
-[memory]
-
-limits/message_queue/max_size_kb=20480
 
 [physics]
 

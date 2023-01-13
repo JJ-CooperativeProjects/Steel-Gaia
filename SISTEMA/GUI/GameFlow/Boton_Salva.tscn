@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SISTEMA/GUI/GameFlow/Boton_Salva.gd" type="Script" id=2]
+
+[node name="Boton_Salva" type="TextureButton"]
+margin_right = 576.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 576, 324 )
+rect_pivot_offset = Vector2( 288, 162 )
+expand = true
+script = ExtResource( 2 )
+
+[connection signal="button_up" from="." to="." method="_on_Boton_Salva_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_Boton_Salva_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Boton_Salva_mouse_exited"]

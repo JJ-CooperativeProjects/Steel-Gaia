@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://AreaDisparadorEvento_por_tecla.gd" type="Script" id=1]
 [ext_resource path="res://SISTEMA/GLOBAL/AREAS/AreaDisparadorEvento.tscn" type="PackedScene" id=2]
 
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 32, 224 )
+
 [node name="AreaDisparadorEvento_por_tecla" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 inputs = [  ]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 16, -16 )
+shape = SubResource( 1 )
 
 [connection signal="body_exited" from="." to="." method="_on_AreaDisparadorEvento_por_tecla_body_exited"]

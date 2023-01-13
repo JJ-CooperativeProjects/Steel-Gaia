@@ -4,6 +4,7 @@ signal terminado() #emitida cuando se desbloquea la cerradura.
 
 var visitado:bool = false #Para saber si la puerta ya fue visitada por el jugador.
 var puzzle:Puzzle = null
+var mi_objetivo:Objetivo = null
 
 var desactivado:bool = false
 func _ready():
@@ -37,14 +38,26 @@ func ActivarPuzzle(mensaje_previo:MensajeTomaDecisiones):
 	puzzle.connect("juego_perdido",self,"MeterExplosionFallarPuzzle",[puzzle])
 	puzzle.connect("juego_ganado",self,"queue_free")
 	puzzle.connect("juego_ganado",self,"DesactivarCerradura")
-	Memoria.nivel_actual.get_node("CanvasLayer").add_child(puzzle)
+	
+	puzzle.total_cubos = mi_objetivo.get_parent().ChequearCubos()
+	puzzle.tiene_cubos = true if mi_objetivo.get_parent().ChequearCubos() == 10 else false
+	puzzle.tiene_orbe = mi_objetivo.get_parent().ChequearSiOrbe()
+	
+	var canvas:CanvasLayer = CanvasLayer.new()
+	canvas.layer  =120
+	mi_objetivo.call_deferred("add_child",canvas)
+	canvas.call_deferred("add_child",puzzle)
+	#mi_objetivo.add_child(puzzle)
 	
 	visitado = true
 	desactivado = true
 	
 	pass
+
 func DesactivarCerradura():
+	mi_objetivo.terminado = true
 	emit_signal("terminado")
+	
 
 func CerrarMensaje(mensaje:MensajeTomaDecisiones):
 	get_tree().paused = false
@@ -66,7 +79,6 @@ func MeterExplosionFallarPuzzle(id_mensaje:int,i_puzzle:Puzzle):
 	
 	var timer:SceneTreeTimer = get_tree().create_timer(2.0)
 	timer.connect("timeout",self, "MostrarMensajeSobreFracaso",[id_mensaje])
-	
 	
 func MostrarMensajeSobreFracaso(id:int):
 	var mensaje:MensajeTomaDecisiones = load("res://SISTEMA/GUI/Mensaje Toma de Decisiones/Usados/Dialogo_jugador_puzzle2.tscn").instance()

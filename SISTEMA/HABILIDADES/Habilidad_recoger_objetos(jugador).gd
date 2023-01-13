@@ -21,5 +21,6 @@ func _on_AreaDetectorObjetos_area_entered(area):
 	var colectable:ObjetoColectable = area.get_parent() as ObjetoColectable
 	
 	if colectable:
+		print("objeto recogido")
 		colectable.emit_signal("es_recogido")
 	pass # Replace with function body.

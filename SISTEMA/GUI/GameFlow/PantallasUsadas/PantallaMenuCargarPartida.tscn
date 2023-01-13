@@ -6,10 +6,14 @@
 
 [node name="PantallaMenuCargarPartida" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+directorio_salvas = "user://SAVES"
 
 [node name="TextureRect" parent="." index="0"]
 pause_mode = 2
 modulate = Color( 0.439216, 0.25098, 0.25098, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="BotonVolver" parent="." index="1" instance=ExtResource( 2 )]
 margin_left = 64.0
@@ -17,4 +21,18 @@ margin_top = 960.0
 margin_right = 392.0
 margin_bottom = 1026.0
 
+[node name="ScrollContainer" type="ScrollContainer" parent="." index="2"]
+margin_left = 64.0
+margin_top = 224.0
+margin_right = 1854.0
+margin_bottom = 876.0
+rect_min_size = Vector2( 1790, 668 )
+scroll_horizontal_enabled = false
+
+[node name="Grid" type="GridContainer" parent="ScrollContainer" index="0"]
+custom_constants/vseparation = 20
+custom_constants/hseparation = 31
+columns = 3
+
+[connection signal="visibility_changed" from="." to="." method="_on_PantallaMenuCargarPartida_visibility_changed"]
 [connection signal="button_up" from="BotonVolver" to="." method="_on_BotonVolver_button_up"]

@@ -44,21 +44,10 @@ func _ready():
 	_agregar_estado("ataque_misiles")
 	_agregar_estado("ataque_zarpazo")
 	
-	yield(get_tree(),"idle_frame")
+	#yield(get_tree(),"idle_frame")
 	poner_estado_deferred(estados.desconectado)
-	ente.anim_dino.connect("animation_finished",self,"_on_animacion_termina")
-	pos_inicio = ente.global_position
+	call_deferred("UltimaConfiguracion")
 	
-	ente.control.connect("disparar_misil",ente,"DispararMisiles")
-	ente.control.connect("disparar_misil_dirigido",ente,"DispararMisilDirigido")
-	ente.control.connect("suelo_listo_levantarse",self,"DeterminarLanzarMisiles")
-	ente.control.connect("crear_llama",self,"CrearLlama")
-	ente.control.connect("crear_bolas_fuego",self,"AlgoritmoBolasFuego")
-
-	#Añade al nivel un nodo que controlará todos los efectos del boss:
-	nodo_control = Node.new()
-	nodo_control.name = "EFECTOS_BOSS"
-	Memoria.nivel_actual.add_child(nodo_control)
 #Logica para cambiar de estados:
 func _transiciones(delta):
 	return null
@@ -334,6 +323,22 @@ func AlgoritmoBolasFuego():
 	else:
 		ente.anim_dino.play("ataque_cerca_llamas_global_fin")
 	pass
+
+func UltimaConfiguracion():
+	ente.anim_dino.connect("animation_finished",self,"_on_animacion_termina")
+	pos_inicio = ente.global_position
+	
+	ente.control.connect("disparar_misil",ente,"DispararMisiles")
+	ente.control.connect("disparar_misil_dirigido",ente,"DispararMisilDirigido")
+	ente.control.connect("suelo_listo_levantarse",self,"DeterminarLanzarMisiles")
+	ente.control.connect("crear_llama",self,"CrearLlama")
+	ente.control.connect("crear_bolas_fuego",self,"AlgoritmoBolasFuego")
+
+	#Añade al nivel un nodo que controlará todos los efectos del boss:
+	if not Memoria.nivel_actual.get_node_or_null("EFECTIS_BOSS"):
+		nodo_control = Node.new()
+		nodo_control.name = "EFECTOS_BOSS"
+		Memoria.nivel_actual.add_child(nodo_control)
 ############################################################
 func _on_animacion_termina(animacion:String):
 	match animacion:

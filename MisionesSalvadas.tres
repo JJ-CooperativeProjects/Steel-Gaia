@@ -1,0 +1,35 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://SISTEMA/MISIONES/Usadas/Mision_la_puerta_misteriosa/Mision_la_puerta_misteriosa.gd" type="Script" id=1]
+[ext_resource path="res://SISTEMA/MISIONES/Objetivo_obtener_objetos.gd" type="Script" id=2]
+[ext_resource path="res://SISTEMA/MISIONES/Usadas/Mision_la_puerta_misteriosa/Objetivo_resolver_puzzle.gd" type="Script" id=3]
+[ext_resource path="res://SISTEMA/GLOBAL/RESOURCES/SAVE_DATA/BaseSaveData.gd" type="Script" id=4]
+[ext_resource path="res://SISTEMA/MISIONES/Objetivo_obtener_objetos.tscn" type="PackedScene" id=5]
+[ext_resource path="res://SISTEMA/MISIONES/Objetivo.tscn" type="PackedScene" id=6]
+
+[sub_resource type="PackedScene" id=1]
+_bundled = {
+"conn_count": 3,
+"conns": PoolIntArray( 0, 0, 11, 10, 2, 0, 1, 1, 13, 12, 2, 0, 2, 2, 13, 12, 2, 0 ),
+"editable_instances": [  ],
+"names": PoolStringArray( "Mision_la_puerta_misteriosa", "script", "titulo", "descripcion", "estado", "Node", "Objetivo_obtener_cubos_y_orbe", "activo", "objetos", "Objetivo_resolver_puzzle", "_on_Mision_mision_terminada", "mision_terminada", "_on_Objetivo_objetivo_terminado", "objetivo_terminado" ),
+"node_count": 3,
+"node_paths": [  ],
+"nodes": PoolIntArray( -1, -1, 5, 0, -1, 4, 1, 0, 2, 1, 3, 1, 4, 2, 0, 0, 0, 5, 6, 3, 4, 1, 4, 2, 5, 7, 6, 8, 7, 0, 0, 0, 5, 9, 8, 3, 1, 9, 2, 10, 7, 6, 0 ),
+"variants": [ ExtResource( 1 ), "", 0, ExtResource( 5 ), ExtResource( 2 ), "Los Cubos y el Orbe", true, {
+"Cubo": 10,
+"Orbe": 1
+}, ExtResource( 6 ), ExtResource( 3 ), "Resolver Puzzle" ],
+"version": 2
+}
+
+[resource]
+script = ExtResource( 4 )
+almas_NPC1 = 0
+almas_NPC2 = 0
+almas_NPC3 = 0
+almas_NPC4 = 0
+misiones = [ SubResource( 1 ) ]
+misiones_terminadas = [  ]
+niveles_visitados = [  ]
+ultimo_nivel = ""

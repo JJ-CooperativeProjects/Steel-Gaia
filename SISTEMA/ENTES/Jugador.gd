@@ -13,22 +13,27 @@ onready var camara:PackedScene = preload("res://SISTEMA/NIVELES/Position2D.tscn"
 onready var rayo_pared_derecho:RayCast2D = $RayPared1
 onready var rayo_pared_izqueierdo:RayCast2D = $RayPared2
 
+var mi_control_camara = null
 #Segun la dirección que el usuario pulse:
 var direcciones:Vector2 = Vector2.ZERO
 var tween_salto:SceneTreeTween
 
-func _init():
-	Memoria.jugador = self
-
 func _ready():
+	Memoria.jugador = self
+	prints("mi_energia",energia)
 	#Crea la cámara:
 	var camara_i = camara.instance()
 	camara_i.global_position = global_position
 	camara_i.mi_jugador = self
-	get_parent().get_parent().call_deferred("add_child",camara_i)
-
-	set_vitalidad(max_vitalidad)
-	set_energia(max_energia)
+	Memoria.nivel_actual.call_deferred("add_child",camara_i)
+	mi_control_camara = camara_i
+	
+	set_vitalidad(vitalidad)
+	set_energia(energia)
+#	if not Memoria.cambiando and not Memoria.es_nuevo:
+#		
+	
+	
 #METODOS========================================================================
 func _input(event):
 #	if event.is_action_pressed("ui_page_up"):
@@ -152,6 +157,43 @@ func ResetFlash():
 func JugadorMuere():
 	Memoria.CargarUltimaPartidaGuardada()
 
+####
+func Salvar(data_vacio:Dictionary= {})->Dictionary:
+	data_vacio = .Salvar({})
+	data_vacio.merge({
+		"vitalidad": vitalidad,
+		"energia": energia,
+		"habilidades": SalvarHabilidades()
+	})
+	
+	return data_vacio
+	pass
+
+####
+func Cargar(data:Dictionary):
+	.Cargar(data)
+	print(data.energia)
+	energia = data.energia
+	set_vitalidad(data.vitalidad)
+	
+	#Cargar las habilidades:
+	for h in get_node("HABILIDADES").get_children():
+		h.queue_free()
+	
+	for d in data["habilidades"]:
+		var hab:Habilidad = load(d["ruta_file"]).instance()
+		get_node("HABILIDADES").add_child(hab)
+	
+####
+func SalvarHabilidades()->Array:
+	var data:Array = []
+	
+	for h in get_node("HABILIDADES").get_children():
+		data.append({
+			"ruta_file": h.filename,
+			"nombre":h.name
+		})
+	return data
 #SEÑALES========================================================================
 
 #SET-GET========================================================================
@@ -201,3 +243,9 @@ func CargarDatosJugador(data:BaseSaveData,posicion_incluida:bool,direccion_inclu
 	
 	if direccion_incluida:
 		direccion_mira = data.direccion_mira
+		cuerpo.scale.x = data.direccion_mira
+
+
+func _on_Jugador_tree_exiting():
+	mi_control_camara.queue_free()
+	pass # Replace with function body.

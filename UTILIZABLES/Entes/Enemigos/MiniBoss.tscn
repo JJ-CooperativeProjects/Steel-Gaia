@@ -910,7 +910,7 @@ collision_mask = 0
 script = ExtResource( 5 )
 max_vitalidad = 600
 vitalidad = 600
-posibles_objetos_soltar = [ "res://OBJETOS/COLECTABLES/USADOS/Orbe.tscn" ]
+posibles_objetos_soltar = [ "res://SISTEMA/OBJETOS/COLECTABLES/USADOS/Orbe.tscn" ]
 
 [node name="MEF" parent="." index="0"]
 script = ExtResource( 4 )

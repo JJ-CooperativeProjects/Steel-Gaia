@@ -16,8 +16,18 @@ func CambiarEscena(ruta_escena:String,tiempo_oscurecer:float = tiempo_transicion
 
 func segundo_paso(ruta_escena,tiempo_aclarar:float):
 	get_tree().change_scene(ruta_escena)
+	
+	if Memoria.cambiando or Memoria.es_nuevo:
+		if not Memoria.is_connected("datos_cargados",self,"tercer_paso"):
+			Memoria.connect("datos_cargados",self,"tercer_paso",[tiempo_aclarar])
+		return
 	var tween:SceneTreeTween = get_tree().create_tween()
 	tween.tween_property(fondo,"modulate",Color(0,0,0,0),tiempo_aclarar)
 	Memoria.set_modo_cinematica(false)
+	
 
-
+func tercer_paso(tiempo_aclarar:float):
+	yield(get_tree().create_timer(0.5),"timeout")
+	var tween:SceneTreeTween = get_tree().create_tween()
+	tween.tween_property(fondo,"modulate",Color(0,0,0,0),tiempo_aclarar)
+	Memoria.set_modo_cinematica(false)

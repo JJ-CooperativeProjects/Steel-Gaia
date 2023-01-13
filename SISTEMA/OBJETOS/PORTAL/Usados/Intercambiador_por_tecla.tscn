@@ -6,18 +6,19 @@
 [ext_resource path="res://SISTEMA/OBJETOS/PORTAL/Usados/Intercambiador_por_tecla.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 38, 49 )
+resource_local_to_scene = true
+extents = Vector2( 40, 48 )
 
 [node name="Intercambiador_por_tecla" groups=["Persistentes"] instance=ExtResource( 1 )]
 z_index = -4
 script = ExtResource( 4 )
+desactivado = true
 
 [node name="AreaDisparadorEvento_por_tecla" parent="." index="0" instance=ExtResource( 2 )]
-activo = false
 inputs = [ "interactuar" ]
 
 [node name="CollisionShape2D" parent="AreaDisparadorEvento_por_tecla" index="0"]
-position = Vector2( 6, -48 )
+position = Vector2( 8, -48 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]

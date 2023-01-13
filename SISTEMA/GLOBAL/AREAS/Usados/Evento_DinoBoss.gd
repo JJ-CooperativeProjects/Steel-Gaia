@@ -51,3 +51,10 @@ func ActivarPuertas():
 		get_node(i).Activar()
 	
 	queue_free()
+
+func AfterEvento():
+	var dino:DinoBoss = Memoria.nivel_actual.get_node_or_null("ENEMIGOS/DinoBoss")
+	
+	if dino:
+		dino.queue_free()
+	pass

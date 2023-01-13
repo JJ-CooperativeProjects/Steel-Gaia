@@ -53,7 +53,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[node name="MenusRapidosDisponibles" type="CanvasLayer"]
+[node name="MenusGlobales" type="CanvasLayer"]
 pause_mode = 2
 layer = 120
 script = ExtResource( 5 )

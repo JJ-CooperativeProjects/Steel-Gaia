@@ -6,17 +6,21 @@ CLASE QUE DEDICADA A ACTIVAR EVENTOS.
 """
 ##Si es activo, el evento podra ejecutarse. Si false no.
 export (bool) var activo:bool = true	setget set_activo
-##Si es persistente, se mantendrá siempre que se entre al nivel:
+##Si es persistente, se mantendrá siempre que se entre al nivel (se guarda):
 export (bool) var es_persistente:bool = true
 ##Si el evento puede repetirse:
 export (bool) var es_repetible:bool = false 
 
-
 ##Poner algunos nodos relacionados con el evento:
 export (Array,NodePath) var nodos_del_evento:Array
 
-#Se pone a true cuando el evento terminó.
+#Se pone a true cuando el evento terminó. Si el evento ya se usó, y no es repetible, se borrara de la escena al cargar.
 var evento_terminado:bool = false
+
+var nombre_original:String #Almacena el nombre original de este nodo, para luego cuando cargue eliminar algun diplicado.
+
+func _ready():
+	pass
 
 func set_activo(valor:bool):
 	activo = valor
@@ -26,8 +30,8 @@ func EsActivada():
 
 func EsDesactivada():
 	evento_terminado = true
-	if not es_repetible:
-		Memoria.persistentes_temporales_a_guardar.append(Salvar())
+#	if not es_repetible:
+#		Memoria.persistentes_temporales_a_guardar["eventos"].append(Salvar())
 	
 	pass
 
@@ -36,37 +40,76 @@ func _on_AreaDisparadorEvento_body_entered(body):
 		EsActivada()
 	pass # Replace with function body.
 
-func Salvar()->Dictionary:
-	var data:Dictionary = {
-		"ruta_nodo": get_path(),
+
+func Salvar(data_vacio:Dictionary = {})->Dictionary:
+	data_vacio.merge( {
+		"ruta_nodo":get_path(),
 		"ruta_file": filename,
-		"global_position": global_position,
+		"nombre":name,
+		"position": position,
+		
+		"activo": activo,
 		"es_persistente": es_persistente,
 		"es_repetible": es_repetible,
-		"evento_terminado": evento_terminado
-	}
-	return data
+		"nodos_del_evento": nodos_del_evento,
+		"evento_terminado": evento_terminado,
+		"shape": $CollisionShape2D.shape,
+		"shape_position": $CollisionShape2D.position
 
-func Cargar(data:Dictionary,nodo=null):
-	if nodo:
-		if data.es_persistente == true or data.evento_terminado != true:
-			nodo.global_position = data.global_position
-			nodo.es_persistente = data.es_persistente
-			nodo.es_repetible = data.es_repetible
-			nodo.evento_terminado = data.evento_terminado
+	})
+	
+	if get_child_count() != 0:
+		for n in get_children():
+			var nodo:Node = n as Node
 			
-			Memoria.nivel_actual.get_node("AREAS_EVENTOS").add_child(nodo)
-	else:
-		#Si no es permanente, lo borra del nivel:
-		if data.es_persistente == false:
-			if data.evento_terminado == true:
-				queue_free()
-				return
+			if nodo.is_in_group("Persistentes"):
+				if not data_vacio.has("hijos"):
+					data_vacio["hijos"] = []
+					
+				data_vacio["hijos"].append(nodo.Salvar({})) 
+
+	return data_vacio
+
+
+func Cargar(data:Dictionary):
+	#Actualizar propiedades:
+	activo = data.activo
+	es_persistente = data.es_persistente
+	es_repetible = data.es_repetible
+	nodos_del_evento = data.nodos_del_evento
+	evento_terminado = data.evento_terminado
+	nombre_original = data.nombre
+	position = data.position
+	$CollisionShape2D.shape = data.shape
+	$CollisionShape2D.position = data.shape_position
+	
+	
+	prints(name,"Cargado!")
+	#Memoria.consola_debug.PonerEnConsola([name, "Cargado!"])
+	
+	#Veo si tengo hijos:
+	if data.has("hijos"):
+		var hijos_data:Array = data["hijos"]
 		
-		if data.es_persistente == true or data.evento_terminado != true:
-			global_position = data.global_position
-			es_persistente = data.es_persistente
-			es_repetible = data.es_repetible
-			evento_terminado = data.evento_terminado
-		
+		for d in hijos_data:
+			
+			#creo instancia:
+			var hijo:Node = load(d["ruta_file"]).instance() as Node
+			
+			call_deferred("add_child",hijo)#add_child(hijo)
+			
+			hijo.name = d["nombre"]
+			hijo.nombre_original = d["nombre"]
+			hijo.Cargar(d)
 	pass
+
+
+func _on_AreaDisparadorEvento_tree_entered():
+	#verifico si es un sub hijo, en cuyo caso elimino el anterior:
+	var padre:Node = get_parent()
+	if padre:
+		for n in padre.get_children():
+			if n.name == nombre_original:
+				n.queue_free()
+				break
+	pass # Replace with function body.

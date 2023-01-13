@@ -38,6 +38,7 @@ color = Color( 0.933333, 0.988235, 1, 1 )
 color_ramp = SubResource( 3 )
 
 [node name="Orbe" instance=ExtResource( 1 )]
+ID = "Orbe"
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
@@ -50,5 +51,3 @@ material = SubResource( 1 )
 amount = 10
 process_material = SubResource( 6 )
 texture = ExtResource( 3 )
-
-[connection signal="es_recogido" from="." to="." method="_on_Orbe_es_recogido"]

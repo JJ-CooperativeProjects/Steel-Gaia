@@ -39,7 +39,7 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/ScrollContainer"]
 margin_right = 670.0
-margin_bottom = 942.0
+margin_bottom = 1047.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_vertical = 3
 

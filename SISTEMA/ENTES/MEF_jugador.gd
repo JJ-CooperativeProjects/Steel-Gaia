@@ -35,9 +35,9 @@ func _ready():
 	
 	poner_estado_deferred("quieto")
 	
-	yield(get_tree(),"idle_frame")
-	ente.get_node("AnimEfectos").connect("animation_finished",self,"_on_animacion_termina")
-	ente.anim.connect("animation_finished",self,"_on_animacion_termina")
+	#Conectar señales desues de que se cargue la escena.
+	Memoria.connect("datos_cargados",self,"AfterCargar")
+	
 	pass # Replace with function body.
 
 
@@ -226,7 +226,7 @@ func _entrar_estado(nuevo, viejo):
 				ente.get_node("AnimEfectos").play("impulso_ataque")
 		
 		estados.escopeta:
-			ente.set_damage(rand_range(30,60))
+			ente.set_damage(ente.damage * rand_range(6,10))
 			ente.set_energia(ente.get_energia()-consumo_energia_escopeta)
 			ente.movimiento = Vector2.ZERO
 			ente.anim.play("escopeta")
@@ -296,6 +296,10 @@ func DeshabilitarTodo():
 		hab.set_process_input(false)
 		hab.set_process(false)
 		hab.set_physics_process(false)
+
+func AfterCargar():
+	ente.get_node("AnimEfectos").connect("animation_finished",self,"_on_animacion_termina")
+	ente.anim.connect("animation_finished",self,"_on_animacion_termina")
 #SEÑALES========================================================================
 func tap_clear():
 	doble_tap.clear()

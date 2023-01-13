@@ -19,10 +19,7 @@ func _ready():
 func _arranque():
 	$AnimationPlayer.play("encendida")
 
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		#print(get_viewport_transform().origin)
-		pass
+
 func explotar():
 	estado = estados.EXPLOSION
 	#wave.material.set_shader_param("global_position", get_viewport_transform().origin)

@@ -45,13 +45,4 @@ func set_vitalidad(valor:int):
 	if is_inside_tree():
 		$CanvasLayer/GUI_miniboss/barra_vida.value = vitalidad
 
-func Salvar()->Dictionary:
-	var data:Dictionary = {
-		
-		
-	}
-	
-	return data
 
-func Cargar(data:Dictionary):
-	pass

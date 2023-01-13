@@ -7,6 +7,17 @@ BASE PARA CONSTRUIR NIVELES
 func _init():
 	Memoria.nivel_actual = self
 
+func _input(event):
+	if event.is_action_pressed("salvar"):
+		Memoria.consola_debug.PonerEnConsola(["Salvando..."])
+		Memoria.SalvarNuevo("Prueba1")
+	
+	if event.is_action_pressed("cargar"):
+		Memoria.CargarPartidaNombre("Prueba1")
+	
+	if event.is_action_pressed("escape"):
+		Memoria.consola_debug.PonerEnConsola(["Se pulso escape desde el nivel"])
+
 func _unhandled_input(event):
 	if event.is_action_pressed("F1"):
 		#print(2423423)
@@ -18,56 +29,114 @@ func _unhandled_input(event):
 
 func _ready():
 	#Activa los efectos especiales:
+	
 	$BACK/ParallaxBackground.visible = true
 	$BACK/Canvas.visible = true
 	GuiJugador.visible = true
 	
-	#Gestionar la forma en que carga el nivel:
-	if Memoria.cambiando:
-		var data:BaseSaveData = load("res://SISTEMA/GLOBAL/RESOURCES/SAVE_DATA/Saves/SAVE_auto.tres")
-		
-		
-		
-		if !Memoria.spawn_point_id == "":
-			yield(get_tree(),"idle_frame")
-			Memoria.camara_actual.get_parent().queue_free()
-			Memoria.jugador.queue_free()
-			var nuevo_jugador:Jugador = load("res://UTILIZABLES/Entes/Jugador/Jugador.tscn").instance()
-			Memoria.jugador = nuevo_jugador
-			
-			
-			var spawn:Intercambiador = $AREAS_EVENTOS.get_node(Memoria.spawn_point_id)
-			Memoria.jugador.direccion_mira = spawn.direccion_del_jugador
-			Memoria.jugador.global_position = spawn.global_position
-			get_node("JUGADORES").add_child(nuevo_jugador)
-			
-		Memoria.jugador.CargarDatosJugador(data,false,false)
-		Memoria.jugador.set_vitalidad(Memoria.jugador.vitalidad)
-		Memoria.jugador.set_energia(Memoria.jugador.energia)
-		
-		#Cargar persistentes:
-		var persistentes:Array = []
-		
-		var id = data.ObtenerNivelEnSalva(name)
-		
-		if not id == null:
-			persistentes = data.niveles_visitados[id].persistentes
-		
-		for i in persistentes:
-			var dato_persistente:Dictionary = i
-			#Verificar si hay un nodo de este en escena:
-			var nodo:= Memoria.nivel_actual.get_node_or_null(dato_persistente.ruta_nodo) as Node2D
-			if nodo:
-				nodo.Cargar(dato_persistente,null)
-			else:
-				var nuevo_nodo:= load(dato_persistente.ruta_file).instance() as Node2D
-				nuevo_nodo.Cargar(dato_persistente,nuevo_nodo)
-					
+	#CARGAR:
 	
-		Memoria.cambiando = false
+	if Memoria.es_nuevo or Memoria.cambiando:
+		CargarPartida()
+	else:
+		var timer := get_tree().create_timer(0.1)
+		timer.connect("timeout",self,"pos_cargado")
 
+	pass
 
-func _input(event):
-	if event.is_action_pressed("salvar"):
+func Salvar(data_vacio:Dictionary)->Dictionary:
+	data_vacio.merge( {
+		"ruta_nodo":get_path(),
+		"ruta_file": filename,
+		"nombre":name,
+	})
+	
+	if get_child_count() != 0:
+		for n in get_children():
+			var nodo:Node = n as Node
+			
+			##Entro un nivel:
+			for i in nodo.get_children():
+				if i.is_in_group("Persistentes"):
+					if not data_vacio.has("hijos"):
+						data_vacio["hijos"] = []
+						
+					data_vacio["hijos"].append(i.Salvar({})) 
+
+	return data_vacio
+
+func CargarPartida():
+	#Cargo:
+	#verificar si ya existe:
+	var existe = Memoria.data_save.ObtenerNivelEnSalva(name)
+	
+	if existe != null:
+		#cargo las misiones:
+		GestorMisiones_global.CargarMisiones(Memoria.data_save)
+		
+		#borro los persistentes:
+		for i in get_tree().get_nodes_in_group("Persistentes"):
+			i.queue_free()
+		
+		yield(get_tree(),"idle_frame")
+		CargarPrevio(Memoria.data_save.niveles_visitados[existe])
+	
+	
+		var timer := get_tree().create_timer(0.1)
+		timer.connect("timeout",self,"PosCarga")
+	
+	else:
+		Memoria.emit_signal("datos_cargados")
+	
+func CargarPrevio(data:Dictionary):
+	if data.get("hijos"):
+		for d in data["hijos"]:
+			#Creo un instancia:
+			var yo:Node
+	
+			#Crear la instancia:
+			yo = load(d["ruta_file"]).instance() as Node
+			
+			#Pongo la instancia en la posicion correcta del arbol:
+			var ruta:String = d["ruta_nodo"]
+			ruta = ruta.left(ruta.find_last("/"))
+			get_node(ruta).call_deferred("add_child",yo)#add_child(yo)
+			yo.name = d["nombre"]
+			
+			print(yo.name)
+			
+			if (yo.get("nombre_original")):
+				yo.nombre_original = d["nombre"]
+			
+			yo.connect("ready",yo,"Cargar",[d])
+			#yo.Cargar(d)
+	
+func PosCarga():
+	#Corregir los nombres:
+	var persistentes:Array = get_tree().get_nodes_in_group("Persistentes")
+	
+	for e in persistentes:
+		var nodo:Node = e as Node
+		
+			
+		if nodo.name.find("@") >= 0:
+			var nombre:String = nodo.name.left(nodo.name.find_last("@"))
+			nombre = nombre.right(nombre.find("@")+1)
+			e.name = nombre
+			#print (nombre)
+			pass
+	
+	#FIN
+	Memoria.emit_signal("datos_cargados")
+	
+	#Si es un cambio, salva nuevamente para garantizar que aparezca en esta abitación la próxima vez.
+	if Memoria.cambiando:
+		#Salvar los datos:
 		Memoria.SalvarRapido()
-		#Memoria.SalvarNuevo("Prueba1.tres")
+		
+	Memoria.es_nuevo = false
+	Memoria.cambiando = false
+	Memoria.data_save = null
+
+func pos_cargado():
+	Memoria.emit_signal("datos_cargados")
