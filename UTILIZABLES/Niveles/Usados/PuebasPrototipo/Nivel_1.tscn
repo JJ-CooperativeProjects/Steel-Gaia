@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UTILIZABLES/Niveles/Nivel_base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UTILIZABLES/Entes/Jugador/Jugador.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://UTILIZABLES/Entes/Enemigos/NPC1_robot_dash.tscn" type="PackedScene" id=6]
 [ext_resource path="res://RECURSOS/TILE-SETS/TileSet_Arboles.tres" type="TileSet" id=7]
 [ext_resource path="res://UTILIZABLES/Entes/Enemigos/NPC3_aragna.tscn" type="PackedScene" id=8]
-[ext_resource path="res://UTILIZABLES/Entes/Enemigos/NPC4_robor_volador.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=1]
 resource_local_to_scene = true
@@ -50,16 +49,16 @@ tile_data = PoolIntArray( 524291, 0, 0, 524295, 0, 0, 524299, 0, 0 )
 [node name="Jugador" parent="JUGADORES" index="0" instance=ExtResource( 2 )]
 position = Vector2( 112, 368 )
 
-[node name="NPC1" parent="ENEMIGOS" index="0" instance=ExtResource( 6 )]
-position = Vector2( 437, 382 )
-
-[node name="Path2D" parent="ENEMIGOS" index="1" instance=ExtResource( 8 )]
+[node name="Path2D" parent="ENEMIGOS" index="0" instance=ExtResource( 8 )]
 position = Vector2( 1032, 128 )
 rotation = 3.14159
 curve = SubResource( 1 )
 
-[node name="NPC4" parent="ENEMIGOS" index="2" instance=ExtResource( 9 )]
-position = Vector2( 904, 288 )
+[node name="NPC1" parent="ENEMIGOS" index="1" instance=ExtResource( 6 )]
+position = Vector2( 368, 384 )
+vitalidad = 100
+direccion_mira = -1
+girar = true
 
 [node name="Intercambiador_hacia_DinoBoss" parent="AREAS_EVENTOS" index="0" instance=ExtResource( 4 )]
 position = Vector2( 1116, 383 )

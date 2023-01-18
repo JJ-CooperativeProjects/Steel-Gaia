@@ -9,7 +9,7 @@ var estado:String = ""		#Estado actual
 var estado_anterior:String = ""		#Almacena el estado anterior
 var estados:Dictionary = {}		#Almacena todos los estados
 
-
+var fuera_de_pantalla:bool = false #Controla si el ente está en pantalla o no.
 
 var timer_de_transicion:SceneTreeTimer = null #Un timer para detectar cuando una estado es terminado por el tiempo.
 
@@ -74,7 +74,7 @@ func poner_estado_deferred(estado:String):
 	call_deferred("_poner_estado", estado)
 
 
-func LogicaMorir(cantida_dagno):
+func LogicaMorir(cantida_dagno,quien:Node2D):
 	var ente = get_parent() as Ente
 	#print(cantida_dagno)
 	ente.set_vitalidad(ente.get_vitalidad() - cantida_dagno) 

@@ -42,7 +42,7 @@ func mecanica(delta):
 	
 	
 	if colision:
-		crear_explosion()
+		crear_explosion(null)
 		pass
 	
 	#print(estado)

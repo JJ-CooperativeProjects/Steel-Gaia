@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://SISTEMA/EFECTOS/ESPECIALES/EfectoEspecialBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Kenney/circle_01.png" type="Texture" id=2]
+[ext_resource path="res://RECURSOS/SONIDOS/EFECTOS/Metal_hit/01.wav" type="AudioStream" id=3]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Kenney/circle_04.png" type="Texture" id=4]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Kenney/circle_02.png" type="Texture" id=5]
+[ext_resource path="res://SISTEMA/EFECTOS/ESPECIALES/EfectoEspecial_golpe_escudo.gd" type="Script" id=6]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "efecto"
+length = 0.25
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.075, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.175 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 0.12, 0.12 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.075, 0.15, 0.225 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.666667 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="EfectoEspecial_golpe_escudo" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+
+[node name="AnimationPlayer" parent="." index="0"]
+anims/RESET = SubResource( 1 )
+anims/efecto = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+scale = Vector2( 0.01, 0.01 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource( 3 )
+max_distance = 500.0
+attenuation = 4.59479
+bus = "Instant_Efects"
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_AudioStreamPlayer2D_finished"]

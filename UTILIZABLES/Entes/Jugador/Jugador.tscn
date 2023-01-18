@@ -4,7 +4,7 @@
 [ext_resource path="res://SISTEMA/ENTES/Jugador.gd" type="Script" id=2]
 [ext_resource path="res://SISTEMA/ENTES/MEF_jugador.gd" type="Script" id=3]
 [ext_resource path="res://RECURSOS/IMAGENES/PLAYER/HojaSpriteDelPersonaje.png" type="Texture" id=4]
-[ext_resource path="res://SISTEMA/GLOBAL/RESOURCES/shadermaterial_difumunar_sprite_por_textura.tres" type="Material" id=5]
+[ext_resource path="res://RECURSOS/SHADERS/shadermaterial_difumunar_sprite_por_textura.tres" type="Material" id=5]
 [ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/double-shockwave.png" type="Texture" id=6]
 [ext_resource path="res://SISTEMA/EFECTOS/SacudirCamara.gd" type="Script" id=7]
 [ext_resource path="res://SISTEMA/GLOBAL/AREAS/AreaDamage.tscn" type="PackedScene" id=8]
@@ -227,6 +227,30 @@ tracks/15/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/16/type = "value"
+tracks/16/path = NodePath("Cuerpo/pos_golpes_pugnos:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 28, -5 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Cuerpo/pos_golpes_pugnos:rotation_degrees")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "atacar1"
@@ -328,6 +352,30 @@ tracks/7/keys = {
 "update": 1,
 "values": [ ExtResource( 11 ) ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Cuerpo/pos_golpes_pugnos:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 28, -5 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Cuerpo/pos_golpes_pugnos:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "atacar2"
@@ -428,6 +476,18 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ ExtResource( 11 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Cuerpo/pos_golpes_pugnos:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 29, -2 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -648,10 +708,10 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ), ExtResource( 6 ) ]
+"values": [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 4 ) ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("Cuerpo/Sprite:hframes")
@@ -911,6 +971,9 @@ material = ExtResource( 13 )
 z_index = 6
 texture = ExtResource( 11 )
 hframes = 4
+
+[node name="pos_golpes_pugnos" type="Position2D" parent="Cuerpo" index="4"]
+position = Vector2( 28, -5 )
 
 [node name="AnimationPlayer" parent="." index="2"]
 anims/RESET = SubResource( 10 )

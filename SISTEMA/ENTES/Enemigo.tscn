@@ -1,101 +1,16 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://SISTEMA/ENTES/Ente.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SISTEMA/ENTES/Enemigo.gd" type="Script" id=2]
-[ext_resource path="res://RECURSOS/Prototipo2.png" type="Texture" id=3]
 [ext_resource path="res://RECURSOS/SHADERS/PixelArt1.tres" type="Material" id=4]
-[ext_resource path="res://tmp/0085.png" type="Texture" id=5]
-[ext_resource path="res://tmp/0081.png" type="Texture" id=6]
-[ext_resource path="res://tmp/0083.png" type="Texture" id=7]
-[ext_resource path="res://tmp/0091.png" type="Texture" id=8]
-[ext_resource path="res://tmp/0080.png" type="Texture" id=9]
-[ext_resource path="res://tmp/0089.png" type="Texture" id=10]
-[ext_resource path="res://tmp/0077.png" type="Texture" id=11]
-[ext_resource path="res://tmp/0079.png" type="Texture" id=12]
-[ext_resource path="res://tmp/0082.png" type="Texture" id=13]
-[ext_resource path="res://tmp/0086.png" type="Texture" id=14]
-[ext_resource path="res://tmp/0075.png" type="Texture" id=15]
-[ext_resource path="res://tmp/0090.png" type="Texture" id=16]
-[ext_resource path="res://tmp/0078.png" type="Texture" id=17]
-[ext_resource path="res://tmp/0092.png" type="Texture" id=18]
-[ext_resource path="res://tmp/0076.png" type="Texture" id=19]
-[ext_resource path="res://tmp/0087.png" type="Texture" id=20]
-[ext_resource path="res://tmp/0084.png" type="Texture" id=21]
-[ext_resource path="res://tmp/0088.png" type="Texture" id=22]
-[ext_resource path="res://tmp/0095.png" type="Texture" id=23]
-[ext_resource path="res://tmp/0093.png" type="Texture" id=24]
-[ext_resource path="res://tmp/0094.png" type="Texture" id=25]
-[ext_resource path="res://tmp/0096.png" type="Texture" id=26]
-[ext_resource path="res://tmp/0105.png" type="Texture" id=27]
-[ext_resource path="res://tmp/0103.png" type="Texture" id=28]
-[ext_resource path="res://tmp/0107.png" type="Texture" id=29]
-[ext_resource path="res://tmp/0102.png" type="Texture" id=30]
-[ext_resource path="res://tmp/0108.png" type="Texture" id=31]
-[ext_resource path="res://tmp/0097.png" type="Texture" id=32]
-[ext_resource path="res://tmp/0106.png" type="Texture" id=33]
-[ext_resource path="res://tmp/0100.png" type="Texture" id=34]
-[ext_resource path="res://tmp/0104.png" type="Texture" id=35]
-[ext_resource path="res://tmp/0101.png" type="Texture" id=36]
-[ext_resource path="res://tmp/0069.png" type="Texture" id=48]
-[ext_resource path="res://tmp/0065.png" type="Texture" id=49]
-[ext_resource path="res://tmp/0070.png" type="Texture" id=50]
-[ext_resource path="res://tmp/0061.png" type="Texture" id=51]
-[ext_resource path="res://tmp/0071.png" type="Texture" id=52]
-[ext_resource path="res://tmp/0072.png" type="Texture" id=53]
-[ext_resource path="res://tmp/0064.png" type="Texture" id=54]
-[ext_resource path="res://tmp/0066.png" type="Texture" id=55]
-[ext_resource path="res://tmp/0068.png" type="Texture" id=56]
-[ext_resource path="res://tmp/0060.png" type="Texture" id=57]
-[ext_resource path="res://tmp/0063.png" type="Texture" id=58]
-[ext_resource path="res://tmp/0062.png" type="Texture" id=59]
-[ext_resource path="res://tmp/0067.png" type="Texture" id=60]
-[ext_resource path="res://tmp/0074.png" type="Texture" id=61]
 
 [sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 32 ) ],
-"loop": false,
-"name": "Grab_and_run",
-"speed": 6.0
-}, {
-"frames": [ ExtResource( 32 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 25 ) ],
-"loop": false,
-"name": "RunAttack_to_stand",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 36 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 35 ), ExtResource( 27 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "Run_Attack",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 57 ), ExtResource( 51 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 54 ), ExtResource( 49 ), ExtResource( 55 ), ExtResource( 60 ), ExtResource( 56 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 52 ), ExtResource( 53 ) ],
-"loop": true,
-"name": "Stand",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 61 ) ],
-"loop": true,
-"name": "Stand_Block",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 19 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "Stand_to_Walk",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 23 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "Walk_to_Stand",
-"speed": 8.0
-} ]
+animations = [  ]
 
 [node name="Enemigo" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+girar = false
+direccion_mira_inicial = 1
 posibles_objetos_soltar = [ "" ]
 
 [node name="Sprite" type="Sprite" parent="Cuerpo" index="0"]
@@ -103,13 +18,11 @@ visible = false
 material = ExtResource( 4 )
 position = Vector2( 0, 3 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Cuerpo" index="1"]
 material = ExtResource( 4 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
-animation = "RunAttack_to_stand"
 frame = 3
 playing = true
 

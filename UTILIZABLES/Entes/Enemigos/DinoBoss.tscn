@@ -131,7 +131,8 @@ collision_mask = 512
 layer = 40
 
 [node name="barra_vida" parent="CanvasLayer_BarraVida/GUI_miniboss" index="0"]
-max_value = 1000.0
+max_value = 1800.0
+value = 1800.0
 texture_under = SubResource( 29 )
 texture_progress = SubResource( 31 )
 

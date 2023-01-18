@@ -2,6 +2,8 @@ extends MEF_base
 class_name MEF_NPC1
 
 onready var ente:Enemigo = owner
+onready var efecto_golpe_escudo:PackedScene = preload("res://SISTEMA/EFECTOS/ESPECIALES/EfectoEspecial_golpe_escudo.tscn")
+
 #Timempos min/max que el npc toma para alternar entre quieto y caminar.
 export (float) var tiempo_minimo_espera:float = 3
 export (float) var tiempo_maximo_espera:float = 6
@@ -78,6 +80,9 @@ func _process_estado(delta):
 	if ente.estado == ente.estados.TRANQUILO:
 		if [estados.caminar].has(estado):
 			ente.Girar_por_rayo()
+	
+	if ente.estado == ente.estados.ALERTA:
+		ente.MirarObjetivoConRayo(Memoria.jugador)
 	pass
 #Solo se ejecuta una vez cuando entra en un nuevo estado
 func _entrar_estado(nuevo, viejo):
@@ -144,7 +149,7 @@ func poner_quieto():
 	poner_estado_deferred("quieto")
 	 
 
-func LogicaMorir(cantida_dagno):
+func LogicaMorir(cantida_dagno,quien):
 	if ente.LogicaMirarJugador():
 		var ente = get_parent() as Ente
 		#print(cantida_dagno)
@@ -164,7 +169,23 @@ func LogicaMorir(cantida_dagno):
 			poner_estado_deferred(estados.muerte)
 	else:
 		if [estados.quieto].has(estado):
-			poner_estado_deferred("bloquear")	
+			poner_estado_deferred("bloquear")
+			
+			#Aplicar pequeño impulso de repulsion:
+			var tween:SceneTreeTween = create_tween()
+			ente.vector_impulsos.x = -20.0
+			tween.tween_property(ente,"vector_impulsos:x",0.0,0.2)
+			#Poner sonido de golpe:
+			var sonido:EfectoEspecial = efecto_golpe_escudo.instance()
+#			if is_instance_valid(quien): 
+#				if quien.get("pos_pugnos"):
+#					sonido.global_position = quien.pos_pugnos.global_position
+#					pass
+#			else:
+			var pos:Position2D = ente.get_node("Cuerpo/pos_golpes_escudo")
+			sonido.global_position = Vector2(rand_range(pos.global_position.x-10,pos.global_position.x+10),rand_range(pos.global_position.y-10,pos.global_position.y+10))
+			
+			Memoria.nivel_actual.add_child(sonido)
 ##SEÑALES-----------------------------------------
 func on_timer_caminar_off():
 	match estado:
@@ -237,7 +258,7 @@ func _on_Area2_jugador_cerca_body_exited(body):
 
 #Hace daño:
 func _on_Area2D_body_entered(body):
-	body.emit_signal("RecibeDamage",ente.damage)
+	body.emit_signal("RecibeDamage",ente.damage,ente)
 	pass # Replace with function body.
 
 

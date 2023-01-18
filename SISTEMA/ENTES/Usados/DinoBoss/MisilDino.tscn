@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://SISTEMA/OBJETOS/DisparoBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RECURSOS/IMAGENES/OBJETOS/Disparos/Missil.png" type="Texture" id=2]
 [ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Kenney/magic_05.png" type="Texture" id=3]
+[ext_resource path="res://SISTEMA/ENTES/Usados/DinoBoss/MisilDino.gd" type="Script" id=4]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends Area2D
@@ -40,7 +41,9 @@ tracks/0/keys = {
 }
 
 [node name="MisilDino" instance=ExtResource( 1 )]
-velocidad_bala = 1500.0
+script = ExtResource( 4 )
+max_velocidad = 2000.0
+velocidad_bala = 600.0
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2( -10, 0 )

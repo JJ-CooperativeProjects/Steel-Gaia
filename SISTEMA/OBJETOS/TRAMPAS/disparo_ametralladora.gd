@@ -1,4 +1,8 @@
 extends KinematicBody2D
+class_name Disparo
+"""
+CLASE BASE QUE DEFINE UN DISPARO
+"""
 
 var movimiento:Vector2 = Vector2.ZERO
 export (float) var velocidad_bala:float = 500
@@ -20,8 +24,6 @@ func mecanica(delta):
 	var colision = move_and_collide(movimiento.normalized()* delta * velocidad_bala)
 	
 	if colision:
-
-		
 		var prox:Vector2 = Vector2(1,0).rotated(movimiento.bounce(colision.normal).angle())
 		
 		rotate(movimiento.angle_to(prox))

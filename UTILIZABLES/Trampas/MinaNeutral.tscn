@@ -8,7 +8,7 @@
 [ext_resource path="res://RECURSOS/IMAGENES/TRAMPAS/Mina neutral/MIna_neutral1_apagada.png" type="Texture" id=6]
 [ext_resource path="res://RECURSOS/SONIDOS/EFECTOS/explosion_mina_neutral.mp3" type="AudioStream" id=7]
 [ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/explosion_mina_neutral.png" type="Texture" id=8]
-[ext_resource path="res://SISTEMA/GLOBAL/RESOURCES/MinaNeutral_expansion.tres" type="Material" id=9]
+[ext_resource path="res://RECURSOS/SHADERS/MinaNeutral_expansion.tres" type="Material" id=9]
 [ext_resource path="res://RECURSOS/SONIDOS/EFECTOS/beep.mp3" type="AudioStream" id=10]
 [ext_resource path="res://RECURSOS/IMAGENES/TRAMPAS/Mina neutral/MIna_neutral1.png" type="Texture" id=11]
 

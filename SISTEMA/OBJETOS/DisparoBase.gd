@@ -10,13 +10,13 @@ export (int) var max_rebotes:int  = 1
 var movimiento:Vector2 = Vector2.ZERO
 var rebotes:int = 0
 
-export (float) var velocidad_bala:float = 0
+export (float) var velocidad_bala:float = 500
 var pos_origen:Vector2
 
 func _ready():
-	$AnimationPlayer.play("disparo")
-	#movimiento.x = 1
 	
+	#movimiento.x = 1
+	pass
 func _physics_process(delta):
 	mecanica(delta)
 
@@ -34,7 +34,7 @@ func mecanica(delta):
 		
 	
 		if rebotes == max_rebotes:
-			crear_explosion()
+			crear_explosion(null)
 		
 
 			
@@ -42,13 +42,13 @@ func mecanica(delta):
 	pass
 
 
-func crear_explosion():
+func crear_explosion(b):
 	var explosion:MinaNeutral = load("res://UTILIZABLES/Trampas/MinaNeutral.tscn").instance()
 	explosion.global_position = global_position
 	explosion.activa = false
 	
-	Memoria.nivel_actual.add_child(explosion)
-	explosion.explotar()
+	Memoria.nivel_actual.call_deferred("add_child",explosion)#add_child(explosion)
+	explosion.call_deferred("explotar")#explotar()
 	queue_free()
 
 func movimiento_sueva_a_rapido(coeficiente_velocidad:float = 5,max_velocidad:float = 500):

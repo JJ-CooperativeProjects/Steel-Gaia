@@ -1,0 +1,403 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "Death"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pelvis/torso/brazo_izq/antegrazo_izq/mano_izq:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ), Vector2( -11.2249, 22.7694 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pelvis/torso/brazo_izq/antegrazo_izq/mano_izq:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8.48591, 8.48591, 8.48591, 8.48591, 8.48591, 8.48591, 8.48591, 8.48591, 8.48591, 8.48591, 8.48591, 8.48591, 8.48591 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pelvis/torso/brazo_izq/antegrazo_izq:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ), Vector2( 20.0915, 20.4586 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pelvis/torso/brazo_izq/antegrazo_izq:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 31.6155, 31.6155, 31.6155, 31.6155, 31.6155, 217.962, 404.308, 404.308, 404.308, 404.308, 404.308, 507.318, 610.328 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pelvis/torso/brazo_izq:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ), Vector2( -16.6667, -43.3333 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Pelvis/torso/brazo_izq:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8.94353, 8.94353, 8.94353, 40.3105, 71.6775, -295.599, -662.876, -662.876, -662.876, -662.876, -662.876, -668.658, -674.44 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Pelvis/torso/Cohetes:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 16, -65 ), Vector2( 16, -65 ), Vector2( 16, -65 ), Vector2( 16, -65 ), Vector2( 16, -65 ), Vector2( 16, -65 ), Vector2( 16, -65 ), Vector2( 16, -65 ), Vector2( 16, -65 ), Vector2( 16, -65 ), Vector2( 16, -65 ), Vector2( 16, -65 ), Vector2( 16, -65 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Pelvis/torso/Cohetes:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pelvis/torso/Cabeza:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -3.33333, -70 ), Vector2( -12.4612, -78.1292 ), Vector2( -21.589, -86.2583 ), Vector2( 16.9588, -95.1936 ), Vector2( 55.5066, -104.129 ), Vector2( 70.8563, -108.024 ), Vector2( 86.206, -111.919 ), Vector2( 49.9254, -123.576 ), Vector2( 13.6449, -135.233 ), Vector2( 31.7257, -140.371 ), Vector2( 49.8066, -145.509 ), Vector2( 44.3856, -152.165 ), Vector2( 38.9646, -158.821 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Pelvis/torso/Cabeza:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, -28.2092, -56.4185, -85.7704, -115.122, -146.251, -177.38, -153.485, -129.589, -83.072, -36.5546, -12.8029, 10.9487 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Pelvis:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Pelvis:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Pelvis/torso/brazo_der:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 30, -36.6667 ), Vector2( 30, -36.6667 ), Vector2( 30, -36.6667 ), Vector2( 42.9127, -34.5367 ), Vector2( 55.8254, -32.4067 ), Vector2( 64.597, -37.2934 ), Vector2( 73.3686, -42.1802 ), Vector2( 61.045, -65.849 ), Vector2( 48.7214, -89.5177 ), Vector2( 45.1686, -91.8908 ), Vector2( 41.6158, -94.2639 ), Vector2( 46.5678, -100.898 ), Vector2( 51.5197, -107.532 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Pelvis/torso/brazo_der:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 30.6223, 61.2447, 61.2447, 61.2447, 61.2447, 61.2447, 61.2447, 61.2447 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Pelvis/torso:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 1.65, 5.10001 ), Vector2( 3.3, 10.2 ), Vector2( 4.95, 15.6 ), Vector2( 6.60001, 21 ), Vector2( 7.95001, 15.6 ), Vector2( 9.30001, 10.2 ), Vector2( 10.65, 14.55 ), Vector2( 12, 18.9 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Pelvis/torso:rotation_degrees")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 13.6296, 27.2593, 35.496, 43.7328, 54.7144, 65.6959, 75.2869, 84.8778, 84.8778, 84.8778, 84.8778, 84.8778 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Pelvis/pierna_der/pie_der/Position2D:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ), Vector2( 13.8334, 23.9 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Pelvis/pierna_der/pie_der/Position2D:rotation_degrees")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Pelvis/pierna_der/pie_der:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ), Vector2( 13.3333, 36.6667 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Pelvis/pierna_der/pie_der:rotation_degrees")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, -18.7283, -37.4567, -30.7256, -23.9945, -34.0849, -44.1753, -25.5152, -6.855 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Pelvis/pierna_der:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 13.3333, 3.33333 ), Vector2( 13.3333, 3.33333 ), Vector2( 13.3333, 3.33333 ), Vector2( 13.3333, 3.33333 ), Vector2( 13.3333, 3.33333 ), Vector2( 13.2667, 21.7667 ), Vector2( 13.2, 40.2 ), Vector2( 13.2, 40.2 ), Vector2( 13.2, 40.2 ), Vector2( 12.9, 35.1 ), Vector2( 12.6, 30 ), Vector2( 13.35, 43.05 ), Vector2( 14.1, 56.1001 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Pelvis/pierna_der:rotation_degrees")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 63.9374, 127.875, 121.113, 114.351, 114.351, 114.351, 116.233, 118.115 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Pelvis/pierna_izq/pie_izq/Position2D:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ), Vector2( 12.5, 24.2667 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Pelvis/pierna_izq/pie_izq/Position2D:rotation_degrees")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("Pelvis/pierna_izq/pie_izq:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ), Vector2( -13.3333, 30 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("Pelvis/pierna_izq/pie_izq:rotation_degrees")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 17.5572, 35.1145, 28.3386, 21.5627, 18.4153, 15.2679 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("Pelvis/pierna_izq:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -6.66667, 3.33333 ), Vector2( -13.0833, 3.31667 ), Vector2( -19.5, 3.3 ), Vector2( -22.5, 7.05001 ), Vector2( -25.5, 10.8 ), Vector2( -23.85, 31.65 ), Vector2( -22.2, 52.5001 ), Vector2( -22.2, 52.5001 ), Vector2( -22.2, 52.5001 ), Vector2( -22.2, 52.5001 ), Vector2( -22.2, 52.5001 ), Vector2( -22.2, 52.5001 ), Vector2( -22.2, 52.5001 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("Pelvis/pierna_izq:rotation_degrees")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 21.9781, 43.9562, 78.5262, 113.096, 96.585, 80.0738, 93.3579, 106.642, 96.7541, 86.8661 ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Pelvis/torso/brazo_der/antegrazo_der/mano_der:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ), Vector2( -11.1, 25.2 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Pelvis/torso/brazo_der/antegrazo_der/mano_der:rotation_degrees")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, -23.7203, -47.4407, -47.4407, -47.4407, -47.4407, -47.4407, -47.4407, -47.4407 ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("Pelvis/torso/brazo_der/antegrazo_der:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ), Vector2( 21.0001, 18.0667 ) ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("Pelvis/torso/brazo_der/antegrazo_der:rotation_degrees")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -32.4979, -64.9959 ]
+}
+tracks/32/type = "method"
+tracks/32/path = NodePath(".")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 2.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "muerto" ],
+"method": "emit_signal"
+} ]
+}

@@ -1,0 +1,600 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://SISTEMA/EFECTOS/ESPECIALES/EfectoEspecialBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/howaa128.png" type="Texture" id=2]
+[ext_resource path="res://SISTEMA/EFECTOS/ESPECIALES/Usados/EfectoEspecial_carga_laser_NPC2.gd" type="Script" id=4]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Kenney/star_05.png" type="Texture" id=5]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Kenney/circle_05.png" type="Texture" id=6]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Kenney/efecto_laser_grande.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=25]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("efecto_laser:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("efecto_laser:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 2.89, 1.74, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("efecto_laser2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("efecto_laser2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 2.89, 1.74, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("luz_acumulada:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("luz_acumulada:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("luz_acumulada:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 2.89, 1.74, 0, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("haces:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("haces:process_material:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.1 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("haces:amount")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("absorver:amount")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("absorver:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("absorver:process_material:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("absorver:process_material:emission_sphere_radius")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 120.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("absorver:speed_scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("efecto_laser2:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, -0.5 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("efecto_laser:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.46456, 4.22143 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("efecto_laser:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -198, 3 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("efecto_laser2:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -28, -1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "efecto"
+length = 3.6
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("efecto_laser:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.86, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("efecto_laser:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 2.89, 1.74, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("efecto_laser2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.82 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("efecto_laser2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 2.89, 1.74, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("luz_acumulada:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("luz_acumulada:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("luz_acumulada:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 2.89, 1.74, 0, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("haces:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.94, 3.48 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("haces:process_material:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.94, 2.68, 3.36 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.1, 0.25, 1.2, 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("haces:amount")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.94, 2.98 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 120, 1 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("absorver:amount")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 50 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("absorver:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.2, 2.66 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("absorver:process_material:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.6, 1.54, 2.36, 2.86 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 2.0, 4.0, 0.01 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("absorver:process_material:emission_sphere_radius")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 1.54, 2.36 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 120.0, 150.0, 180.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("absorver:speed_scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1.24, 2.46 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 5.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("efecto_laser2:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 2.82, 2.86, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 0.01, 0.01 ), Vector2( 1, 0.5 ), Vector2( 0.01, 0.01 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("efecto_laser:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 2.72, 2.84, 2.94 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 0.01, 0.01 ), Vector2( 1.204, 0.824452 ), Vector2( 2, 5 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("efecto_laser:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 2.84, 2.9, 2.94 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -198, 3 ), Vector2( -45, 2 ), Vector2( -138, 1 ), Vector2( -217, 0 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("efecto_laser2:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 2.82 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -13, -5.96046e-08 ) ]
+}
+tracks/19/type = "method"
+tracks/19/path = NodePath(".")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 2.84, 2.96 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "disparo" ],
+"method": "emit_signal"
+}, {
+"args": [  ],
+"method": "CrearDisparoLaser"
+} ]
+}
+
+[sub_resource type="Curve" id=14]
+_data = [ Vector2( 0, 0 ), 0.0, 0.442647, 0, 0, Vector2( 1, 0.720455 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 14 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+emission_shape = 2
+emission_box_extents = Vector3( 500, 20, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.1
+scale_curve = SubResource( 13 )
+color = Color( 2.89, 1.74, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=16]
+blend_mode = 1
+
+[sub_resource type="Curve" id=17]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, -85.9091 ), 0.0, 328.364, 0, 0, Vector2( 1, 95.9091 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 17 )
+
+[sub_resource type="Curve" id=18]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, -121.364 ), 0.0, -292.125, 0, 0, Vector2( 0.813954, -95.4545 ), 587.178, 587.178, 0, 0, Vector2( 1, -0.909088 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 18 )
+
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 0 ), 0.0, 0.209028, 0, 0, Vector2( 0.734219, 0.161364 ), 0.885294, 0.885294, 0, 0, Vector2( 1, 0.297727 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 19 )
+
+[sub_resource type="ParticlesMaterial" id=20]
+emission_shape = 1
+emission_sphere_radius = 120.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel_curve = SubResource( 10 )
+radial_accel_curve = SubResource( 5 )
+scale_curve = SubResource( 7 )
+color = Color( 2.89, 1.74, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=24]
+blend_mode = 1
+
+[node name="EfectoEspecial_carga_laser_NPC2" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" parent="." index="0"]
+anims/RESET = SubResource( 25 )
+anims/efecto = SubResource( 21 )
+
+[node name="haces" type="Particles2D" parent="." index="1"]
+position = Vector2( -145, 0 )
+scale = Vector2( 0.3, 0.3 )
+emitting = false
+amount = 2
+process_material = SubResource( 15 )
+texture = ExtResource( 2 )
+
+[node name="absorver" type="Particles2D" parent="." index="2"]
+material = SubResource( 16 )
+position = Vector2( -11, -2 )
+scale = Vector2( 0.3, 0.3 )
+z_index = 1
+amount = 1
+explosiveness = 0.1
+process_material = SubResource( 20 )
+texture = ExtResource( 2 )
+
+[node name="luz_acumulada" type="Sprite" parent="." index="3"]
+modulate = Color( 2.89, 1.74, 0, 1 )
+position = Vector2( -11, -2 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 5 )
+
+[node name="efecto_laser" type="Sprite" parent="." index="4"]
+visible = false
+modulate = Color( 2.89, 1.74, 0, 1 )
+material = SubResource( 24 )
+position = Vector2( -198, 3 )
+rotation = 1.5708
+scale = Vector2( 1.46456, 4.22143 )
+texture = ExtResource( 7 )
+
+[node name="efecto_laser2" type="Sprite" parent="." index="5"]
+visible = false
+modulate = Color( 2.89, 1.74, 0, 1 )
+material = SubResource( 24 )
+position = Vector2( -28, -1 )
+rotation = 1.5708
+scale = Vector2( 0.8, -0.5 )
+texture = ExtResource( 6 )
+
+[node name="Position2D" type="Position2D" parent="." index="6"]
+position = Vector2( -217, 0 )

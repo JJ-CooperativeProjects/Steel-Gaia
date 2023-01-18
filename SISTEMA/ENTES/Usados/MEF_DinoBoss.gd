@@ -190,7 +190,7 @@ func _salir_estado(viejo, nuevo):
 	pass
 
 ##########
-func LogicaMorir(cantida_dagno):
+func LogicaMorir(cantida_dagno,quien):
 	var ente = get_parent() as Ente
 	#print(cantida_dagno)
 	ente.set_vitalidad(ente.get_vitalidad() - (cantida_dagno / 5)) 

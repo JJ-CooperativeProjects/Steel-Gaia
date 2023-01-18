@@ -113,7 +113,7 @@ func _entrar_estado(nuevo, viejo):
 func _salir_estado(viejo, nuevo):
 	pass
 
-func LogicaMorir(cantida_dagno):
+func LogicaMorir(cantida_dagno,quien):
 	ente.vitalidad -= cantida_dagno
 	
 	if ente.vitalidad <= 0:

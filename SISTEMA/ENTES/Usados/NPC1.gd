@@ -1,3 +1,4 @@
+tool
 extends Enemigo
 class_name NPC1
 """
@@ -8,8 +9,8 @@ enum estados {TRANQUILO,ALERTA,MUERTO}
 var estado:int = estados.TRANQUILO
 var jugador_cerca:bool = false
 
+onready var efecto_polvo:PackedScene = preload("res://SISTEMA/EFECTOS/ESPECIALES/EfectoEspecialHumoDisperso.tscn")
 
-var objetivo = null #El id del jugador enemigo.
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -40,13 +41,14 @@ func CorrerSprint(coeficiente:float):
 	movimiento.x = lerp(movimiento.x,velocidad_actual_x,0.25)
 	
 func _process(delta):
-	if $Cuerpo/rayo_mirar_jugador.enabled:
-		$Cuerpo/rayo_mirar_jugador.look_at(Memoria.jugador.global_position)
-	$Label_debug.text = str(vitalidad) + " " + str(LogicaMirarJugador())
-
+	#$Label_debug.text = str(vitalidad) + " " + str(LogicaMirarJugador())
+	pass
+	
 func Girar():
 	$Cuerpo.scale.x *= -1
 	direccion_mira = $Cuerpo.scale.x
+
+
 
 #Cuando alguno de los rayos de control detecta que el NPC debe girar:
 func Girar_por_rayo():
@@ -62,7 +64,11 @@ func Girar_por_rayo():
 
 func SacudirCamara():
 	Memoria.camara_actual.sacudir(15,0,4)
-
+	
+	#Crear el efecto de polvo:
+	var i_polvo:EfectoEspecial = efecto_polvo.instance()
+	i_polvo.global_position = Vector2($Cuerpo/pos_golpes_escudo.global_position.x,$Cuerpo/pos_golpes_escudo.global_position.y +25)
+	Memoria.nivel_actual.add_child(i_polvo)
 #Retorna true si puede ver al jugador:
 func LogicaMirarJugador()->bool:
 	var jugador = $Cuerpo/rayo_mirar_jugador.get_collider() as Jugador
@@ -70,7 +76,7 @@ func LogicaMirarJugador()->bool:
 		return true
 	return false
 
-func _on_Ente_RecibeDamage(cantidad:float):
+func _on_Ente_RecibeDamage(cantidad:float,quine:Node2D):
 	#prints("El jugador recibe damage:", cantidad)
 	if LogicaMirarJugador():
 		Flash()

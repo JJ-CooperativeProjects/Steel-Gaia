@@ -172,7 +172,7 @@ func ReiniciarConteos():
 func SumarGolpe(damage):
 	count_golpes += 1
 
-func LogicaMorir(cantida_dagno):
+func LogicaMorir(cantida_dagno,quien):
 	var ente = get_parent() as Ente
 	#print(cantida_dagno)
 	ente.set_vitalidad(ente.get_vitalidad() - cantida_dagno) 

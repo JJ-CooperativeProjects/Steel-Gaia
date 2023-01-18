@@ -1,3 +1,4 @@
+tool
 extends Enemigo
 class_name DinoBoss
 
@@ -86,6 +87,6 @@ func set_vitalidad(valor:int):
 func mostrar_barra_vida():
 	$CanvasLayer_BarraVida.visible = true
 
-func _on_Ente_RecibeDamage(cantidad:float):
+func _on_Ente_RecibeDamage(cantidad:float,quien:Node2D):
 	#prints("El dino boss ha recibido",cantidad, "daño!")
 	pass

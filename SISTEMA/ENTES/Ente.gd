@@ -3,7 +3,7 @@ class_name Ente
 """
 CLASE QUE DEFINE A UNA ENTIDAD
 """
-signal RecibeDamage(cantidad)
+signal RecibeDamage(cantidad,quien)
 signal Muere() #Emitida cuando un ente muere.
 
 const NORMAL = Vector2.UP
@@ -30,7 +30,7 @@ onready var tree:AnimationTree = $AnimationTree
 
 var movimiento:Vector2 = Vector2.ZERO
 var vector_snap:Vector2 = SNAP_DIR * SNAP_L
-var direccion_mira:int = 1	#1= derecha -1 = izquierda
+export var direccion_mira:int = 1	#1= derecha -1 = izquierda
 
 var puede_recibir_damage:bool = true
 var en_escalera:bool = false #Se pone a true cuando está en un area de escalera.
@@ -47,6 +47,7 @@ func _ready():
 #METODOS AUXILIARES=============================================================
 func ConectarSegnales():
 	connect("RecibeDamage",$MEF,"LogicaMorir")
+	Memoria.connect("datos_cargados",self,"AfterCargar")
 #Aplica una fuerza constante en el eje Y del movimiento.
 func AplicarGravedad(delta):
 	movimiento.y += Memoria.gravedad * delta if movimiento.y < 850 else 0
@@ -147,7 +148,7 @@ func get_vitalidad()->int:
 func set_damage(valor:float):
 	damage = valor
 #SEÑALES========================================================================
-func _on_Ente_RecibeDamage(cantidad:float):
+func _on_Ente_RecibeDamage(cantidad:float,quien:Node2D):
 	#prints("El jugador recibe damage:", cantidad)
 	Flash()
 	movimiento = Vector2.ZERO

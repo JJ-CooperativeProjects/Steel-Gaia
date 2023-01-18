@@ -9,7 +9,7 @@ export (float) var max_energia:float = 100
 export (float) onready var energia:float = 100	      setget set_energia, get_energia
 
 onready var efecto_dash:PackedScene = preload("res://SISTEMA/EFECTOS/DashEffect.tscn")
-onready var camara:PackedScene = preload("res://SISTEMA/NIVELES/Position2D.tscn")
+onready var camara:PackedScene = preload("res://SISTEMA/GLOBAL/CamaraControl.tscn")
 onready var rayo_pared_derecho:RayCast2D = $RayPared1
 onready var rayo_pared_izqueierdo:RayCast2D = $RayPared2
 
@@ -17,6 +17,8 @@ var mi_control_camara = null
 #Segun la dirección que el usuario pulse:
 var direcciones:Vector2 = Vector2.ZERO
 var tween_salto:SceneTreeTween
+
+onready var pos_pugnos:Position2D = $Cuerpo/pos_golpes_pugnos 
 
 func _ready():
 	Memoria.jugador = self
@@ -249,3 +251,8 @@ func CargarDatosJugador(data:BaseSaveData,posicion_incluida:bool,direccion_inclu
 func _on_Jugador_tree_exiting():
 	mi_control_camara.queue_free()
 	pass # Replace with function body.
+
+func AfterCargar():
+	$Cuerpo/AreaDamageEscopeta.objetivo = self
+	$Cuerpo/AreaDamageNormal.objetivo = self
+	pass

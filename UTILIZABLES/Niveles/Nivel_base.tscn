@@ -2,9 +2,9 @@
 
 [ext_resource path="res://SISTEMA/NIVELES/Nivel.gd" type="Script" id=1]
 [ext_resource path="res://RECURSOS/IMAGENES/blanco 32x32.png" type="Texture" id=2]
-[ext_resource path="res://SISTEMA/GLOBAL/RESOURCES/TileMap_fondo1.tres" type="TileSet" id=3]
+[ext_resource path="res://RECURSOS/TILE-SETS/TileMap_fondo1.tres" type="TileSet" id=3]
 [ext_resource path="res://SISTEMA/GUI/debug.tscn" type="PackedScene" id=4]
-[ext_resource path="res://SISTEMA/GLOBAL/RESOURCES/TileMap_Nivel.tres" type="TileSet" id=5]
+[ext_resource path="res://RECURSOS/TILE-SETS/TileMap_Nivel.tres" type="TileSet" id=5]
 [ext_resource path="res://SISTEMA/OBJETOS/ESCALERAS/Escaleras.tscn" type="PackedScene" id=6]
 [ext_resource path="res://SISTEMA/GUI/Debug_in_game.tscn" type="PackedScene" id=7]
 [ext_resource path="res://SISTEMA/NIVELES/ParallaxBackground.tscn" type="PackedScene" id=11]

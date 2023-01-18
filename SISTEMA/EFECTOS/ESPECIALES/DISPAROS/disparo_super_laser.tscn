@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SISTEMA/EFECTOS/ESPECIALES/disparo_laser1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Kenney/efecto_laser_grande.png" type="Texture" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 189.5, 46 )
+
+[node name="disparo_super_laser" instance=ExtResource( 1 )]
+position = Vector2( 1329, 534 )
+collision_layer = 0
+collision_mask = 0
+velocidad_bala = 2500.0
+max_rebotes = 2
+
+[node name="Sprite" parent="." index="0"]
+modulate = Color( 2.89, 1.74, 0, 1 )
+material = SubResource( 1 )
+rotation = 1.5708
+scale = Vector2( 2, 5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = true
+
+[node name="AreaDamage" parent="." index="2"]
+visible = true
+damage = 30.0
+
+[node name="CollisionShape2D" parent="AreaDamage" index="0"]
+position = Vector2( 0.5, 0 )
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" parent="." index="3"]
+visible = true
+
+[node name="Light2D" parent="." index="4"]
+visible = false
