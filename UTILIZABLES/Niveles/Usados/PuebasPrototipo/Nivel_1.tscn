@@ -57,7 +57,6 @@ curve = SubResource( 1 )
 [node name="NPC1" parent="ENEMIGOS" index="1" instance=ExtResource( 6 )]
 position = Vector2( 368, 384 )
 vitalidad = 100
-direccion_mira = -1
 girar = true
 
 [node name="Intercambiador_hacia_DinoBoss" parent="AREAS_EVENTOS" index="0" instance=ExtResource( 4 )]

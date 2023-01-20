@@ -122,28 +122,28 @@ func _transiciones(delta):
 			if Input.is_action_just_pressed("salto"):
 				return estados.salto_inicia
 			#puede hacer dash:
-			if Input.is_action_just_pressed("dash") and puede_dash and ente.get_energia() >= consumo_energia_dash:
-				return estados.dash
+#			if Input.is_action_just_pressed("dash") and puede_dash and ente.get_energia() >= consumo_energia_dash:
+#				return estados.dash
 				
 		estados.en_pared:
 			if Input.is_action_just_pressed("salto"):
 				return estados.salto_inicia
 			
-			if ente.direccion_mira == 1:
-				if Input.is_action_just_pressed("dash") and puede_dash and ente.get_energia() >= consumo_energia_dash:
-					ente.GirarManualmente()
-					return estados.dash
-			else:
-				if Input.is_action_just_pressed("dash") and puede_dash and ente.get_energia() >= consumo_energia_dash:
-					ente.GirarManualmente()
-					return estados.dash
+#			if ente.direccion_mira == 1:
+#				if Input.is_action_just_pressed("dash") and puede_dash and ente.get_energia() >= consumo_energia_dash:
+#					ente.GirarManualmente()
+#					return estados.dash
+#			else:
+#				if Input.is_action_just_pressed("dash") and puede_dash and ente.get_energia() >= consumo_energia_dash:
+#					ente.GirarManualmente()
+#					return estados.dash
 				
 			if !ente.FueraDePared():
 				return estados.quieto
 	
 	if ["quieto", "correr","salto_cae","salto_sube","segundo_salto","segundo_salto_cae"].has(estado):
-		if Input.is_action_just_pressed("dash") and puede_dash and ente.get_energia() >= consumo_energia_dash:
-			return estados.dash
+#		if Input.is_action_just_pressed("dash") and puede_dash and ente.get_energia() >= consumo_energia_dash:
+#			return estados.dash
 		
 		if Input.is_action_just_pressed("salto") and ente.is_on_floor():
 				return estados.salto_inicia
@@ -199,16 +199,16 @@ func _entrar_estado(nuevo, viejo):
 		estados.en_pared:
 			ente.movimiento = Vector2.ZERO
 		
-		estados.dash:
-			ente.set_energia(ente.get_energia() - consumo_energia_dash)
-			ente.Dash()
-			ente.EfectoSombra(0.01)
+#		estados.dash:
+#			ente.set_energia(ente.get_energia() - consumo_energia_dash)
+#			ente.Dash()
+#			ente.EfectoSombra(0.01,self)
 		
 		estados.segundo_salto:
 			ente.set_energia(ente.get_energia() - consumo_energia_doble_salto)
 			ente.movimiento = Vector2.ZERO
 			ente.SegundoSalto()
-			ente.EfectoSombra(0.01)
+			ente.EfectoSombra(0.01,self)
 		
 		estados.atacar1:
 			ente.movimiento = Vector2.ZERO

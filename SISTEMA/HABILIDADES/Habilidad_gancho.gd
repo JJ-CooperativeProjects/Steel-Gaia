@@ -86,13 +86,7 @@ func _entrar_estado(nuevo, viejo):
 func _salir_estado(viejo, nuevo):
 	pass
 
-func DeshabilitarMEF():
-	mef_ente.set_process(false)
-	mef_ente.set_physics_process(false)
 
-func HabilitarMEF():
-	mef_ente.set_process(true)
-	mef_ente.set_physics_process(true)
 
 func ReiniciarGancho():
 	mi_ente.movimiento = Vector2.ZERO

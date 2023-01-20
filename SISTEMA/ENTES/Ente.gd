@@ -30,7 +30,7 @@ onready var tree:AnimationTree = $AnimationTree
 
 var movimiento:Vector2 = Vector2.ZERO
 var vector_snap:Vector2 = SNAP_DIR * SNAP_L
-export var direccion_mira:int = 1	#1= derecha -1 = izquierda
+var direccion_mira:int = 1	#1= derecha -1 = izquierda
 
 var puede_recibir_damage:bool = true
 var en_escalera:bool = false #Se pone a true cuando está en un area de escalera.

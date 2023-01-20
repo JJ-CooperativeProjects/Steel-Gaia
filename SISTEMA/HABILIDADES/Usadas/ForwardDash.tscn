@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SISTEMA/HABILIDADES/HABILIDAD.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/HABILIDADES/Usadas/ForwardDash.gd" type="Script" id=2]
+
+[node name="ForwardDash" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+consumo_energia_dash = 30.0

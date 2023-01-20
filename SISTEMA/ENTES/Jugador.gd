@@ -130,7 +130,7 @@ func SegundoSalto():
 	#$AnimEfectos.play("SaltoSegundo")
 
 #
-func EfectoSombra(ciclo:float):
+func EfectoSombra(ciclo:float,nodo_controlador:MEF_base):
 	var efecto:DashEffect = efecto_dash.instance()
 	efecto.texture = $Cuerpo/Sprite.texture
 	efecto.global_position = global_position
@@ -139,8 +139,10 @@ func EfectoSombra(ciclo:float):
 	if $Cuerpo.scale.x < 0:
 		efecto.scale.x *= -1
 	var timer:SceneTreeTimer = get_tree().create_timer(ciclo)
-	if ["dash","segundo_salto"].has($MEF.estado):
-		timer.connect("timeout",self,"EfectoSombra",[ciclo])
+	if ["segundo_salto"].has($MEF.estado):
+		timer.connect("timeout",self,"EfectoSombra",[ciclo,nodo_controlador])
+	if ["dash"].has(nodo_controlador.estado):
+		timer.connect("timeout",self,"EfectoSombra",[ciclo,nodo_controlador])
 	pass
 
 func GirarManualmente():
