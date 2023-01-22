@@ -47,7 +47,7 @@ format = 1
 tile_data = PoolIntArray( 524291, 0, 0, 524295, 0, 0, 524299, 0, 0 )
 
 [node name="Jugador" parent="JUGADORES" index="0" instance=ExtResource( 2 )]
-position = Vector2( 112, 368 )
+position = Vector2( 184, 368 )
 
 [node name="Path2D" parent="ENEMIGOS" index="0" instance=ExtResource( 8 )]
 position = Vector2( 1032, 128 )
@@ -55,8 +55,7 @@ rotation = 3.14159
 curve = SubResource( 1 )
 
 [node name="NPC1" parent="ENEMIGOS" index="1" instance=ExtResource( 6 )]
-position = Vector2( 368, 384 )
-vitalidad = 100
+position = Vector2( 496, 376 )
 girar = true
 
 [node name="Intercambiador_hacia_DinoBoss" parent="AREAS_EVENTOS" index="0" instance=ExtResource( 4 )]

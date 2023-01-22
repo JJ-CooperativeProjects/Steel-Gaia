@@ -13,6 +13,7 @@ func _unhandled_input(event):
 func PonerMenu(menu):
 	el_menu = menu
 	$AnimationPlayer.play("efecto_d")
+	Memoria.set_modo_cinematica(true)
 	
 	
 
@@ -38,6 +39,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 				i.visible = false
 				
 		$AnimationPlayer.play("efecto_inv")
+		Memoria.set_modo_cinematica(false)
 		if cerrando:
 			return
 		
@@ -45,6 +47,14 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		
 	if anim_name == "efecto_inv":
 		cerrando = false
-		get_tree().paused = false
+		
+		var todas_pantallas_apagadas = true
+		for i in RetornarPantallas():
+			if i.visible == true:
+				todas_pantallas_apagadas = false
+				return
+		
+		if todas_pantallas_apagadas:
+			get_tree().paused = false
 		pass
 	pass # Replace with function body.

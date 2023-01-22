@@ -3,6 +3,7 @@ extends MenuBotones
 
 func _on_BotonContinuar_button_up():
 	if not Memoria.modo_cinematica_activo:
+		$VBoxContainer/BotonContinuar.EmitirSonido($VBoxContainer/BotonContinuar.sonido_aceptar2)
 		var minijuego:Puzzle = Memoria.nivel_actual.get_node_or_null("CanvasLayer/Puzzle")
 		get_parent().visible = false
 		
@@ -19,6 +20,7 @@ func _on_BotonContinuar_button_up():
 
 func _on_BotonSalirMenu_pressed():
 	if not Memoria.modo_cinematica_activo:
+		$VBoxContainer/BotonContinuar.EmitirSonido($VBoxContainer/BotonContinuar.sonido_aceptar2)
 		Memoria.nivel_actual = null
 		get_tree().root.get_node("/root/MenusGlobales").get_node("PantallaMenuRapido").visible = false
 		get_tree().paused =false

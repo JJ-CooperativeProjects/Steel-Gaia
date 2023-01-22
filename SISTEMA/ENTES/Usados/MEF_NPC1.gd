@@ -175,13 +175,14 @@ func LogicaMorir(cantida_dagno,quien):
 			var tween:SceneTreeTween = create_tween()
 			ente.vector_impulsos.x = -20.0
 			tween.tween_property(ente,"vector_impulsos:x",0.0,0.2)
-			#Poner sonido de golpe:
-			var sonido:EfectoEspecial = efecto_golpe_escudo.instance()
+			
 #			if is_instance_valid(quien): 
 #				if quien.get("pos_pugnos"):
 #					sonido.global_position = quien.pos_pugnos.global_position
 #					pass
-#			else:
+		if not ente.get_node("Cuerpo/Position2D/Escudo/CollisionShape2D").disabled:
+			#Poner sonido de golpe:
+			var sonido:EfectoEspecial = efecto_golpe_escudo.instance()
 			var pos:Position2D = ente.get_node("Cuerpo/pos_golpes_escudo")
 			sonido.global_position = Vector2(rand_range(pos.global_position.x-10,pos.global_position.x+10),rand_range(pos.global_position.y-10,pos.global_position.y+10))
 			

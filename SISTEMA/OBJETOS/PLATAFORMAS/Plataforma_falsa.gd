@@ -68,7 +68,8 @@ func Desactivar():
 	estado = estados.NADA
 
 func _on_Area_activar_falsa_body_entered(body):
-	unidad_arriba = body
+	if body is Ente:
+		unidad_arriba = body
 #	var timer:SceneTreeTimer = get_tree().create_timer(tiempo_para_caerse)
 #	timer.connect("timeout",self,"emit_signal",["activar_deteccion"])
 	pass # Replace with function body.

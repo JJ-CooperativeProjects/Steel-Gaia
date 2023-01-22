@@ -10,7 +10,8 @@ var estado:int = estados.TRANQUILO
 var jugador_cerca:bool = false
 
 onready var efecto_polvo:PackedScene = preload("res://SISTEMA/EFECTOS/ESPECIALES/EfectoEspecialHumoDisperso.tscn")
-
+onready var efecto_dash:PackedScene = preload("res://SISTEMA/EFECTOS/ESPECIALES/Usados/EfectoEspecial_NPC1_sombra_dash.tscn")
+onready var efecto_salpicas_pies:PackedScene = preload("res://SISTEMA/EFECTOS/ESPECIALES/Usados/EfectoEspecial_humo_npc1_pies.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -39,7 +40,33 @@ func CorrerSprint(coeficiente:float):
 
 	velocidad_actual_x *= velocidad_movimiento
 	movimiento.x = lerp(movimiento.x,velocidad_actual_x,0.25)
+
+func EfectoDash():
+	var i_efecto:EfectoEspecial = efecto_dash.instance()
+	i_efecto.global_position = Vector2(global_position.x + (get_node("MEF").coeficiente_correr *5) * direccion_mira,global_position.y)
+	i_efecto.coeficiente_shader = get_node("MEF").coeficiente_correr
+	Memoria.nivel_actual.add_child(i_efecto)
+	var spr:Sprite = i_efecto.get_node("Sprite")
 	
+	spr.texture = $Cuerpo/Sprite.texture
+	spr.hframes = $Cuerpo/Sprite.hframes
+	spr.vframes = $Cuerpo/Sprite.vframes
+	spr.frame = $Cuerpo/Sprite.frame
+	spr.frame_coords = $Cuerpo/Sprite.frame_coords
+	spr.scale.x *= direccion_mira #$Cuerpo/Sprite.scale
+	
+	var i_salpicas:EfectoEspecial = efecto_salpicas_pies.instance()
+	i_salpicas.global_position = $Cuerpo/pos_salpica_pies.global_position
+	Memoria.nivel_actual.add_child(i_salpicas)
+
+func ActivarColisionesVelociadSube():
+	if $MEF.coeficiente_correr > 1.65:
+		if not $Cuerpo/Position2D/Area2D.monitoring:
+			$Cuerpo/Position2D/Area2D.set_deferred("monitoring",true)
+		if not $Cuerpo/Position2D/Escudo/CollisionShape2D.disabled:
+			$Cuerpo/Position2D/Escudo/CollisionShape2D.set_deferred("disabled",true)
+		
+
 func _process(delta):
 	#$Label_debug.text = str(vitalidad) + " " + str(LogicaMirarJugador())
 	pass

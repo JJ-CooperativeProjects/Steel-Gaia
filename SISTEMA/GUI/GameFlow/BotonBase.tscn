@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://RECURSOS/FONTS/KILBY.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://RECURSOS/FONTS/akbar.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://SISTEMA/GUI/GameFlow/BotonBase.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
+extra_spacing_char = 1
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
@@ -22,3 +23,8 @@ custom_styles/hover = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
 text = "EMPEZAR"
 script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_BotonBase_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_BotonBase_mouse_exited"]

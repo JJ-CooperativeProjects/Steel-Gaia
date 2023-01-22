@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://SISTEMA/GUI/GameFlow/Pantalla.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RECURSOS/FONTS/my-standard.ttf" type="DynamicFontData" id=2]
@@ -24,6 +24,48 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 96, 1088 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Director:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "director_visible"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Director:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("BotonVolver")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "button_up" ],
+"method": "emit_signal"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "scroll"
@@ -45,13 +87,27 @@ tracks/1/path = NodePath("BotonVolver")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 30 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "button_up" ],
 "method": "emit_signal"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 30 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "MostrarDirector"
 } ]
 }
 
@@ -67,12 +123,8 @@ margin_top = 1088.0
 margin_right = 1824.0
 margin_bottom = 2537.01
 custom_fonts/font = SubResource( 1 )
-text = "Diseño y Programación:
+text = "Artistas Gráficos:
 ---
-
-
-Artistas Gráficos:
-...
 
 
 Música y Sonido:
@@ -86,6 +138,8 @@ Efectos Especiales:
 Diseño de Niveles:
 ---
 
+Programación:
+---
 
 Agradecimientos:
 ---"
@@ -93,14 +147,31 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="BotonVolver" parent="." index="2" instance=ExtResource( 3 )]
-margin_left = 64.0
-margin_top = 32.0
-margin_right = 392.0
-margin_bottom = 98.0
+[node name="Director" type="Label" parent="." index="2"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 752.0
+margin_top = 480.0
+margin_right = 1168.0
+margin_bottom = 807.0
+custom_fonts/font = SubResource( 1 )
+text = "Dirigido por:
+JJulio
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+
+"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="BotonVolver" parent="." index="3" instance=ExtResource( 3 )]
+margin_left = 64.0
+margin_top = 56.0
+margin_right = 392.0
+margin_bottom = 122.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 anims/RESET = SubResource( 2 )
+anims/director_visible = SubResource( 4 )
 anims/scroll = SubResource( 3 )
 
 [connection signal="visibility_changed" from="." to="." method="_on_PantallaCreditos_visibility_changed"]

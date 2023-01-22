@@ -4,6 +4,7 @@ extends Pantalla
 
 func _on_BotonVolver_button_up():
 	if not Memoria.modo_cinematica_activo:
+		$BotonVolver.EmitirSonido($BotonVolver.sonido_aceptar2)
 		if not Memoria.nivel_actual:
 			CambioSuave.CambiarEscena(Memoria.historial_pantallas.pop_back())
 
@@ -14,6 +15,7 @@ func _on_BotonVolver_button_up():
 
 func _on_BotonMostrarCreditos_pressed():
 	if not Memoria.modo_cinematica_activo:
+		$BotonMostrarCreditos.EmitirSonido($BotonMostrarCreditos.sonido_aceptar2)
 		if not Memoria.nivel_actual:
 			Memoria.historial_pantallas.append("res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaOpciones.tscn")
 			CambioSuave.CambiarEscena("res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaCreditos.tscn")

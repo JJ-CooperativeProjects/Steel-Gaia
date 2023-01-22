@@ -101,6 +101,7 @@ texture = ExtResource( 2 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="2"]
 stream = ExtResource( 3 )
+volume_db = -8.23
 max_distance = 500.0
 attenuation = 4.59479
 bus = "Instant_Efects"

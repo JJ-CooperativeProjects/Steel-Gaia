@@ -6,10 +6,14 @@
 [ext_resource path="res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaOpciones.gd" type="Script" id=4]
 
 [node name="PantallaOpciones" instance=ExtResource( 1 )]
+margin_right = 1920.0
+margin_bottom = 1080.0
 script = ExtResource( 4 )
 
 [node name="TextureRect" parent="." index="0"]
 modulate = Color( 0.203922, 0.2, 0.407843, 1 )
+margin_right = 0.0
+margin_bottom = 0.0
 
 [node name="BotonVolver" parent="." index="1" instance=ExtResource( 2 )]
 pause_mode = 0

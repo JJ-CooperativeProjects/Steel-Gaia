@@ -10,11 +10,15 @@ extra_spacing_char = 3
 font_data = ExtResource( 2 )
 
 [node name="PantallaPresentacion" instance=ExtResource( 1 )]
+margin_right = 1920.0
+margin_bottom = 1080.0
 script = ExtResource( 3 )
 proxima_pantalla = "res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaMenuPrincipal.tscn"
 
 [node name="TextureRect" parent="." index="0"]
 modulate = Color( 0, 0, 0, 1 )
+margin_right = 0.0
+margin_bottom = 0.0
 
 [node name="Label" type="Label" parent="." index="1"]
 anchor_left = 0.5

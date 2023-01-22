@@ -14,12 +14,8 @@ func _ready():
 
 	
 	poner_estado_deferred(estados.espera)
-	yield(mi_ente,"ready")
-	mi_ente_anim = mi_ente.get_node("AnimEfectos")
 	
-	mi_ente_anim.connect("animation_finished",self,"_on_animacion_termina")
 	
-	DeshabilitarSelf()
 
 func _input(event):
 	if [estados.espera].has(estado):
@@ -72,3 +68,10 @@ func _on_animacion_termina(animacion:String):
 			HabilitarMEF()
 			
 			
+
+func AfterCargar():
+	mi_ente_anim = mi_ente.get_node("AnimEfectos")
+	
+	mi_ente_anim.connect("animation_finished",self,"_on_animacion_termina")
+	
+	DeshabilitarSelf()

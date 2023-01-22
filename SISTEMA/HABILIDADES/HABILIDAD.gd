@@ -9,6 +9,8 @@ var mef_ente:MEF_base = null #Hace referencia a la maquina de estados del ente.
 onready var mi_ente_anim:AnimationPlayer = null
 
 
+func _ready():
+	Memoria.connect("datos_cargados",self,"AfterCargar")
 
 func DeshabilitarMEF():
 	mef_ente.set_process(false)
@@ -26,3 +28,6 @@ func HabilitarSelf():
 func DeshabilitarSelf():
 	set_process(false)
 	set_physics_process(false)
+
+func AfterCargar():
+	pass

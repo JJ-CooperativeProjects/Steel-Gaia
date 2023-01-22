@@ -9,10 +9,12 @@ func _ready():
 	GuiJugador.visible = false
 	
 	
-	
+func MostrarDirector():
+	$AnimationPlayer.play("director_visible")
 
 func _on_BotonVolver_button_up():
 	if not Memoria.modo_cinematica_activo:
+		$BotonVolver.EmitirSonido($BotonVolver.sonido_aceptar2)
 		if Memoria.juego_terminado:
 			CambioSuave.CambiarEscena("res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaMenuPrincipal.tscn")
 			Memoria.juego_terminado = false

@@ -10,38 +10,54 @@
 
 [node name="MenuRapido" instance=ExtResource( 1 )]
 pause_mode = 2
-margin_left = -272.0
-margin_top = -192.0
-margin_right = 272.0
-margin_bottom = 192.0
+margin_left = -232.0
+margin_top = -214.0
+margin_right = 232.0
+margin_bottom = 214.0
 script = ExtResource( 7 )
 
 [node name="VBoxContainer" parent="." index="0"]
-margin_right = 510.0
-margin_bottom = 370.0
+margin_right = 464.0
+margin_bottom = 428.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 15
 
-[node name="BotonContinuar" parent="VBoxContainer" index="0" instance=ExtResource( 5 )]
-margin_right = 510.0
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" index="0"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 464.0
+margin_bottom = 17.0
+custom_constants/separation = 17
 
-[node name="BotonCargarPartida" parent="VBoxContainer" index="1" instance=ExtResource( 3 )]
-margin_top = 76.0
-margin_right = 510.0
-margin_bottom = 142.0
+[node name="BotonContinuar" parent="VBoxContainer" index="1" instance=ExtResource( 5 )]
+margin_top = 32.0
+margin_right = 464.0
+margin_bottom = 83.0
+rect_pivot_offset = Vector2( 232, 25 )
 
-[node name="BotonOpciones" parent="VBoxContainer" index="2" instance=ExtResource( 4 )]
-margin_top = 152.0
-margin_right = 510.0
-margin_bottom = 218.0
+[node name="BotonCargarPartida" parent="VBoxContainer" index="2" instance=ExtResource( 3 )]
+margin_top = 98.0
+margin_right = 464.0
+margin_bottom = 149.0
+rect_pivot_offset = Vector2( 232, 25 )
 
-[node name="BotonSalirMenu" parent="VBoxContainer" index="3" instance=ExtResource( 6 )]
-margin_top = 228.0
-margin_right = 510.0
-margin_bottom = 294.0
+[node name="BotonOpciones" parent="VBoxContainer" index="3" instance=ExtResource( 4 )]
+margin_top = 164.0
+margin_right = 464.0
+margin_bottom = 215.0
+rect_pivot_offset = Vector2( 232, 25 )
 
-[node name="BotonSalirJuego" parent="VBoxContainer" index="4" instance=ExtResource( 2 )]
-margin_top = 304.0
-margin_right = 510.0
-margin_bottom = 370.0
+[node name="BotonSalirMenu" parent="VBoxContainer" index="4" instance=ExtResource( 6 )]
+margin_top = 230.0
+margin_right = 464.0
+margin_bottom = 281.0
+rect_pivot_offset = Vector2( 232, 25 )
+
+[node name="BotonSalirJuego" parent="VBoxContainer" index="5" instance=ExtResource( 2 )]
+margin_top = 296.0
+margin_right = 464.0
+margin_bottom = 347.0
+rect_pivot_offset = Vector2( 232, 25 )
 
 [connection signal="button_up" from="VBoxContainer/BotonContinuar" to="." method="_on_BotonContinuar_button_up"]
 [connection signal="button_up" from="VBoxContainer/BotonCargarPartida" to="." method="_on_BotonCargarPartida_button_up"]

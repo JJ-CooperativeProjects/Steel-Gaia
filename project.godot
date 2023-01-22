@@ -159,6 +159,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://SISTEMA/ENTES/Jugador.gd"
 }, {
+"base": "Node2D",
+"class": "LuzFaro",
+"language": "GDScript",
+"path": "res://SISTEMA/EFECTOS/ESPECIALES/LuzFaro.gd"
+}, {
 "base": "MEF_base",
 "class": "MEF_NPC1",
 "language": "GDScript",
@@ -325,6 +330,7 @@ _global_script_class_icons={
 "Habilidad": "",
 "Intercambiador": "",
 "Jugador": "",
+"LuzFaro": "",
 "MEF_NPC1": "",
 "MEF_base": "",
 "MensajeTomaDecisiones": "",

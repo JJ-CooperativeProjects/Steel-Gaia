@@ -7,6 +7,7 @@ func _ready():
 
 func _on_BotonVolver_button_up():
 	if not Memoria.modo_cinematica_activo:
+		$BotonVolver.EmitirSonido($BotonVolver.sonido_aceptar2)
 		if not Memoria.nivel_actual:
 			CambioSuave.CambiarEscena(Memoria.historial_pantallas.pop_back())
 
