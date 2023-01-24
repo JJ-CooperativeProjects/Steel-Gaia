@@ -1019,10 +1019,12 @@ anims/impulso_traslado = SubResource( 13 )
 anims/movimiento_levitar = SubResource( 11 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="7"]
+visible = false
 position = Vector2( 3, -1 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="Area_cuerpo" type="Area2D" parent="." index="8"]
+visible = false
 collision_layer = 2
 collision_mask = 0
 input_pickable = false

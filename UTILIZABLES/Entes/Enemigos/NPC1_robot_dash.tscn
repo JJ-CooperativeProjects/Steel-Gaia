@@ -16,8 +16,9 @@ resource_local_to_scene = true
 shader = ExtResource( 5 )
 shader_param/pixelFactor = 0.35
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 6, 26.5 )
+[sub_resource type="CapsuleShape2D" id=16]
+radius = 7.0
+height = 43.0
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8.5, 19.5 )
@@ -64,7 +65,7 @@ tracks/2/keys = {
 "values": [ 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Cuerpo/Position2D:position")
+tracks/3/path = NodePath("Cuerpo/Position2D/Area2D:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -73,10 +74,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -2, -16 ) ]
+"values": [ false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Cuerpo/Position2D:rotation_degrees")
+tracks/4/path = NodePath("Cuerpo/Position2D/Escudo/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -85,10 +86,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Cuerpo/Position2D/Area2D:monitoring")
+tracks/5/path = NodePath("Cuerpo/Position2D/Escudo:collision_mask")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -97,10 +98,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ 1 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Cuerpo/Position2D/Escudo/CollisionShape2D:disabled")
+tracks/6/path = NodePath("Cuerpo/efecto1:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -109,10 +110,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Cuerpo/Position2D/Escudo:collision_mask")
+tracks/7/path = NodePath("Cuerpo/efecto1:self_modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -121,10 +122,10 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1 ]
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Cuerpo/efecto1:position")
+tracks/8/path = NodePath("Cuerpo/efecto1:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -133,10 +134,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ -105.0 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Cuerpo/efecto1:self_modulate")
+tracks/9/path = NodePath("Cuerpo/Position2D:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -145,10 +146,10 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
+"values": [ Vector2( 29, 7 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Cuerpo/efecto1:rotation_degrees")
+tracks/10/path = NodePath("Cuerpo/Position2D:rotation_degrees")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -157,7 +158,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -105.0 ]
+"values": [ -2.00823 ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -227,52 +228,52 @@ tracks/4/keys = {
 "values": [ false, true, false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Cuerpo/Position2D/Escudo/CollisionShape2D:disabled")
+tracks/5/path = NodePath("Cuerpo/efecto1:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Cuerpo/efecto1:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
 "times": PoolRealArray( 0, 0.25, 0.27, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ Vector2( -3, -15 ), Vector2( 20, -9 ), Vector2( 26, 0 ), Vector2( 27, 0 ) ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("Cuerpo/efecto1:self_modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/path = NodePath("Cuerpo/efecto1:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 0, 0.25, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Cuerpo/efecto1:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.25, 0.27, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -105.0, -30.0, 0.0, 15.0 ]
+}
 tracks/8/type = "value"
-tracks/8/path = NodePath("Cuerpo/efecto1:rotation_degrees")
+tracks/8/path = NodePath("Cuerpo/Position2D/Escudo/CollisionShape2D:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.25, 0.27, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.47 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ -105.0, -30.0, 0.0, 15.0 ]
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -326,6 +327,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/Position2D:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -2.00823 ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "caminar"
@@ -343,6 +356,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 39, 40, 41, 42, 43, 44, 45, 46, 47 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cuerpo/Position2D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -89.9999 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cuerpo/Position2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, -18 ) ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "cargar_camina"
@@ -359,6 +396,42 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 26, 27, 28, 29, 30, 31, 32, 33, 34 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cuerpo/Position2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.55, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 29, 7 ), Vector2( 26, 6 ), Vector2( 20, -4 ), Vector2( 9, -15 ), Vector2( 5, -18 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cuerpo/Position2D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.55, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -2.00823, -23.7119, -52.7068, -74.9999, -89.9999 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cuerpo/Position2D/Escudo/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.45 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -479,6 +552,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 65, 66, 67, 68 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cuerpo/Position2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 29, 7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cuerpo/Position2D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -2.00823 ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -611,20 +708,20 @@ cast_to = Vector2( 20, 0 )
 collision_mask = 512
 
 [node name="Position2D" type="Position2D" parent="Cuerpo" index="5"]
-position = Vector2( -2, -16 )
+position = Vector2( 29, 7 )
+rotation = -0.0350502
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Escudo" type="KinematicBody2D" parent="Cuerpo/Position2D" index="0"]
-collision_layer = 2
-collision/safe_margin = 2.0
+[node name="Escudo" type="StaticBody2D" parent="Cuerpo/Position2D" index="0"]
+collision_layer = 0
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cuerpo/Position2D/Escudo" index="0"]
 modulate = Color( 1, 0.984314, 0, 1 )
 position = Vector2( -2, 0.5 )
-shape = SubResource( 8 )
+shape = SubResource( 16 )
 disabled = true
 
 [node name="Area2D" type="Area2D" parent="Cuerpo/Position2D" index="1"]
@@ -684,6 +781,7 @@ position = Vector2( 1, -21 )
 shape = SubResource( 3 )
 
 [node name="Label_debug" parent="." index="6"]
+visible = true
 margin_left = 1.0
 margin_top = -70.0
 margin_right = 41.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://SISTEMA/OBJETOS/ESCALERAS/Escaleras.gd" type="Script" id=1]
+[ext_resource path="res://SISTEMA/OBJETOS/ESCALERAS/MallaSujetacion.gd" type="Script" id=1]
 
 [node name="Escaleras" type="Area2D"]
 collision_layer = 8

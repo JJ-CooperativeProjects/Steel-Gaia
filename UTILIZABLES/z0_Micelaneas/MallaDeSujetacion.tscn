@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SISTEMA/OBJETOS/ESCALERAS/MallaSujetacion.gd" type="Script" id=1]
+[ext_resource path="res://RECURSOS/TILE-SETS/Tile_escaleras.tres" type="TileSet" id=2]
+
+[node name="MallaDeSujetacion" type="Area2D"]
+collision_layer = 8
+monitorable = false
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -3
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+collision_use_parent = true
+format = 1
+
+[connection signal="body_entered" from="." to="." method="_on_MallaDeSujetacion_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_MallaDeSujetacion_body_exited"]

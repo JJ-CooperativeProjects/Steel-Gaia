@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://SISTEMA/ENTES/Ente.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SISTEMA/ENTES/Jugador.gd" type="Script" id=2]
@@ -15,6 +15,10 @@
 [ext_resource path="res://RECURSOS/SHADERS/PixelArt1.tres" type="Material" id=13]
 [ext_resource path="res://SISTEMA/HABILIDADES/Habilidad_modo_cinematica.tscn" type="PackedScene" id=14]
 [ext_resource path="res://SISTEMA/HABILIDADES/Usadas/ForwardDash.tscn" type="PackedScene" id=15]
+[ext_resource path="res://SISTEMA/HABILIDADES/Usadas/Habilidad_Doble_Salto.tscn" type="PackedScene" id=16]
+[ext_resource path="res://SISTEMA/HABILIDADES/ControladorHabilidades.gd" type="Script" id=17]
+[ext_resource path="res://SISTEMA/HABILIDADES/Usadas/SujetarseEnMallas.tscn" type="PackedScene" id=18]
+[ext_resource path="res://SISTEMA/HABILIDADES/Usadas/SujetarseEnEscalera.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Animation" id=12]
 resource_name = "count_energia"
@@ -923,7 +927,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+extents = Vector2( 15, 16 )
 
 [node name="Jugador" groups=["Persistentes"] instance=ExtResource( 1 )]
 z_index = -2
@@ -931,10 +935,10 @@ collision_mask = 532
 script = ExtResource( 2 )
 max_energia = 100.0
 energia = 100.0
+count_recuperar_energia = 12.25
 
 [node name="MEF" parent="." index="0"]
 script = ExtResource( 3 )
-count_recuperar_energia = 0.0
 
 [node name="anim_energia" type="AnimationPlayer" parent="MEF" index="0"]
 root_node = NodePath("../..")
@@ -991,7 +995,7 @@ anims/impulso_ataque = SubResource( 7 )
 anims/retroceso_escopeta = SubResource( 8 )
 
 [node name="CollisionShape2D" parent="." index="5"]
-visible = false
+self_modulate = Color( 1, 0, 0, 1 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
@@ -1008,7 +1012,6 @@ editor_draw_drag_margin = true
 script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="." index="7"]
-visible = false
 margin_left = -18.0
 margin_top = -32.0
 margin_right = 22.0
@@ -1047,12 +1050,19 @@ cast_to = Vector2( -18, 0 )
 collision_mask = 528
 
 [node name="HABILIDADES" type="Node" parent="." index="12"]
+script = ExtResource( 17 )
 
 [node name="Habilidad_recoger_objetos(jugador)" parent="HABILIDADES" index="0" instance=ExtResource( 10 )]
 
 [node name="Habilidad_modo_cinematica" parent="HABILIDADES" index="1" instance=ExtResource( 14 )]
 
 [node name="ForwardDash" parent="HABILIDADES" index="2" instance=ExtResource( 15 )]
+
+[node name="Habilidad_Doble_Salto" parent="HABILIDADES" index="3" instance=ExtResource( 16 )]
+
+[node name="SujetarseEnMallas" parent="HABILIDADES" index="4" instance=ExtResource( 18 )]
+
+[node name="SujetarseEnEscalera" parent="HABILIDADES" index="5" instance=ExtResource( 19 )]
 
 [node name="Listener2D" type="Listener2D" parent="." index="13"]
 current = true

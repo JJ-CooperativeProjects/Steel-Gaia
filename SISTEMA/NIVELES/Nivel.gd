@@ -21,6 +21,7 @@ func _input(event):
 func _unhandled_input(event):
 	if event.is_action_pressed("F1"):
 		#print(2423423)
+		Memoria.jugador.get_node("MEF").GenerarInputPressed("atacar")
 		$CanvasLayer/Control/ColorRect.visible = true if $CanvasLayer/Control/ColorRect.visible == false else false
 		
 		Memoria.debug = true if $CanvasLayer/Control/ColorRect.visible else false

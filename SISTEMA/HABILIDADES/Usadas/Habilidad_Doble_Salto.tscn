@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SISTEMA/HABILIDADES/HABILIDAD.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SISTEMA/HABILIDADES/Usadas/Habilidad_Doble_Salto.gd" type="Script" id=2]
+
+[node name="Habilidad_Doble_Salto" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+consumo_energia = 20.0
+se_puede_deshabilitar = true

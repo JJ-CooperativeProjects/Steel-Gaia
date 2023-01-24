@@ -76,6 +76,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" parent="." index="5"]
+visible = false
 position = Vector2( -3, -81.75 )
 shape = SubResource( 3 )
 
@@ -92,6 +93,7 @@ scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="8"]
+visible = false
 collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]

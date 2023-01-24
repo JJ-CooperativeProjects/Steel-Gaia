@@ -160,8 +160,9 @@ tracks/2/keys = {
 collision_layer = 32
 collision_mask = 0
 script = ExtResource( 5 )
-max_vitalidad = 20
-vitalidad = 20
+max_vitalidad = 10
+vitalidad = 10
+damage = 15.0
 velocidad_actual_y = 0.0
 posibles_objetos_soltar = [ "res://SISTEMA/OBJETOS/COLECTABLES/USADOS/Alma_NPC4.tscn" ]
 tiempo_ronda_patrulla = 2.0
@@ -180,8 +181,7 @@ texture = ExtResource( 3 )
 material = SubResource( 11 )
 scale = Vector2( 1, 1 )
 frames = SubResource( 10 )
-animation = "despues_ataque"
-frame = 0
+animation = "quieto"
 
 [node name="AnimationPlayer" parent="." index="2"]
 anims/atacar_picada = SubResource( 5 )

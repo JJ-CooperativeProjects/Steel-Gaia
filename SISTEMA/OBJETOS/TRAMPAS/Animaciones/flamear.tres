@@ -93,3 +93,15 @@ tracks/6/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("AreaDamage:monitoring")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.175, 0.325, 0.45, 0.6, 0.725, 0.875, 1.025, 1.175, 1.325, 1.475, 1.625, 1.775 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true, false, true ]
+}

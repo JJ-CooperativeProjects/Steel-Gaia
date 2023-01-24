@@ -2,7 +2,7 @@ extends Habilidad
 
 #HABILIDAD QUE LE DA AL ENTE LA POSIBILIDAD DE DESPLAZARSE VELOZMENTE
 
-export (float) var consumo_energia_dash:float = 30
+
 
 func _ready():
 	mi_ente = get_parent().get_parent()
@@ -11,6 +11,7 @@ func _ready():
 	#Estados:
 	_agregar_estado("espera")
 	_agregar_estado("dash")
+	_agregar_estado("termina")
 
 	
 	poner_estado_deferred(estados.espera)
@@ -18,21 +19,24 @@ func _ready():
 	
 
 func _input(event):
-	if [estados.espera].has(estado):
-		if Input.is_action_just_pressed("dash") and mi_ente.get_energia() >= consumo_energia_dash:
-			DeshabilitarMEF()
-			HabilitarSelf()
-			
-			#si está en una pared:
-			if mef_ente.estado == mef_ente.estados.en_pared:
-				if mi_ente.direccion_mira == 1:
-					mi_ente.GirarManualmente()
-				else:
-					mi_ente.GirarManualmente()
-			
-			poner_estado_deferred(estados.dash)
-			
-			pass
+		if [estados.espera].has(estado) and not mi_ente.ocupado:
+			if Input.is_action_just_pressed("dash") and mi_ente.get_energia() >= consumo_energia:
+				DeshabilitarMEF()
+				get_parent().DesactivarHabilidadesDesactivables([self])
+				HabilitarSelf()
+				
+				
+				#si está en una pared:
+				if mef_ente.estado == mef_ente.estados.en_pared:
+					if mi_ente.direccion_mira == 1:
+						mi_ente.GirarManualmente()
+					else:
+						mi_ente.GirarManualmente()
+				
+				mi_ente.ocupado = true
+				poner_estado_deferred(estados.dash)
+				
+				pass
 
 
 func _physics_process(delta):
@@ -49,13 +53,26 @@ func _process_estado(delta):
 func _entrar_estado(nuevo, viejo):
 	match estado:
 		estados.dash:
-			mi_ente.set_energia(mi_ente.get_energia() - consumo_energia_dash)
+			mi_ente.set_energia(mi_ente.get_energia() - consumo_energia)
 			mi_ente.Dash()
 			mi_ente.EfectoSombra(0.01,self)
+		
+		estados.termina:
+			mi_ente.ocupado = false
+			if mi_ente.is_on_wall() and Input.is_action_pressed("salto"):
+				mef_ente.poner_estado_deferred("en_pared")
+			else:
+				mef_ente.poner_estado_deferred("quieto")
+			call_deferred("HabilitarMEF","")
+			poner_estado_deferred(estados.espera)
+			call_deferred("DeshabilitarSelf")
+			
 	pass
 #Solo se ejecuta una vez cuando sale de un estado.
 func _salir_estado(viejo, nuevo):
 	pass
+
+
 
 #AUXILIARES:
 
@@ -63,10 +80,7 @@ func _salir_estado(viejo, nuevo):
 func _on_animacion_termina(animacion:String):
 	match animacion:
 		"CurvaDash":
-			poner_estado_deferred(estados.espera)
-			DeshabilitarSelf()
-			HabilitarMEF()
-			
+			poner_estado_deferred(estados.termina)
 			
 
 func AfterCargar():

@@ -298,6 +298,9 @@ extents = Vector2( 13, 16 )
 script = ExtResource( 2 )
 tiempo_arranque = 0.5
 
+[node name="ZonaActivacion" parent="." index="1"]
+visible = false
+
 [node name="AnimatedSprite" parent="." index="2"]
 frames = SubResource( 41 )
 animation = "apagado"
@@ -312,6 +315,6 @@ anims/cargando = SubResource( 45 )
 shape = SubResource( 49 )
 
 [node name="Light2D" parent="." index="6"]
-position = Vector2( 0, -49 )
-texture_scale = 0.15
-energy = 0.583333
+position = Vector2( 0, -8 )
+texture_scale = 0.01
+energy = 0.0

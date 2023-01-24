@@ -20,7 +20,7 @@ func _on_AreaDamage_body_entered(body):
 		if body.puede_recibir_damage == true:
 			body.emit_signal("RecibeDamage",damage,objetivo)
 	
-	set_deferred("monitoring",false)
+	#set_deferred("monitoring",false)
 	pass # Replace with function body.
 
 

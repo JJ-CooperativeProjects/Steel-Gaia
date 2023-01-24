@@ -1,3 +1,4 @@
+tool
 extends Enemigo
 
 onready var anims:AnimatedSprite = $Cuerpo/AnimatedSprite

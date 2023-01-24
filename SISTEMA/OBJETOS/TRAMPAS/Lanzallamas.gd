@@ -20,6 +20,7 @@ func EnReady():
 	timer.connect("timeout",self,"Pasar_A_Cargar")
 	#$AnimatedSprite.play("stand")
 	$AnimationPlayer.play("stand")
+	$AreaDamage.objetivo = self
 
 func Pasar_A_Cargar():
 	estado = estados.CARGANDO

@@ -7,6 +7,7 @@ CLASE QUE DEFINE A UN JUGADOR. ENTIDAD CONTROLADA POR EL USUARIO.
 #El jugador cuenta con una energía que la utiliza para relaizar los movimientos más complejos
 export (float) var max_energia:float = 100
 export (float) onready var energia:float = 100	      setget set_energia, get_energia
+export var count_recuperar_energia:float = 12.25
 
 onready var efecto_dash:PackedScene = preload("res://SISTEMA/EFECTOS/DashEffect.tscn")
 onready var camara:PackedScene = preload("res://SISTEMA/GLOBAL/CamaraControl.tscn")
@@ -79,27 +80,9 @@ func CaminarPared(delta):
 	pass
 
 func CaminarEscalera(delta):
-#	velocidad_actual_y = 0
-#	velocidad_actual_x = 0
-#	if velocidad_actual_y in range(-velocidad_movimiento,velocidad_movimiento):
-#		if direcciones.y > 0:
-#			velocidad_actual_y += 0.52 #if !Input.is_action_pressed("correr") else 2.5
-#
-#		if direcciones.y < 0:
-#			velocidad_actual_y -= 0.52 #if !Input.is_action_pressed("correr") else 2.5
-#
-#	if velocidad_actual_x in range(-velocidad_movimiento,velocidad_movimiento):
-#		if direcciones.x > 0:
-#			velocidad_actual_y += 0.52 #if !Input.is_action_pressed("correr") else 2.5
-#
-#		if direcciones.x < 0:
-#			velocidad_actual_y -= 0.52 #if !Input.is_action_pressed("correr") else 2.5
-#
-#	velocidad_actual_y *= velocidad_movimiento
-#	velocidad_actual_x *= velocidad_movimiento
-#
-#	movimiento = Vector2(lerp(movimiento.x,velocidad_actual_y,0.52),lerp(movimiento.y,velocidad_actual_y,0.52))
+	movimiento = Vector2(0,direcciones.y) * (velocidad_movimiento/2.53)
 	
+func CaminarMalla(delta):
 	movimiento = direcciones * (velocidad_movimiento/2.53)
 #Devuelve true cuando esté fuera de una pared. Usar para salir de una pared.
 func FueraDePared()->bool:
@@ -115,6 +98,7 @@ func Dash():
 	pass
 
 func Saltar():
+	emit_signal("IniciaSalto")
 	vector_snap = Vector2.ZERO
 	vector_impulsos = Vector2.ZERO
 	movimiento = Vector2.ZERO
@@ -139,7 +123,7 @@ func EfectoSombra(ciclo:float,nodo_controlador:MEF_base):
 	if $Cuerpo.scale.x < 0:
 		efecto.scale.x *= -1
 	var timer:SceneTreeTimer = get_tree().create_timer(ciclo)
-	if ["segundo_salto"].has($MEF.estado):
+	if ["salto_doble"].has(nodo_controlador.estado):
 		timer.connect("timeout",self,"EfectoSombra",[ciclo,nodo_controlador])
 	if ["dash"].has(nodo_controlador.estado):
 		timer.connect("timeout",self,"EfectoSombra",[ciclo,nodo_controlador])
@@ -219,6 +203,10 @@ func set_energia(valor:float):
 
 func get_energia()->float:
 	return energia
+
+func ProcessEnergia(delta):
+	if energia < max_energia:
+		set_energia(clamp(energia,get_energia() + count_recuperar_energia * delta, max_energia))
 
 func set_damage(valor:float):
 	damage = valor

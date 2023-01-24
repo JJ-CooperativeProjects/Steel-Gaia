@@ -21,14 +21,15 @@ func ActivarTrampas():
 	#print("clic!")
 	if !trampas.empty():
 		for a in trampas:
-			var t:Trampa = get_node(a) as Trampa
-			if t.lista_para_reactivar:
-				t.Activar()
-			else:
-				continue
-			if tiempo_entre_trampas > 0:
-				yield(get_tree().create_timer(tiempo_entre_trampas),"timeout")
-				continue
+			var t:Trampa = get_node_or_null(a) as Trampa
+			if is_instance_valid(t):
+				if t.lista_para_reactivar:
+					t.Activar()
+				else:
+					continue
+				if tiempo_entre_trampas > 0:
+					yield(get_tree().create_timer(tiempo_entre_trampas),"timeout")
+					continue
 
 
 func _on_Area2D_body_entered(body):

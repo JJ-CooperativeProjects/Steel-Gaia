@@ -91,7 +91,7 @@ func _salir_estado(viejo, nuevo):
 func ReiniciarGancho():
 	mi_ente.movimiento = Vector2.ZERO
 	mi_ente.vector_impulsos = Vector2.ZERO
-	HabilitarMEF()
+	HabilitarMEF("")
 	linea.queue_free()
 	linea = null
 	garfio.queue_free()

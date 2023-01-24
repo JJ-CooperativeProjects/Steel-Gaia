@@ -12,8 +12,6 @@ var puede_escopeta:bool = true
 var puede_dash:bool = true
 var puede_doble_salto:bool = true
 
-export var count_recuperar_energia:float = 0.2
-
 onready var ente:Jugador = owner
 func _ready():
 	_agregar_estado("quieto")
@@ -44,15 +42,27 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
- 
+func _input(event):
+	if not ente.ocupado:
+		#Ataque1:
+		if ["quieto","correr","salto_sube","salto_cae","segundo_salto","segundo_salto_cae"].has(estado):
+			if event.is_action_pressed("atacar"):
+				poner_estado_deferred(estados.atacar1) 
+			elif event.is_action_pressed("escopeta") and ente.energia >= consumo_energia_escopeta and puede_escopeta:
+				poner_estado_deferred(estados.escopeta) 
+		
+		#Salto:
+		if event.is_action_pressed("salto") and ente.is_on_floor():
+			poner_estado_deferred(estados.salto_inicia)
+	
 func _physics_process(delta):
 	if ![estados.en_pared,estados.dash,estados.atacar1,estados.atacar2,estados.escopeta, estados.en_escalera].has(estado):
 		ente.AplicarGravedad(delta)
 		ente.Caminar(delta)
 	elif [estados.atacar1,estados.atacar2].has(estado):
 		ente.AplicarGravedadAtaque(delta)
-	elif [estados.en_escalera].has(estado):
-		ente.CaminarEscalera(delta)
+#	elif [estados.en_escalera].has(estado):
+#		ente.CaminarEscalera(delta)
 		pass
 	else:
 		ente.CaminarPared(delta)
@@ -60,8 +70,8 @@ func _physics_process(delta):
 	if [estados.dash].has(estado):
 		ente.movimiento = ente.move_and_slide(ente.AjustarVectorImpulso(),Vector2.UP)
 		
-	elif [estados.en_escalera].has(estado):
-		ente.movimiento = ente.move_and_slide(ente.movimiento ,Vector2.UP)
+#	elif [estados.en_escalera].has(estado):
+#		ente.movimiento = ente.move_and_slide(ente.movimiento ,Vector2.UP)
 	else:
 		ente.movimiento.y = ente.move_and_slide_with_snap(ente.movimiento + ente.AjustarVectorImpulso(),ente.vector_snap,Vector2.UP,true,4,ente.SNAP_ANGULO).y
 	
@@ -83,19 +93,19 @@ func _transiciones(delta):
 				ente.tween_salto.stop()
 				ente.movimiento.y = lerp(ente.movimiento.y,0,0.23)
 			
-			if Input.is_action_just_pressed("salto") and !ente.is_on_wall() and puede_doble_salto and ente.get_energia() >= consumo_energia_doble_salto:
-				return estados.segundo_salto
+#			if Input.is_action_just_pressed("salto") and !ente.is_on_wall() and puede_doble_salto and ente.get_energia() >= consumo_energia_doble_salto:
+#				return estados.segundo_salto
 		
 		estados.salto_cae,estados.salto_sube:
 			if ente.is_on_floor():
 				return estados.quieto
 		
-			if Input.is_action_just_pressed("salto") and !ente.is_on_wall() and puede_doble_salto and ente.get_energia() >= consumo_energia_doble_salto:
-				return estados.segundo_salto
+#			if Input.is_action_just_pressed("salto") and !ente.is_on_wall() and puede_doble_salto and ente.get_energia() >= consumo_energia_doble_salto:
+#				return estados.segundo_salto
 				
-		estados.segundo_salto_cae:
-			if ente.is_on_floor():
-				return estados.quieto
+#		estados.segundo_salto_cae:
+#			if ente.is_on_floor():
+#				return estados.quieto
 		
 		estados.atacar1:
 			#if ente.anim.current_animation_position > ente.anim.current_animation_length/2:
@@ -114,9 +124,9 @@ func _transiciones(delta):
 		estados.escopeta:
 			pass
 		
-		estados.en_escalera:
-			if !ente.en_escalera:
-				return estados.quieto
+#		estados.en_escalera:
+#			if !ente.en_escalera:
+#				return estados.quieto
 			
 			#ûede saltar:
 			if Input.is_action_just_pressed("salto"):
@@ -141,48 +151,42 @@ func _transiciones(delta):
 			if !ente.FueraDePared():
 				return estados.quieto
 	
-	if ["quieto", "correr","salto_cae","salto_sube","segundo_salto","segundo_salto_cae"].has(estado):
-#		if Input.is_action_just_pressed("dash") and puede_dash and ente.get_energia() >= consumo_energia_dash:
-#			return estados.dash
-		
-		if Input.is_action_just_pressed("salto") and ente.is_on_floor():
-				return estados.salto_inicia
-				
+#	if ["quieto", "correr","salto_cae","salto_sube","segundo_salto","segundo_salto_cae"].has(estado):
+##		if Input.is_action_just_pressed("dash") and puede_dash and ente.get_energia() >= consumo_energia_dash:
+##			return estados.dash
+#
+##		if Input.is_action_just_pressed("salto") and ente.is_on_floor():
+##				return estados.salto_inicia
+#		pass
 	#Agarrarse en pared:
 	if ["correr","salto_sube","salto_cae","segundo_salto","segundo_salto_cae","dash"].has(estado) and !ente.is_on_floor():
 		if ente.is_on_wall() and Input.is_action_just_pressed("salto"):
 			return estados.en_pared
 	
 	#Agarrarse a escalera:
-	if !["atacar1", "atacar2","escopeta", "en_escalera", "en_pared", "muerte", "hit", "dash", "salto_termina"].has(estado) and ente.en_escalera:
-		if Input.is_action_just_pressed("ui_up"):
-			return estados.en_escalera
+#	if !["atacar1", "atacar2","escopeta", "en_escalera", "en_pared", "muerte", "hit", "dash", "salto_termina"].has(estado) and ente.en_escalera:
+#		if Input.is_action_just_pressed("ui_up"):
+#			return estados.en_escalera
 		pass
-	#Ataque1:
-	if ["quieto","correr","salto_sube","salto_cae","segundo_salto","segundo_salto_cae"].has(estado):
-		if Input.is_action_just_pressed("atacar"):
-			return estados.atacar1
-		elif Input.is_action_just_pressed("escopeta") and ente.energia >= consumo_energia_escopeta and puede_escopeta:
-			return estados.escopeta
+	
 				
 	if estado != estados.quieto:
 		if ente.Quieto() and ![estados.salto_inicia, estados.salto_termina,estados.dash,estados.atacar1,estados.atacar2,estados.escopeta,estados.en_escalera].has(estado) and ente.is_on_floor():
 			return estados.quieto
 	
 	if !ente.is_on_floor():
-		if ![estados.en_pared,estados.dash, estados.segundo_salto,estados.segundo_salto_cae,estados.atacar1,estados.atacar2,estados.escopeta, estados.en_escalera].has(estado)and ente.movimiento.y > 0:
+		if ![estados.en_pared,estados.dash, estados.salto_cae,estados.segundo_salto,estados.segundo_salto_cae,estados.atacar1,estados.atacar2,estados.escopeta, estados.en_escalera].has(estado)and ente.movimiento.y > 0:
 			return estados.salto_cae
-		elif [estados.segundo_salto].has(estado) and ente.movimiento.y > 0:
-			return estados.segundo_salto_cae
+#		elif [estados.segundo_salto].has(estado) and ente.movimiento.y > 0:
+#			return estados.segundo_salto_cae
 	return null
 #Se ejecuta dentro de un estado constantemente.
 func _process_estado(delta):
 	#ente.get_node("Label").text = str([ente.is_on_floor(), ente.is_on_ceiling(),ente.is_on_wall()])
-	ente.get_node("Label").text = str(ente.direcciones)#str(ente.FueraDePared())
+	ente.get_node("Label").text = str(estado)#str(ente.FueraDePared())
 	ente.direcciones = ente.DireccionesTeclado()
 	
-	if ente.energia < ente.max_energia:
-		ente.set_energia(clamp(ente.energia,ente.get_energia() + count_recuperar_energia * delta,ente.max_energia))
+	ente.ProcessEnergia(delta)
 	pass
 #Solo se ejecuta una vez cuando entra en un nuevo estado
 func _entrar_estado(nuevo, viejo):
@@ -204,11 +208,11 @@ func _entrar_estado(nuevo, viejo):
 #			ente.Dash()
 #			ente.EfectoSombra(0.01,self)
 		
-		estados.segundo_salto:
-			ente.set_energia(ente.get_energia() - consumo_energia_doble_salto)
-			ente.movimiento = Vector2.ZERO
-			ente.SegundoSalto()
-			ente.EfectoSombra(0.01,self)
+#		estados.segundo_salto:
+#			ente.set_energia(ente.get_energia() - consumo_energia_doble_salto)
+#			ente.movimiento = Vector2.ZERO
+#			ente.SegundoSalto()
+#			ente.EfectoSombra(0.01,self)
 		
 		estados.atacar1:
 			ente.movimiento = Vector2.ZERO
@@ -233,10 +237,10 @@ func _entrar_estado(nuevo, viejo):
 			ente.get_node("AnimEfectos").stop(true)
 			ente.get_node("AnimEfectos").play("retroceso_escopeta")
 		
-		estados.en_escalera:
-			ente.movimiento = Vector2.ZERO
-			ente.vector_impulsos = Vector2.ZERO
-			pass
+#		estados.en_escalera:
+#			ente.movimiento = Vector2.ZERO
+#			ente.vector_impulsos = Vector2.ZERO
+#			pass
 		
 		estados.muerte:
 			ente.anim.play("muerte")
@@ -250,11 +254,13 @@ func _entrar_estado(nuevo, viejo):
 #Solo se ejecuta una vez cuando sale de un estado.
 func _salir_estado(viejo, nuevo):
 	match viejo:
-		estados.dash,estados.segundo_salto:
+		estados.salto_cae,estados.quieto:
+			print(viejo)
+			ente.emit_signal("TerminaSalto")
 			pass
 		
 		
-			
+	
 	pass
 
 #Retorna true si se pulsa dos veces seguidas la tecla que se especifica:
@@ -306,9 +312,9 @@ func tap_clear():
 	
 func _on_animacion_termina(animacion:String):
 	match animacion:
-		"CurvaDash":
-			if ![estados.en_pared].has(estado):
-				poner_estado_deferred(estados.quieto)
+#		"CurvaDash":
+#			if ![estados.en_pared].has(estado):
+#				poner_estado_deferred(estados.quieto)
 		
 		"atacar1","atacar2":
 			if combo_count == 2:

@@ -55,7 +55,7 @@ var spawn_point_id:String = ""
 ##EL juego:
 #var tiene_orbe:bool = true		setget set_tiene_orbe#Si tiene el orbe o no 
 #var cubos:int = 10              setget set_cubos#Cuenta los cubos obtenidos.
-
+var punto_escalera:Vector2 = Vector2.ZERO
 
 func set_modo_cinematica(valor:bool):
 	modo_cinematica_activo = valor

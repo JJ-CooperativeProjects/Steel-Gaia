@@ -4,6 +4,8 @@ class_name Ente
 CLASE QUE DEFINE A UNA ENTIDAD
 """
 signal RecibeDamage(cantidad,quien)
+signal IniciaSalto() #emitida cuando empieza a saltar.
+signal TerminaSalto() #emitida cuadno un salto es terminado de suceder.
 signal Muere() #Emitida cuando un ente muere.
 
 const NORMAL = Vector2.UP
@@ -34,6 +36,10 @@ var direccion_mira:int = 1	#1= derecha -1 = izquierda
 
 var puede_recibir_damage:bool = true
 var en_escalera:bool = false #Se pone a true cuando está en un area de escalera.
+var en_malla:bool = false #Cuaando está en una malla de sujetacion.
+
+var ocupado:bool = false #Se pone a true cuando el ente está haciendo alguna acción o habilidad y no puede ser interrumpido
+
 
 ##Velocidad actual en x:
 export (float) var velocidad_actual_x:float = 1
@@ -86,6 +92,7 @@ func Caminar(delta)->Vector2:
 	pass
 
 func Saltar():
+	emit_signal("IniciaSalto")
 	vector_snap = Vector2.ZERO
 	movimiento.y -= velocidad_salto
 

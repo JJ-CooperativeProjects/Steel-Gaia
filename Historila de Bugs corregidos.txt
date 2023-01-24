@@ -1,0 +1,26 @@
+22/01/2023
+SOBRE LAS TRAMPAS:
+ -Lanzallamas sólo hace daño una vez. OK
+
+MINA NEUTRAL:
+ -Se corrigó la configuración de estados Activa y no activa
+ -Se configuró para que funcione con el Disparador
+--------------------------------------------------------------------------
+
+23/01/2023
+NPC1:
+ -Se corrigió un bug, que al chocar con una pared y se giraba para atacar al jugador, no lo hacía bien (causa: un timer se disparaba e interrupía la animación de ataque)
+
+ -Se cambió el sistema de colisión del escudo de KinematicBody2D a StaticBody2D (pendiente a debug)
+ -Se sincronizó la colisión del escudo con los fotogramas de la animación
+ -Se cambión la forma de colisión del escudo de Rectángulo a Càpsula.
+
+CAMBIOS EN EL SISTEMA:
+- Se independizó el concepto de Malla sujetadora y Escalera. 
+	-Se implementaron mediante Habilidades modulares.
+	-Se entiende ahora por Malla: un espacio donde el jugador se puede agarrar y moverse entodas direcciones.
+	-Se entiende por escalera: un espacio donde el jugador puede subir o bajar.
+
+MEJORAS Y CORRECCION DE BUGS EN EL JUGADOR:
+- Se corrigieron bugs de incoherencia en el nuevo sistema modular de HABILIDADES.
+- Se configuró la habilidad de doble salto de manera modular (pendiente debug)

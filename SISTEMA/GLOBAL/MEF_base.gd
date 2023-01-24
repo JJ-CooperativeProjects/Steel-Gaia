@@ -92,6 +92,14 @@ func LogicaMorir(cantida_dagno,quien:Node2D):
 		
 		poner_estado_deferred(estados.muerte)
 
+#Genera una entra de control desde código. Útil para programar IAs con controles. O enviar inputs a otras máquinas de estado.
+func GenerarInputPressed(input:String):
+	var ev = InputEventAction.new()
+	ev.action = input
+	ev.pressed = true
+	Input.parse_input_event(ev)
+	pass
+
 
 func _on_animacion_termina(animacion:String):
 	

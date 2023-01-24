@@ -76,6 +76,7 @@ func _physics_process(delta):
 
 #Se ejecuta dentro de un estado constantemente.
 func _process_estado(delta):
+	ente.get_node("Label_debug").text = estado
 	#GIRAR:
 	if ente.estado == ente.estados.TRANQUILO:
 		if [estados.caminar].has(estado):
@@ -146,7 +147,8 @@ func Objetivo_a_espaladas()->bool:
 	return false
 
 func poner_quieto():
-	poner_estado_deferred("quieto")
+	if not [estados.ataque,estados.bloquear].has(estado):
+		poner_estado_deferred("quieto")
 	 
 
 func LogicaMorir(cantida_dagno,quien):
@@ -224,7 +226,7 @@ func _on_animacion_termina(animacion:String):
 			poner_estado_deferred("quieto")
 		
 		"ataque":
-			poner_estado_deferred("quieto")
+			poner_estado_deferred("quieto") 
 		
 		"preparar_para_correr":
 			poner_estado_deferred("corriendo")

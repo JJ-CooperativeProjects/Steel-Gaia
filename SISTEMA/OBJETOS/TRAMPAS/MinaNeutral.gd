@@ -8,7 +8,7 @@ export (float) var tiempo:float = 2.2
 var temporizador:SceneTreeTimer = null
 
 enum estados {ENCENDIDA, APAGADA, ANTES_DE_EXPLOTAR, EXPLOSION}
-var estado:int  = estados.ENCENDIDA
+var estado:int  = estados.APAGADA
 
 
 
@@ -17,17 +17,25 @@ func _ready():
 	_arranque()
 
 func _arranque():
-	$AnimationPlayer.play("encendida")
+	if activa:
+		estado = estados.ENCENDIDA
+		$AnimationPlayer.play("encendida")
+	else:
+		$AnimationPlayer.play("apagada")
 
 
 func explotar():
 	estado = estados.EXPLOSION
 	#wave.material.set_shader_param("global_position", get_viewport_transform().origin)
 	$AnimationPlayer.play("explosion")
-	$AnimationPlayer.connect("animation_finished",self,"_on_terminar_explosion")
+	
+	if not $AnimationPlayer.is_connected("animation_finished",self,"_on_terminar_explosion"):
+		$AnimationPlayer.connect("animation_finished",self,"_on_terminar_explosion")
 
 func Activar():
 	lista_para_reactivar = false
+	estado = estados.ENCENDIDA
+	$ZonaActivacion.emit_signal("body_entered",null)
 	pass
 	
 func _process(delta):
