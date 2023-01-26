@@ -27,12 +27,7 @@ func DetectarObjetivo()->Dictionary:
 			dic.objetivo = $Cuerpo/RayCast2D.get_collider()
 	return dic
 
-func CambiarSentido(sentido_escogido:int):
-	match sentido_escogido:
-		1,-1:
-			if direccion_mira != sentido_escogido:
-				Girar()
-			pass
+
 			
 func Caminar(delta)->Vector2:
 	velocidad_actual_x = 0

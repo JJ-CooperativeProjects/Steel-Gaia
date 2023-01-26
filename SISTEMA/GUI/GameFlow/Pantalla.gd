@@ -9,6 +9,7 @@ export (float) var tiempo_de_espera:float = 5
 
 var pantalla_previa = null
 
+
 func cambiar_pantalla():
 	pass
 

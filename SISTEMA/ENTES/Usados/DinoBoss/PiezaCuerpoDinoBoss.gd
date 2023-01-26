@@ -1,6 +1,6 @@
 extends Sprite
 
-signal RecibeDamage(cantidad) 
+signal RecibeDamage(cantidad,objetivo) 
 
 export (int) var vitalidad:int  = 1000
 
@@ -14,7 +14,7 @@ func _ready():
 	
 
 
-func OnRecibeDamage(cantidad:float):
+func OnRecibeDamage(cantidad:float,quien:Node2D):
 	#print(name + ": ha recibido daño!")
 	vitalidad -= cantidad
 	

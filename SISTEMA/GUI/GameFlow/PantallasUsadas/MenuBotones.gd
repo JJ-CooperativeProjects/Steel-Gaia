@@ -12,7 +12,9 @@ func _on_BotonEmpezarPartida_button_up():
 		$VBoxContainer/BotonEmpezarPartida.EmitirSonido($VBoxContainer/BotonEmpezarPartida.sonido_aceptar)
 		Memoria.historial_pantallas.clear()
 		CambioSuave.CambiarEscena("res://UTILIZABLES/Niveles/Usados/PuebasPrototipo/Nivel_1.tscn")
-	
+		
+		#Volumen:
+		AudioManagerGlobal.BajarVolumenMaster(0.5)
 
 	pass # Replace with function body.
 

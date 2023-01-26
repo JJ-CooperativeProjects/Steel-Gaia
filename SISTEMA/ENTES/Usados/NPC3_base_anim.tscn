@@ -1657,6 +1657,7 @@ __meta__ = {
 }
 
 [node name="eje_pata2" type="Position2D" parent="Pivote/Cuerpo"]
+self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -11, 7 )
 __meta__ = {
 "_edit_bone_": true,
@@ -1687,6 +1688,7 @@ __meta__ = {
 }
 
 [node name="eje_pata1" type="Position2D" parent="Pivote/Cuerpo"]
+self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 9, 4 )
 rotation = 0.14308
 __meta__ = {
@@ -1717,6 +1719,7 @@ __meta__ = {
 }
 
 [node name="eje_pata3" type="Position2D" parent="Pivote/Cuerpo"]
+self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 2, 6 )
 __meta__ = {
 "_edit_bone_": true,
@@ -1773,6 +1776,7 @@ scale = Vector2( 0.488281, 0.435547 )
 texture = ExtResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="Pivote/Cuerpo/Cabeza"]
+self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 50, -22 )
 
 [node name="Light2D" type="Light2D" parent="Pivote/Cuerpo/Cabeza"]

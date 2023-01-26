@@ -2,9 +2,14 @@ extends Enemigo
 class_name NanoBot
 
 export (float) var tiempo_de_vida:float = 8.0
+
+onready var efecto_muerte:PackedScene = preload("res://SISTEMA/EFECTOS/ESPECIALES/Usados/MuerteNanoBot.tscn")
 func _ready():
 	var timer_vida:SceneTreeTimer = get_tree().create_timer(tiempo_de_vida)
 	timer_vida.connect("timeout",$MEF,"_poner_estado",["muerte"])
+	
+	$AreaDamage.damage = damage
+	
 	pass # Replace with function body.
 
 func Quieto()->bool:

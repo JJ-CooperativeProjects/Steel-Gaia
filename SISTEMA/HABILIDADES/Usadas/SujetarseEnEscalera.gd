@@ -31,7 +31,9 @@ func _input(event):
 						mi_ente.movimiento = Vector2.ZERO
 						mi_ente.vector_impulsos = Vector2.ZERO
 						
-						mi_ente.set_deferred("global_position",Vector2(Memoria.punto_escalera.x,mi_ente.global_position.y))
+						var tw:SceneTreeTween = create_tween()
+						tw.tween_property(mi_ente,"global_position",Vector2(Memoria.punto_escalera.x,mi_ente.global_position.y),0.1)
+						#mi_ente.set_deferred("global_position",Vector2(Memoria.punto_escalera.x,mi_ente.global_position.y))
 						
 						poner_estado_deferred(estados.en_escalera)
 
@@ -39,6 +41,10 @@ func _input(event):
 				if event.is_action_pressed("salto"):
 					mef_ente.poner_estado_deferred("salto_inicia")
 					poner_estado_deferred(estados.termina)
+				elif not (event.is_action("ui_up")):
+					if(event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right")):
+					#if mi_ente.is_on_floor():
+						poner_estado_deferred(estados.termina)
 
 func _physics_process(delta):
 	match estado:

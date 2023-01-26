@@ -1,17 +1,569 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://SISTEMA/ENTES/Enemigo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SISTEMA/ENTES/Usados/MEF_nanobot.gd" type="Script" id=2]
 [ext_resource path="res://SISTEMA/ENTES/Usados/NanoBot.gd" type="Script" id=3]
-
-[sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/NanoBot.png-7f2d40198ac49f3fe9fd466c0f5c4877.stex"
+[ext_resource path="res://RECURSOS/IMAGENES/TRAMPAS/NanoBots/naobot v2.png" type="Texture" id=4]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Rayos y Electricidad/rayos2.png" type="Texture" id=5]
+[ext_resource path="res://SISTEMA/GLOBAL/AREAS/AreaDamage.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
 
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D:amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:process_material:emission_sphere_radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:process_material:spread")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 62.24 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles2D:process_material:emission_shape")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Particles2D:process_material:linear_accel")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 71.96 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Particles2D:process_material:linear_accel_random")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.25 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles2D:process_material:anim_speed")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Particles2D:process_material:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.2 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Particles2D:process_material:initial_velocity")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 40.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Particles2D:explosiveness")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.73 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AreaDamage:monitoring")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "camina"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "cargando"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D:amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 50 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:process_material:emission_sphere_radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:process_material:emission_shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles2D:process_material:spread")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 180.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Particles2D:process_material:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.2 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Particles2D:process_material:anim_speed")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles2D:explosiveness")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.1 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Particles2D:process_material:initial_velocity")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.7, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 10.0, 40.0, 90.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AreaDamage:monitoring")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "quieto"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D:amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:process_material:emission_sphere_radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:process_material:spread")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 62.24 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles2D:process_material:emission_shape")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Particles2D:process_material:linear_accel")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 71.96 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Particles2D:process_material:linear_accel_random")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.25 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles2D:process_material:anim_speed")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Particles2D:process_material:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.1 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Particles2D:process_material:initial_velocity")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 10.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Particles2D:explosiveness")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.73 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AreaDamage:monitoring")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "saltar"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cuerpo/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles2D:amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 50 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:process_material:spread")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 180.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:process_material:initial_velocity")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 10.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles2D:process_material:linear_accel")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 71.96 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Particles2D:process_material:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.2 ]
+}
+
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 1.8213, 1.10758 )
+extents = Vector2( 6, 2.5 )
+
+[sub_resource type="CanvasItemMaterial" id=8]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 11
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0.184091 ), 0.0, 2.48449, 0, 0, Vector2( 0.5, 0.956818 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.465909 ), -3.12182, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+trail_divisor = 2
+emission_shape = 1
+emission_sphere_radius = 5.0
+flag_align_y = true
+flag_rotate_y = true
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 62.24
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 0.48
+angular_velocity = 30.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 71.96
+linear_accel_random = 0.25
+scale = 0.2
+scale_curve = SubResource( 11 )
+anim_speed = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="RectangleShape2D" id=13]
+resource_local_to_scene = true
+extents = Vector2( 8, 5 )
 
 [node name="NanoBot" instance=ExtResource( 1 )]
 collision_layer = 2
@@ -19,9 +571,10 @@ collision_mask = 528
 script = ExtResource( 3 )
 velocidad_movimiento = 60.0
 velocidad_salto = 250.0
+max_vitalidad = 2
 vitalidad = 2
 damage = 3.0
-tiempo_de_vida = 6.0
+tiempo_de_vida = 10.0
 
 [node name="MEF" parent="." index="0"]
 script = ExtResource( 2 )
@@ -30,14 +583,24 @@ script = ExtResource( 2 )
 visible = true
 material = null
 position = Vector2( 0, 0 )
-texture = SubResource( 1 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 4 )
+hframes = 3
+frame = 1
 
 [node name="AnimatedSprite" parent="Cuerpo" index="1"]
 visible = false
 material = SubResource( 2 )
 
+[node name="AnimationPlayer" parent="." index="2"]
+anims/RESET = SubResource( 4 )
+anims/camina = SubResource( 6 )
+anims/cargando = SubResource( 12 )
+anims/quieto = SubResource( 5 )
+anims/saltar = SubResource( 7 )
+
 [node name="CollisionShape2D" parent="." index="4"]
-position = Vector2( -0.290188, 0.162431 )
+position = Vector2( 0, 0.5 )
 shape = SubResource( 3 )
 
 [node name="Label_debug" parent="." index="5"]
@@ -46,3 +609,24 @@ margin_top = -15.8388
 margin_right = 19.3813
 margin_bottom = -1.83883
 text = "asd"
+
+[node name="Particles2D" type="Particles2D" parent="." index="6"]
+self_modulate = Color( 1, 7, 12, 1 )
+material = SubResource( 8 )
+amount = 3
+lifetime = 0.2
+speed_scale = 0.2
+explosiveness = 0.73
+randomness = 0.81
+visibility_rect = Rect2( -100, -15, 200, 30 )
+process_material = SubResource( 9 )
+texture = ExtResource( 5 )
+
+[node name="AreaDamage" parent="." index="7" instance=ExtResource( 6 )]
+monitoring = false
+
+[node name="CollisionShape2D" parent="AreaDamage" index="0"]
+position = Vector2( 0, 0 )
+shape = SubResource( 13 )
+
+[editable path="AreaDamage"]

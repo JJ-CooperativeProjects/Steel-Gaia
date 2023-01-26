@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://SISTEMA/EFECTOS/ESPECIALES/EfectoEspecialBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Kenney/circle_01.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("efecto1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("efecto1:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 1.16, 4.05, 1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "efecto"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("efecto1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.09, 0.09 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("efecto1:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 1.16, 4.05, 1 ), Color( 0, 1.16, 4.05, 1 ), Color( 0, 1.16078, 4.05098, 0 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[node name="MuerteNanoBot" instance=ExtResource( 1 )]
+z_index = 3
+
+[node name="AnimationPlayer" parent="." index="0"]
+anims/RESET = SubResource( 3 )
+anims/efecto = SubResource( 1 )
+
+[node name="efecto1" type="Sprite" parent="." index="1"]
+self_modulate = Color( 0, 1.16, 4.05, 1 )
+material = SubResource( 2 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 2 )

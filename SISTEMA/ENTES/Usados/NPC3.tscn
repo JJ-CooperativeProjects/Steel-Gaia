@@ -1,10 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://SISTEMA/ENTES/Enemigo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SISTEMA/ENTES/Usados/NPC3_base_anim.tscn" type="PackedScene" id=2]
 [ext_resource path="res://RECURSOS/SHADERS/Pixelar_Sprite.gdshader" type="Shader" id=3]
 [ext_resource path="res://SISTEMA/ENTES/Usados/NPC3.gd" type="Script" id=4]
 [ext_resource path="res://SISTEMA/ENTES/Usados/Viewport_world.gd" type="Script" id=5]
+
+[sub_resource type="Environment" id=8]
+
+[sub_resource type="World" id=9]
+environment = SubResource( 8 )
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -42,6 +47,7 @@ script = null
 
 [node name="Viewport" type="Viewport" parent="Cuerpo" index="0"]
 size = Vector2( 100, 100 )
+world = SubResource( 9 )
 transparent_bg = true
 handle_input_locally = false
 hdr = false
@@ -55,7 +61,6 @@ position = Vector2( 50, 50 )
 [node name="Sprite" parent="Cuerpo" index="1"]
 visible = true
 material = SubResource( 1 )
-position = Vector2( 0, 0 )
 scale = Vector2( 0.4, 0.4 )
 texture = SubResource( 7 )
 offset = Vector2( -2.5, -32.5 )

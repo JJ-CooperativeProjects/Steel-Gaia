@@ -18,6 +18,7 @@ func Desactivar():
 	pass
 
 
+			
 func CrearNanos():
 	for i in numero_bolas:
 		var new_nano:NanoBola = bola.instance()

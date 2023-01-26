@@ -82,13 +82,14 @@ func LogicaMorir(cantida_dagno,quien:Node2D):
 	if ente.vitalidad <= 0:
 		#print("muerte!!")
 		#Crea las almas:
-		var rand:int =randi()%4+1
-		var objetos_drops:Array = ente.posibles_objetos_soltar
-		for i in objetos_drops:
-			for a in rand:
-				var objeto:ObjetoColectable = load(i).instance()
-				objeto.global_position = Vector2(rand_range(ente.global_position.x-10,ente.global_position.x+10),rand_range(ente.global_position.y-10,ente.global_position.y+10))
-				Memoria.nivel_actual.get_node("OBJETOS").call_deferred("add_child",objeto)
+		if !ente.posibles_objetos_soltar.empty():
+			var rand:int =randi()%4+1
+			var objetos_drops:Array = ente.posibles_objetos_soltar
+			for i in objetos_drops:
+				for a in rand:
+					var objeto:ObjetoColectable = load(i).instance()
+					objeto.global_position = Vector2(rand_range(ente.global_position.x-10,ente.global_position.x+10),rand_range(ente.global_position.y-10,ente.global_position.y+10))
+					Memoria.nivel_actual.get_node("OBJETOS").call_deferred("add_child",objeto)
 		
 		poner_estado_deferred(estados.muerte)
 

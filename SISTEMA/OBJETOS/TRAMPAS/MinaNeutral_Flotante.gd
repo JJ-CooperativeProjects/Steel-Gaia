@@ -2,6 +2,8 @@ extends MinaNeutral
 
 
 func _arranque():
+	if activa:
+		estado = estados.ENCENDIDA
 	$AnimationPlayer.play("aparecer")
 	
 

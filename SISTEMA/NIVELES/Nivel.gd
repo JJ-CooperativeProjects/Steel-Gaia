@@ -42,7 +42,10 @@ func _ready():
 	else:
 		var timer := get_tree().create_timer(0.1)
 		timer.connect("timeout",self,"pos_cargado")
-
+	
+	#Volumen:
+	AudioManagerGlobal.SubirVolumenMaster()
+	
 	pass
 
 func Salvar(data_vacio:Dictionary)->Dictionary:

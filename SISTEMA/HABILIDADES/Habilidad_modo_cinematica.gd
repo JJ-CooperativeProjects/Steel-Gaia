@@ -40,6 +40,7 @@ func escuchar_modo_cinematica(valor:bool):
 	if valor:
 		MEF_padre.set_physics_process(false)
 		MEF_padre.set_process(false)
+		MEF_padre.set_process_input(false)
 		
 		for i in habilidades_padre.get_children():
 			var hab:= i as Habilidad
@@ -54,6 +55,7 @@ func escuchar_modo_cinematica(valor:bool):
 	
 	MEF_padre.set_physics_process(true)
 	MEF_padre.set_process(true)
+	MEF_padre.set_process_input(true)
 	
 	for i in habilidades_padre.get_children():
 		var hab:= i as Habilidad

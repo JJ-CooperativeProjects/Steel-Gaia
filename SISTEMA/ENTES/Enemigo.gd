@@ -39,6 +39,13 @@ func Girar():
 	$Cuerpo.scale.x *= -1
 	direccion_mira = $Cuerpo.scale.x
 
+func CambiarSentido(sentido_escogido:int):
+	match sentido_escogido:
+		1,-1:
+			if direccion_mira != sentido_escogido:
+				Girar()
+			pass
+
 func MirarObjetivo(objetivo):
 	if is_instance_valid(objetivo):
 		match direccion_mira:

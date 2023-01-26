@@ -892,25 +892,18 @@ shader_param/speed = 0.0
 shader_param/height = 0.0
 
 [node name="MinaNeutral_Flotante" instance=ExtResource( 1 )]
-z_index = -2
 script = ExtResource( 2 )
 tiempo = 0.45
 
 [node name="Sprite" parent="." index="0"]
-visible = true
 modulate = Color( 1, 1, 1, 0 )
 material = null
 texture = ExtResource( 8 )
 hframes = 2
-vframes = 1
-frame = 0
 
 [node name="ZonaActivacion" parent="." index="1"]
 visible = false
 monitoring = false
-
-[node name="CollisionShape2D" parent="ZonaActivacion" index="0"]
-disabled = false
 
 [node name="AnimationPlayer" parent="." index="2"]
 anims/RESET = SubResource( 5 )
@@ -922,7 +915,7 @@ anims/explosion = SubResource( 4 )
 
 [node name="Light2D" parent="." index="3"]
 texture_scale = 0.2
-color = Color( 0.956863, 0.0196078, 0.0196078, 1 )
+energy = 0.0
 
 [node name="AudioStreamPlayer2D" parent="." index="4"]
 volume_db = -20.0

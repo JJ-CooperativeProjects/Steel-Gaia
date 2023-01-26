@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://SISTEMA/NIVELES/Nivel.gd" type="Script" id=1]
 [ext_resource path="res://RECURSOS/IMAGENES/blanco 32x32.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://SISTEMA/OBJETOS/ESCALERAS/Escaleras.tscn" type="PackedScene" id=6]
 [ext_resource path="res://SISTEMA/GUI/Debug_in_game.tscn" type="PackedScene" id=7]
 [ext_resource path="res://RECURSOS/IMAGENES/TILE-MAPS/Tile_3_0_0.png" type="Texture" id=8]
+[ext_resource path="res://default_env.tres" type="Environment" id=9]
 [ext_resource path="res://SISTEMA/NIVELES/ParallaxBackground.tscn" type="PackedScene" id=11]
 [ext_resource path="res://SISTEMA/EFECTOS/ESPECIALES/EfectoHumoFondo.tscn" type="PackedScene" id=15]
 
@@ -121,6 +122,9 @@ visible = false
 [node name="Debug_in_game" parent="CanvasLayer" instance=ExtResource( 7 )]
 visible = false
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 9 )
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 32, 32 )
@@ -143,12 +147,6 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 0
 collision_mask = 0
 format = 1
-
-[node name="OTROS" type="Node" parent="."]
-
-[node name="ESCALERAS" type="Node" parent="OTROS"]
-
-[node name="MALLAS" type="Node" parent="OTROS"]
 
 [node name="JUGADORES" type="Node" parent="."]
 
@@ -191,6 +189,12 @@ z_index = 100
 [node name="AREAS_EVENTOS" type="Node" parent="."]
 
 [node name="OBJETOS" type="Node" parent="."]
+
+[node name="OTROS" type="Node" parent="."]
+
+[node name="ESCALERAS" type="Node" parent="OTROS"]
+
+[node name="MALLAS" type="Node" parent="OTROS"]
 
 [connection signal="body_entered" from="Escaleras" to="Escaleras" method="_on_MallaDeSujetacion_body_entered"]
 [connection signal="body_exited" from="Escaleras" to="Escaleras" method="_on_MallaDeSujetacion_body_exited"]

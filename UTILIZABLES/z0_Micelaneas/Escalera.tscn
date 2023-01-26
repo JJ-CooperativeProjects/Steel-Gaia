@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://UTILIZABLES/z0_Micelaneas/MallaDeSujetacion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UTILIZABLES/z0_Micelaneas/MallaDeSujecion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SISTEMA/OBJETOS/ESCALERAS/Escalera.gd" type="Script" id=2]
 
 [node name="Escalera" instance=ExtResource( 1 )]

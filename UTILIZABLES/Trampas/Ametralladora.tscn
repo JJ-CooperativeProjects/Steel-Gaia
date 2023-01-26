@@ -439,7 +439,6 @@ tracks/6/keys = {
 [node name="Ametralladora" instance=ExtResource( 1 )]
 z_index = -1
 script = ExtResource( 2 )
-dagno_base = null
 disparos_por_ronda = 20
 posicion = 2
 tiempo_ronda_disparos = 1.0

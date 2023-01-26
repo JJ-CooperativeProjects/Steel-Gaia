@@ -11,7 +11,7 @@ animations = [  ]
 script = ExtResource( 2 )
 girar = false
 direccion_mira_inicial = 1
-posibles_objetos_soltar = [ "" ]
+posibles_objetos_soltar = [  ]
 
 [node name="Sprite" type="Sprite" parent="Cuerpo" index="0"]
 visible = false

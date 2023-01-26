@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://SISTEMA/GUI/GameFlow/Pantalla.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RECURSOS/FONTS/calligra.ttf" type="DynamicFontData" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Kenney/smoke_04.png" type="Texture" id=9]
 [ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Smoke_Lighting.png" type="Texture" id=10]
 [ext_resource path="res://RECURSOS/IMAGENES/GUI/Panatalla Principal/cielo y nubes.png" type="Texture" id=11]
+[ext_resource path="res://SISTEMA/GUI/GameFlow/PantallasUsadas/PantallaMenuPrincipal.gd" type="Script" id=12]
 
 [sub_resource type="Gradient" id=17]
 interpolation_mode = 1
@@ -139,6 +140,7 @@ shader_param/offset = Vector2( 2, 2 )
 shader_param/modulate = Color( 0, 0, 0, 0.203922 )
 
 [node name="PantallaMenuPrincipal" instance=ExtResource( 1 )]
+script = ExtResource( 12 )
 
 [node name="TextureRect" parent="." index="0"]
 texture = ExtResource( 4 )

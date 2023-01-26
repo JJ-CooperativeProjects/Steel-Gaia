@@ -3,7 +3,7 @@
 [ext_resource path="res://SISTEMA/OBJETOS/ESCALERAS/MallaSujetacion.gd" type="Script" id=1]
 [ext_resource path="res://RECURSOS/TILE-SETS/Tile_escaleras.tres" type="TileSet" id=2]
 
-[node name="MallaDeSujetacion" type="Area2D"]
+[node name="MallaDeSujecion" type="Area2D"]
 collision_layer = 8
 monitorable = false
 script = ExtResource( 1 )

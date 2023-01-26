@@ -45,9 +45,14 @@ func _ready():
 func _input(event):
 	if not ente.ocupado:
 		#Ataque1:
-		if ["quieto","correr","salto_sube","salto_cae","segundo_salto","segundo_salto_cae"].has(estado):
+		if ["quieto","correr","salto_sube","salto_cae","segundo_salto","segundo_salto_cae","atacar1","atacar2"].has(estado):
 			if event.is_action_pressed("atacar"):
-				poner_estado_deferred(estados.atacar1) 
+				if [estados.atacar1].has(estado):
+					combo_count = 2
+				elif [estados.atacar2].has(estado):
+					combo_count = 1
+				else:
+					poner_estado_deferred(estados.atacar1) 
 			elif event.is_action_pressed("escopeta") and ente.energia >= consumo_energia_escopeta and puede_escopeta:
 				poner_estado_deferred(estados.escopeta) 
 		
@@ -108,17 +113,17 @@ func _transiciones(delta):
 #				return estados.quieto
 		
 		estados.atacar1:
-			#if ente.anim.current_animation_position > ente.anim.current_animation_length/2:
-			if Input.is_action_just_pressed("atacar"): 
-				combo_count = 2
-			elif Input.is_action_just_pressed("escopeta"):
+#			#if ente.anim.current_animation_position > ente.anim.current_animation_length/2:
+#			if Input.is_action_just_pressed("atacar"): 
+#				combo_count = 2
+			if Input.is_action_just_pressed("escopeta"):
 				combo_count = -1
-		
+#
 		estados.atacar2:
-			#if ente.anim.current_animation_position > ente.anim.current_animation_length/2:
-				if Input.is_action_just_pressed("atacar"): 
-					combo_count = 1
-				elif Input.is_action_just_pressed("escopeta"):
+#			#if ente.anim.current_animation_position > ente.anim.current_animation_length/2:
+#				if Input.is_action_just_pressed("atacar"): 
+#					combo_count = 1
+				if Input.is_action_just_pressed("escopeta"):
 					combo_count = -1
 		
 		estados.escopeta:

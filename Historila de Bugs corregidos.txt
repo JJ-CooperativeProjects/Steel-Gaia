@@ -24,3 +24,10 @@ CAMBIOS EN EL SISTEMA:
 MEJORAS Y CORRECCION DE BUGS EN EL JUGADOR:
 - Se corrigieron bugs de incoherencia en el nuevo sistema modular de HABILIDADES.
 - Se configuró la habilidad de doble salto de manera modular (pendiente debug)
+
+25/01/2023
+
+-CORRECCION DE BUGS:
+  - Las minas del MiniBoss no estallan. OK (no cambiana de estado. Error al sobrescribir el método)
+  - Los golpes que recibía el MiniBoss generaban un error en la señal. OK (el método lleva dos parámetros y solo se estaba llamando con 1)
+  

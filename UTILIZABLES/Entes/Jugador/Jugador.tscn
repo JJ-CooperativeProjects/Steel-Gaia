@@ -1012,6 +1012,7 @@ editor_draw_drag_margin = true
 script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="." index="7"]
+visible = false
 margin_left = -18.0
 margin_top = -32.0
 margin_right = 22.0

@@ -169,7 +169,7 @@ func ReiniciarConteos():
 	conteo_traslados = 0
 	count_golpes = 0
 
-func SumarGolpe(damage):
+func SumarGolpe(damage,quien:Node2D):
 	count_golpes += 1
 
 func LogicaMorir(cantida_dagno,quien):
