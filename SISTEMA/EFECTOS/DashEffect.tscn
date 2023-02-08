@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://SISTEMA/EFECTOS/DashEffect.gd" type="Script" id=1]
+[ext_resource path="res://RECURSOS/IMAGENES/PLAYER/HojasDeSpriteFull.png" type="Texture" id=2]
 
 [node name="DashEffect" type="Sprite"]
-z_index = -2
-hframes = 4
-vframes = 8
+self_modulate = Color( 16.19, 0, 2.32, 0.06 )
+position = Vector2( 0, -29 )
+z_index = -1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0.477081, 18.4782, 34.2185, 41.9002 )
 script = ExtResource( 1 )

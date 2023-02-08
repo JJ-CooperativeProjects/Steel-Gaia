@@ -65,6 +65,7 @@ func _entrar_estado(nuevo, viejo):
 		estados.salto_doble:
 			ejecutado = true
 			
+			mi_ente.get_node("AnimationPlayer").play("salto_sube")
 			mi_ente.set_energia(mi_ente.get_energia() - consumo_energia)
 			mi_ente.movimiento = Vector2.ZERO
 			mi_ente.SegundoSalto()
@@ -77,6 +78,10 @@ func _entrar_estado(nuevo, viejo):
 			call_deferred("HabilitarMEF","")
 			input  = ""
 			call_deferred("DeshabilitarSelf")
+			
+			match mef_ente.estado:
+				mef_ente.estados.salto_cae:
+					mi_ente.get_node("AnimationPlayer").play("salto_cae")
 	pass
 
 func Activar():

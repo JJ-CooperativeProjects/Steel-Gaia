@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://RECURSOS/IMAGENES/ENEMIGOS/DinoBoss/D-Moler_MechaSaurus.png" type="Texture" id=1]
 [ext_resource path="res://RECURSOS/SHADERS/PixelArt_mas_colorPixel.gdshader" type="Shader" id=2]
@@ -14,6 +14,63 @@
 [ext_resource path="res://SISTEMA/GLOBAL/AREAS/AreaDamage.gd" type="Script" id=12]
 [ext_resource path="res://RECURSOS/IMAGENES/ENEMIGOS/DinoBoss/Efecto_pisoton.png" type="Texture" id=13]
 [ext_resource path="res://RECURSOS/IMAGENES/ENEMIGOS/DinoBoss/efecto_cabeza.png" type="Texture" id=14]
+[ext_resource path="res://RECURSOS/IMAGENES/EFECTOS ESPECIALES/Fuego_boca_suelo_dinoboss.png" type="Texture" id=16]
+[ext_resource path="res://default_env.tres" type="Environment" id=19]
+
+[sub_resource type="Shader" id=85]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_tex;
+uniform sampler2D gradient_tex;
+
+uniform vec4 brighter_color : hint_color = vec4(1.0, 0.8, 0.0, 1.0);
+uniform vec4 middle_color : hint_color  = vec4(1.0, 0.56, 0.0, 1.0);
+uniform vec4 darker_color : hint_color  = vec4(0.64, 0.2, 0.05, 1.0);
+
+uniform float spread : hint_range(0.0, 1.0) = 0.5;
+
+void fragment()
+{
+	float noise_value = texture(noise_tex, UV + vec2(0.0, TIME*3.0)).x;
+	// The .yx swizzle is when using the built in horizontal gradient texture. If you have a vertical gradient texture remove .yx
+	float gradient_value = texture(gradient_tex, UV.yx).x;
+	
+	gradient_value -= smoothstep(spread, spread + 2.5, length(UV + vec2(-0.1, -0.1)) / spread);
+	
+	float step1 = step(noise_value, gradient_value);
+	float step2 = step(noise_value, gradient_value - 0.1);
+	float step3 = step(noise_value, gradient_value - 0.2);
+	
+	vec3 bd_color = mix(brighter_color.rgb, darker_color.rgb, step1 - step2);
+	
+	vec4 color = vec4(bd_color, step1);
+	color.rgb = mix(color.rgb, middle_color.rgb, step2 - step3);
+	
+	COLOR = color;
+}"
+
+[sub_resource type="OpenSimplexNoise" id=89]
+seed = 26
+octaves = 6
+period = 207.6
+persistence = 0.479
+lacunarity = 3.57
+
+[sub_resource type="NoiseTexture" id=90]
+flags = 3
+width = 1024
+height = 1200
+noise = SubResource( 89 )
+
+[sub_resource type="ShaderMaterial" id=87]
+resource_local_to_scene = true
+shader = SubResource( 85 )
+shader_param/brighter_color = Color( 0.937255, 0.756863, 0.0431373, 1 )
+shader_param/middle_color = Color( 1, 0.560784, 0, 1 )
+shader_param/darker_color = Color( 0.964706, 0.364706, 0.0392157, 1 )
+shader_param/spread = 0.679
+shader_param/noise_tex = SubResource( 90 )
+shader_param/gradient_tex = ExtResource( 16 )
 
 [sub_resource type="Gradient" id=3]
 interpolation_mode = 1
@@ -191,6 +248,10 @@ anim_offset = 1.0
 anim_offset_random = 1.0
 
 [sub_resource type="CanvasItemMaterial" id=77]
+blend_mode = 1
+
+[sub_resource type="ViewportTexture" id=88]
+viewport_path = NodePath("Viewport")
 
 [sub_resource type="RectangleShape2D" id=83]
 resource_local_to_scene = true
@@ -1170,7 +1231,7 @@ tracks/69/keys = {
 "values": [ Vector2( 1e-05, 1e-05 ) ]
 }
 tracks/70/type = "value"
-tracks/70/path = NodePath("pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/Sprite/pos_llamas_suelo:position")
+tracks/70/path = NodePath("pelvis_control/cuerpo/Pecho/brazo_izq/brazo_1_izq/pala_1_izq/AreaDamage_pala:monitoring")
 tracks/70/interp = 1
 tracks/70/loop_wrap = true
 tracks/70/imported = false
@@ -1179,10 +1240,10 @@ tracks/70/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ false ]
 }
 tracks/71/type = "value"
-tracks/71/path = NodePath("pelvis_control/cuerpo/Pecho/brazo_izq/brazo_1_izq/pala_1_izq/AreaDamage_pala:monitoring")
+tracks/71/path = NodePath("../Polea/ronda2:rotation_degrees")
 tracks/71/interp = 1
 tracks/71/loop_wrap = true
 tracks/71/imported = false
@@ -1191,10 +1252,10 @@ tracks/71/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ 42.0 ]
 }
 tracks/72/type = "value"
-tracks/72/path = NodePath("../Polea/ronda2:rotation_degrees")
+tracks/72/path = NodePath("Efecto_extra1:visible")
 tracks/72/interp = 1
 tracks/72/loop_wrap = true
 tracks/72/imported = false
@@ -1203,10 +1264,10 @@ tracks/72/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 42.0 ]
+"values": [ false ]
 }
 tracks/73/type = "value"
-tracks/73/path = NodePath("Efecto_extra1:visible")
+tracks/73/path = NodePath("Efecto_extra1:texture")
 tracks/73/interp = 1
 tracks/73/loop_wrap = true
 tracks/73/imported = false
@@ -1215,10 +1276,10 @@ tracks/73/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ null ]
 }
 tracks/74/type = "value"
-tracks/74/path = NodePath("Efecto_extra1:texture")
+tracks/74/path = NodePath("Efecto_extra1:hframes")
 tracks/74/interp = 1
 tracks/74/loop_wrap = true
 tracks/74/imported = false
@@ -1227,10 +1288,10 @@ tracks/74/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ null ]
+"values": [ 1 ]
 }
 tracks/75/type = "value"
-tracks/75/path = NodePath("Efecto_extra1:hframes")
+tracks/75/path = NodePath("Efecto_extra1:vframes")
 tracks/75/interp = 1
 tracks/75/loop_wrap = true
 tracks/75/imported = false
@@ -1242,7 +1303,7 @@ tracks/75/keys = {
 "values": [ 1 ]
 }
 tracks/76/type = "value"
-tracks/76/path = NodePath("Efecto_extra1:vframes")
+tracks/76/path = NodePath("Efecto_extra1:frame")
 tracks/76/interp = 1
 tracks/76/loop_wrap = true
 tracks/76/imported = false
@@ -1251,10 +1312,10 @@ tracks/76/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/77/type = "value"
-tracks/77/path = NodePath("Efecto_extra1:frame")
+tracks/77/path = NodePath("Efecto_extra1:position")
 tracks/77/interp = 1
 tracks/77/loop_wrap = true
 tracks/77/imported = false
@@ -1263,10 +1324,10 @@ tracks/77/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0 ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/78/type = "value"
-tracks/78/path = NodePath("Efecto_extra1:position")
+tracks/78/path = NodePath("Efecto_extra1:self_modulate")
 tracks/78/interp = 1
 tracks/78/loop_wrap = true
 tracks/78/imported = false
@@ -1275,10 +1336,10 @@ tracks/78/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/79/type = "value"
-tracks/79/path = NodePath("Efecto_extra1:self_modulate")
+tracks/79/path = NodePath("Efecto_extra2:texture")
 tracks/79/interp = 1
 tracks/79/loop_wrap = true
 tracks/79/imported = false
@@ -1287,10 +1348,10 @@ tracks/79/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ null ]
 }
 tracks/80/type = "value"
-tracks/80/path = NodePath("Efecto_extra2:texture")
+tracks/80/path = NodePath("Efecto_extra2:hframes")
 tracks/80/interp = 1
 tracks/80/loop_wrap = true
 tracks/80/imported = false
@@ -1299,10 +1360,10 @@ tracks/80/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ null ]
+"values": [ 1 ]
 }
 tracks/81/type = "value"
-tracks/81/path = NodePath("Efecto_extra2:hframes")
+tracks/81/path = NodePath("Efecto_extra2:vframes")
 tracks/81/interp = 1
 tracks/81/loop_wrap = true
 tracks/81/imported = false
@@ -1314,7 +1375,7 @@ tracks/81/keys = {
 "values": [ 1 ]
 }
 tracks/82/type = "value"
-tracks/82/path = NodePath("Efecto_extra2:vframes")
+tracks/82/path = NodePath("Efecto_extra2:frame")
 tracks/82/interp = 1
 tracks/82/loop_wrap = true
 tracks/82/imported = false
@@ -1323,10 +1384,10 @@ tracks/82/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/83/type = "value"
-tracks/83/path = NodePath("Efecto_extra2:frame")
+tracks/83/path = NodePath("Efecto_extra2:position")
 tracks/83/interp = 1
 tracks/83/loop_wrap = true
 tracks/83/imported = false
@@ -1335,10 +1396,10 @@ tracks/83/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0 ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/84/type = "value"
-tracks/84/path = NodePath("Efecto_extra2:position")
+tracks/84/path = NodePath("Efecto_extra2:visible")
 tracks/84/interp = 1
 tracks/84/loop_wrap = true
 tracks/84/imported = false
@@ -1347,10 +1408,10 @@ tracks/84/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ false ]
 }
 tracks/85/type = "value"
-tracks/85/path = NodePath("Efecto_extra2:visible")
+tracks/85/path = NodePath("Efecto_extra2:self_modulate")
 tracks/85/interp = 1
 tracks/85/loop_wrap = true
 tracks/85/imported = false
@@ -1359,10 +1420,10 @@ tracks/85/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/86/type = "value"
-tracks/86/path = NodePath("Efecto_extra2:self_modulate")
+tracks/86/path = NodePath("pelvis_control/pierna_der/pierna_2_der/pierna_3_der/pata_der/AreaDamage:monitoring")
 tracks/86/interp = 1
 tracks/86/loop_wrap = true
 tracks/86/imported = false
@@ -1371,10 +1432,10 @@ tracks/86/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ false ]
 }
 tracks/87/type = "value"
-tracks/87/path = NodePath("pelvis_control/pierna_der/pierna_2_der/pierna_3_der/pata_der/AreaDamage:monitoring")
+tracks/87/path = NodePath("pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/AreaDamage:monitoring")
 tracks/87/interp = 1
 tracks/87/loop_wrap = true
 tracks/87/imported = false
@@ -1386,7 +1447,7 @@ tracks/87/keys = {
 "values": [ false ]
 }
 tracks/88/type = "value"
-tracks/88/path = NodePath("pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/AreaDamage:monitoring")
+tracks/88/path = NodePath("pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/Sprite:position")
 tracks/88/interp = 1
 tracks/88/loop_wrap = true
 tracks/88/imported = false
@@ -1395,10 +1456,10 @@ tracks/88/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ Vector2( -18.0147, 4.9156 ) ]
 }
 tracks/89/type = "value"
-tracks/89/path = NodePath("pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/Sprite:position")
+tracks/89/path = NodePath("pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/Sprite:rotation_degrees")
 tracks/89/interp = 1
 tracks/89/loop_wrap = true
 tracks/89/imported = false
@@ -1407,10 +1468,10 @@ tracks/89/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -18.0147, 4.9156 ) ]
+"values": [ -22.4257 ]
 }
 tracks/90/type = "value"
-tracks/90/path = NodePath("pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/Sprite:rotation_degrees")
+tracks/90/path = NodePath("pelvis_control/cuerpo:material:shader_param/radius")
 tracks/90/interp = 1
 tracks/90/loop_wrap = true
 tracks/90/imported = false
@@ -1419,10 +1480,10 @@ tracks/90/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -22.4257 ]
+"values": [ 0.0 ]
 }
 tracks/91/type = "value"
-tracks/91/path = NodePath("pelvis_control/cuerpo:material:shader_param/radius")
+tracks/91/path = NodePath("../Viewport/Sprite:material:shader_param/spread")
 tracks/91/interp = 1
 tracks/91/loop_wrap = true
 tracks/91/imported = false
@@ -1431,7 +1492,7 @@ tracks/91/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 0.679 ]
 }
 
 [sub_resource type="Animation" id=58]
@@ -5306,7 +5367,7 @@ tracks/62/keys = {
 "times": PoolRealArray( 0, 0.2, 2.3, 2.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1.15, 24.42, 0.15, 1 ), Color( 1.15, 24.42, 0.15, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 9.25, 1.16, 1.16, 0.73 ), Color( 9.25, 1.16, 1.16, 0.73 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/63/type = "value"
 tracks/63/path = NodePath("pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/Sprite:scale")
@@ -5315,22 +5376,46 @@ tracks/63/loop_wrap = true
 tracks/63/imported = false
 tracks/63/enabled = true
 tracks/63/keys = {
-"times": PoolRealArray( 0, 0.2, 0.45, 2.3, 2.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.2, 1 ), Vector2( 1.35, 1.516 ), Vector2( 1.35, 1.516 ), Vector2( 1.714, 1e-05 ) ]
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
 }
 tracks/64/type = "value"
-tracks/64/path = NodePath("pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/Sprite/pos_llamas_suelo:position")
+tracks/64/path = NodePath("../Viewport/Sprite:material:shader_param/spread")
 tracks/64/interp = 1
 tracks/64/loop_wrap = true
 tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = {
-"times": PoolRealArray( 0, 0.45, 2.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.45, 2.3, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -117.582, -0.247482 ), Vector2( -117.582, -0.247482 ) ]
+"values": [ 0.169, 0.596, 0.596, 0.0 ]
+}
+tracks/65/type = "value"
+tracks/65/path = NodePath("pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/Sprite:position")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.3, 0.35, 0.4, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 60.8275, -22.3985 ), Vector2( 13.5464, -1.88235 ), Vector2( 60.8275, -22.3985 ), Vector2( 42.2153, -10.2144 ), Vector2( 20.9366, 1.90834 ), Vector2( 3.41324, 10.1676 ), Vector2( -1.01154, 12.0776 ) ]
+}
+tracks/66/type = "value"
+tracks/66/path = NodePath("pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/Sprite:rotation_degrees")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -110.332 ]
 }
 
 [sub_resource type="Animation" id=57]
@@ -19008,6 +19093,19 @@ __meta__ = {
 "_edit_vertical_guides_": [ -450.319 ]
 }
 
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 200, 250 )
+own_world = true
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Sprite" type="Sprite" parent="Viewport"]
+material = SubResource( 87 )
+position = Vector2( 100, 250 )
+scale = Vector2( 0.931, 1.518 )
+texture = ExtResource( 7 )
+offset = Vector2( 1, -62 )
+
 [node name="Polea" type="Node2D" parent="."]
 position = Vector2( 49.4025, -200.63 )
 z_index = -1
@@ -19413,16 +19511,9 @@ position = Vector2( -18.0147, 4.9156 )
 rotation = -0.391402
 scale = Vector2( 1e-05, 1e-05 )
 z_index = -2
-texture = ExtResource( 7 )
-offset = Vector2( -60.1181, -1.55835 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="pos_llamas_suelo" type="Position2D" parent="Base/pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/Sprite"]
-__meta__ = {
-"_edit_lock_": true
-}
+texture = SubResource( 88 )
+centered = false
+offset = Vector2( -91.4483, -247.224 )
 
 [node name="pos_efecto_cargar_llamas" type="Position2D" parent="Base/pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza"]
 position = Vector2( -20.8784, 11.9967 )
@@ -19825,6 +19916,9 @@ __meta__ = {
 "_edit_lock_": true,
 "_gizmo_extents_": 50.0
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 19 )
 
 [connection signal="grito" from="." to="." method="_on_Control_grito"]
 [connection signal="area_entered" from="Base/pelvis_control/cuerpo/Pecho/brazo_izq/brazo_1_izq/pala_1_izq/AreaDamage_pala" to="Base/pelvis_control/cuerpo/Pecho/brazo_izq/brazo_1_izq/pala_1_izq/AreaDamage_pala" method="_on_AreaDamage_area_entered"]

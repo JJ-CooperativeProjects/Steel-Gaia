@@ -125,6 +125,8 @@ func _entrar_estado(nuevo, viejo):
 		
 		estados.determinar_ataque:
 			pasos_acumulados = 0
+			poner_estado_deferred("ataque_llamas_cerca")
+			return
 			var at:int 
 			if ente.vitalidad > ente.max_vitalidad/2:
 				at = 0
@@ -275,8 +277,8 @@ func PasarEfectoPaso2():
 	ente.anim_dino.play("ataque_cerca_llamas_paso2")
 	
 func CrearLlama():
-	var llama = load("res://SISTEMA/EFECTOS/ESPECIALES/Llama.tscn").instance() as Node2D
-	llama.global_position = Vector2(ente.control.pos_llamas.global_position.x - (64 * llamas),ente.control.pos_llamas.global_position.y)
+	var llama = load("res://SISTEMA/EFECTOS/ESPECIALES/Usados/EfectoEspecial_llamas_ataque_suelo_dinoboss.tscn").instance() as Node2D
+	llama.global_position = Vector2(ente.control.pos_llamas.global_position.x - (30 * llamas),ente.control.pos_llamas.global_position.y)
 	nodo_control.add_child(llama)
 	llamas += 1
 	efectos_creados.append(llama)
@@ -354,7 +356,7 @@ func _on_animacion_termina(animacion:String):
 		
 		"ataque_cerca_llamas_arranque":
 			var efecto_absorver_llamas = load("res://SISTEMA/EFECTOS/ESPECIALES/Efecto_absorver_fuego_dinoboss.tscn").instance() as EfectoEspecialControlado
-			efecto_absorver_llamas.connect("termina_efecto",self,"PasarEfectoPaso2")
+			efecto_absorver_llamas.connect("middle_efecto",self,"PasarEfectoPaso2")
 			
 			efecto_absorver_llamas.global_position = ente.control.pos_boca.global_position
 			nodo_control.add_child(efecto_absorver_llamas)

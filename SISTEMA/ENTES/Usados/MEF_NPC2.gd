@@ -119,7 +119,7 @@ func PensarAtaque():
 func AnimDisparar():
 	anim.play("Shoot_New")
 
-func RecibeDamage(cantidad:float):
+func RecibeDamage(cantidad:float,quie:Node2D):
 	match estado:
 		estados.patrullar:
 			golpes_acumulados += randi()%10

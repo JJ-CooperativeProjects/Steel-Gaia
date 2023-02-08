@@ -2,10 +2,11 @@ extends Particles2D
 class_name EfectoEspecialControlado
 
 signal comienza_efecto()
+signal middle_efecto() #Emitir en medio de una animacion.
 signal termina_efecto()
 
 """
-CLASE PARA CREAR EFECTOS CON PARTICUALES CUNTROLADO POR ANIMACION. 
+CLASE PARA CREAR EFECTOS CON PARTICULAS CUNTROLADO POR ANIMACION. 
 EMITE CIERTAS SEÑALES PARA MANEJAR EL CONTROL.
 """
 

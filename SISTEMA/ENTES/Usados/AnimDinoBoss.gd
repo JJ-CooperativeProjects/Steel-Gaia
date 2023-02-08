@@ -10,7 +10,7 @@ signal ataque_rocas()
 signal crear_llama()
 signal crear_bolas_fuego()
 
-onready var pos_llamas:Position2D = $Base/pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/Sprite/pos_llamas_suelo
+onready var pos_llamas:Position2D = $Position2D
 onready var pos_boca:Position2D = $Base/pelvis_control/cuerpo/Pecho/cuello_Control/cuello/cabeza/pos_efecto_cargar_llamas
 
 export (float) var velocidad_movimiento:float = 0.0

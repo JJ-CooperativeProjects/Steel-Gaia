@@ -1,6 +1,8 @@
 extends MEF_base
 # Called when the node enters the scene tree for the first time.
 
+
+
 var doble_tap:Array = []
 var combo_count:int = 0
 
@@ -199,11 +201,22 @@ func _entrar_estado(nuevo, viejo):
 		estados.quieto:
 			ente.anim.play("quieto")
 			ente.ReiniciarVectorSnap()
-			
+		
+		estados.correr:
+			ente.anim.play("corre")
+		
 		estados.salto_inicia:
 			ente.movimiento = Vector2.ZERO
 			ente.Saltar()
 			#ente.SegundoSalto()
+		
+		estados.salto_sube:
+			ente.anim.play("salto_sube")
+			pass
+		
+		estados.salto_cae:
+			ente.anim.play("salto_cae")
+			pass
 		
 		estados.en_pared:
 			ente.movimiento = Vector2.ZERO
@@ -307,6 +320,10 @@ func DeshabilitarTodo():
 		hab.set_process_input(false)
 		hab.set_process(false)
 		hab.set_physics_process(false)
+
+func PonerSaltoCiclo():
+	ente.anim.play("salto_cae_ciclo")
+
 
 func AfterCargar():
 	ente.get_node("AnimEfectos").connect("animation_finished",self,"_on_animacion_termina")

@@ -53,9 +53,11 @@ func _process_estado(delta):
 func _entrar_estado(nuevo, viejo):
 	match estado:
 		estados.dash:
+			mi_ente.get_node("AnimationPlayer").play("dash")
 			mi_ente.set_energia(mi_ente.get_energia() - consumo_energia)
 			mi_ente.Dash()
 			mi_ente.EfectoSombra(0.01,self)
+			
 		
 		estados.termina:
 			mi_ente.ocupado = false

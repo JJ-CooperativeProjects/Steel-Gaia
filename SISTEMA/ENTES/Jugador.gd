@@ -105,6 +105,7 @@ func Saltar():
 	tween_salto = get_tree().create_tween()
 	tween_salto.tween_property(self,"movimiento:y",-440.0,0.22).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	pass
+	
 #SegundoSalto:
 func SegundoSalto():
 	vector_snap = Vector2.ZERO
@@ -117,7 +118,9 @@ func SegundoSalto():
 func EfectoSombra(ciclo:float,nodo_controlador:MEF_base):
 	var efecto:DashEffect = efecto_dash.instance()
 	efecto.texture = $Cuerpo/Sprite.texture
-	efecto.global_position = global_position
+	efecto.region_enabled = true
+	efecto.region_rect = $Cuerpo/Sprite.region_rect
+	efecto.global_position = Vector2(global_position.x,global_position.y-29)
 	
 	get_parent().add_child(efecto)
 	if $Cuerpo.scale.x < 0:

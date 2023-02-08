@@ -210,6 +210,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [ 0.0, 0.0, 0.0, -50.0 ]
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 4.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "middle_efecto" ],
+"method": "emit_signal"
+} ]
+}
 
 [node name="Efecto_absorver_fuego" type="Particles2D"]
 material = SubResource( 1 )

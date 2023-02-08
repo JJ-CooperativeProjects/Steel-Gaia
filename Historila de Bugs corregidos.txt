@@ -24,7 +24,7 @@ CAMBIOS EN EL SISTEMA:
 MEJORAS Y CORRECCION DE BUGS EN EL JUGADOR:
 - Se corrigieron bugs de incoherencia en el nuevo sistema modular de HABILIDADES.
 - Se configuró la habilidad de doble salto de manera modular (pendiente debug)
-
+----------------------------------------------------------------------------------------
 25/01/2023
 
 -CORRECCION DE BUGS:

@@ -49,3 +49,11 @@ CAMBIOS EN EL SISTEMA:
 MEJORAS Y CORRECCION DE BUGS EN EL JUGADOR:
 - Se corrigieron bugs de incoherencia en el nuevo sistema modular de HABILIDADES.
 - Se configuró la habilidad de doble salto de manera modular (pendiente debug)
+
+----------------------------------------------------------------------------
+_*Envio no 6:*_
+  - DISEÑO DEL DINOBOSS:
+    - Se mejoraron los efectos de fuego para la habilidad de "llamas en el suelo".
+    
+  - DISEÑO DEL JUGADOR:
+    - Se comenzó a configurar los Assets del player.
