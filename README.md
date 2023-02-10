@@ -1,3 +1,4 @@
+![Fondo1](https://user-images.githubusercontent.com/93017270/218015565-76ee7efa-6897-4339-ad89-103ced0d8335.png)
 # HISTORIAL DE CAMBIOS OFICIALES
 
 _*Envio no 3:*_
