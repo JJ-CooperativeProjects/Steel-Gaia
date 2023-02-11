@@ -42,5 +42,3 @@ position = Vector2( 124, 784 )
 
 [node name="NPC1" parent="ENEMIGOS" index="0" instance=ExtResource( 13 )]
 position = Vector2( 695, 1023 )
-
-[editable path="Escaleras"]
