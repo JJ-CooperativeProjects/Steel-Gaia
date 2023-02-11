@@ -65,7 +65,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
@@ -76,7 +76,7 @@ tracks/2/keys = {
 }
 
 [node name="TrampaNanoBots" instance=ExtResource( 3 )]
-z_index = -1
+z_index = 1
 script = ExtResource( 1 )
 numero_bolas = 6
 
@@ -85,11 +85,13 @@ position = Vector2( 0, 28 )
 texture = ExtResource( 2 )
 hframes = 5
 
+[node name="ZonaActivacion" parent="." index="1"]
+collision_layer = 0
+
 [node name="CollisionShape2D" parent="ZonaActivacion" index="0"]
 disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ZonaActivacion" index="1"]
-visible = false
 position = Vector2( 0.5, 128 )
 shape = SubResource( 1 )
 

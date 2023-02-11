@@ -150,6 +150,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("Particles2D:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "abrir"
@@ -250,6 +262,18 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Particles2D:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -401,6 +425,7 @@ anim_offset_curve = SubResource( 11 )
 [node name="NanoBola" type="RigidBody2D"]
 collision_layer = 0
 collision_mask = 1552
+mode = 3
 mass = 8.0
 physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )

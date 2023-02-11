@@ -11,6 +11,7 @@ export var count_recuperar_energia:float = 12.25
 
 onready var efecto_dash:PackedScene = preload("res://SISTEMA/EFECTOS/DashEffect.tscn")
 onready var camara:PackedScene = preload("res://SISTEMA/GLOBAL/CamaraControl.tscn")
+onready var efectp_polvo_ataque:PackedScene = preload("res://SISTEMA/EFECTOS/ESPECIALES/Usados/Efecto polvo en el viento_pugnos jugador.tscn")
 onready var rayo_pared_derecho:RayCast2D = $RayPared1
 onready var rayo_pared_izqueierdo:RayCast2D = $RayPared2
 
@@ -84,6 +85,15 @@ func CaminarEscalera(delta):
 	
 func CaminarMalla(delta):
 	movimiento = direcciones * (velocidad_movimiento/2.53)
+
+func QuietoEnMalla()->bool:
+	if Quieto() and (movimiento.y < 50 and movimiento.y > -50):
+		return true
+	return false
+	
+func QuietoEnEscalera()->bool:
+	return true if (movimiento.y < 50 and movimiento.y > -50) else false
+	
 #Devuelve true cuando esté fuera de una pared. Usar para salir de una pared.
 func FueraDePared()->bool:
 	if !rayo_pared_derecho.is_colliding() and !rayo_pared_izqueierdo.is_colliding() and !$RayPared3.is_colliding() and !$RayPared4.is_colliding():
@@ -147,6 +157,11 @@ func ResetFlash():
 
 func JugadorMuere():
 	Memoria.CargarUltimaPartidaGuardada()
+
+func CrearPolvoAtaque():
+	var polvo:EfectoEspecial = efectp_polvo_ataque.instance()
+	polvo.global_position = $Cuerpo/pos_golpes_pugnos.global_position
+	Memoria.nivel_actual.add_child(polvo)
 
 ####
 func Salvar(data_vacio:Dictionary= {})->Dictionary:

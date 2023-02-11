@@ -13,6 +13,9 @@ func _ready():
 	
 	poner_estado_deferred("espera")
 	call_deferred("DeshabilitarSelf")
+	
+	$Mef_movimiento_escalera.ente = mi_ente
+	$Mef_movimiento_escalera.anim = mi_ente.get_node("AnimationPlayer")
 	pass # Replace with function body.
 
 
@@ -25,6 +28,7 @@ func _input(event):
 					
 						mef_ente.poner_estado_deferred("quieto")
 						call_deferred("DeshabilitarMEF")
+						mef_ente.set_process_input(false)
 						
 						get_parent().DesactivarHabilidadesDesactivables([self])
 						HabilitarSelf()
@@ -59,6 +63,8 @@ func _transiciones(delta):
 		estados.en_escalera:
 			if !mi_ente.en_escalera:
 				return estados.termina
+			
+			
 			
 			if  mi_ente.is_on_floor():
 				return estados.posible_fin
@@ -97,3 +103,14 @@ func Salir():
 		poner_estado_deferred(estados.en_escalera)
 	else:
 		poner_estado_deferred(estados.termina)
+##
+func set_process(valor:bool):
+	.set_process(valor)
+	
+	$Mef_movimiento_escalera.set_process(valor)
+
+func set_physics_process(valor:bool):
+	.set_physics_process(valor)
+	
+	$Mef_movimiento_escalera.set_physics_process(valor)
+	

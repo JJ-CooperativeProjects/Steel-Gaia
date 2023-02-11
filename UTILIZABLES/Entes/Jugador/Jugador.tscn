@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://SISTEMA/ENTES/Ente.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SISTEMA/ENTES/Jugador.gd" type="Script" id=2]
@@ -332,7 +332,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 28, -5 ) ]
+"values": [ Vector2( 31, -24 ) ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("Cuerpo/pos_golpes_pugnos:rotation_degrees")
@@ -356,7 +356,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Rect2( 0, 291, 54, 37 ), Rect2( 54, 291, 54, 37 ), Rect2( 108, 291, 54, 37 ) ]
+"values": [ Rect2( 0, 372, 68, 48 ), Rect2( 68, 372, 68, 48 ), Rect2( 136, 372, 68, 48 ) ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("Cuerpo/Sprite:position")
@@ -368,7 +368,21 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( 10, -19 ) ]
+"values": [ Vector2( 17, -24 ) ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.01 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "CrearPolvoAtaque"
+} ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -481,7 +495,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 29, -2 ) ]
+"values": [ Vector2( 27, -24 ) ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("Cuerpo/Sprite:region_rect")
@@ -493,7 +507,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Rect2( 3, 331, 54, 36 ), Rect2( 57, 331, 54, 36 ), Rect2( 111, 331, 54, 36 ) ]
+"values": [ Rect2( 207, 372, 68, 48 ), Rect2( 275, 372, 68, 48 ), Rect2( 343, 372, 68, 48 ) ]
 }
 tracks/10/type = "value"
 tracks/10/path = NodePath("Cuerpo/Sprite:position")
@@ -505,7 +519,21 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( 9, -17 ) ]
+"values": [ Vector2( 17, -24 ) ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.01 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "CrearPolvoAtaque"
+} ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -725,6 +753,168 @@ tracks/8/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -29 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "malla_caminar_left_right"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cuerpo/efecto_punsh:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cuerpo/Sprite:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 0, 519, 36, 42 ), Rect2( 36, 519, 36, 42 ), Rect2( 72, 519, 36, 42 ), Rect2( 108, 519, 36, 42 ), Rect2( 144, 519, 36, 42 ), Rect2( 180, 519, 36, 42 ), Rect2( 216, 519, 36, 42 ), Rect2( 252, 519, 36, 42 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cuerpo/Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -14 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "malla_caminar_up_down"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cuerpo/efecto_punsh:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cuerpo/Sprite:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 0, 477, 36, 42 ), Rect2( 36, 477, 36, 42 ), Rect2( 72, 477, 36, 42 ), Rect2( 108, 477, 36, 42 ), Rect2( 144, 477, 36, 42 ), Rect2( 180, 477, 36, 42 ), Rect2( 216, 477, 36, 42 ), Rect2( 252, 477, 36, 42 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cuerpo/Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -14 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "malla_quieto"
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cuerpo/efecto_punsh:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cuerpo/Sprite:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Rect2( 36, 477, 36, 42 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cuerpo/Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -14 ) ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -1319,6 +1509,9 @@ anims/atacar2 = SubResource( 6 )
 anims/corre = SubResource( 14 )
 anims/dash = SubResource( 18 )
 anims/escopeta = SubResource( 9 )
+anims/malla_caminar_left_right = SubResource( 21 )
+anims/malla_caminar_up_down = SubResource( 19 )
+anims/malla_quieto = SubResource( 20 )
 anims/muerte = SubResource( 13 )
 anims/quieto = SubResource( 4 )
 anims/salto_cae = SubResource( 17 )
@@ -1350,7 +1543,6 @@ editor_draw_drag_margin = true
 script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="." index="7"]
-visible = false
 margin_left = -18.0
 margin_top = -32.0
 margin_right = 22.0

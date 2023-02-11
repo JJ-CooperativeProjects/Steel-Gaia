@@ -1,27 +1,27 @@
 # HISTORIAL DE CAMBIOS OFICIALES
 
-_*Envio no 3:*_
-
-  - Implementación del NPC 2 Robot con cohetes, ya disponible para su uso en el nivel.
+_*Envio no 7:*_
+  11/02/2023
+  - DISEÑO DEL JUGADOR:
+    - Se continúa trabajando: añadido los assets de escalar mallas y subir escaleras.
   
-  - Corrección en el Sistema de Archivos.
+  - TRAMPA DE NANOBOTS:
+    - Se trabaja en mejorar el rendimiento ya que presenta ciertos lags debido a la carga gráfica.
   
-  - Corrección de Bugs.
-
-_*Envio no 4:*_
-
-  - Se le añaden efectos especiales al NPC1
+  - DISEÑO DE NIVELES:
+    - Se convirtieron las escenas de Fremy de simples copias a escenas heredadas.
   
-  - Se añaden los Assets de la pantalla del menú principal
 
-  - Se configuraron algunos efectos sonoros a modo de prueba (botones de menú)
+----------------------------------------------------------------------------
+_*Envio no 6:*_
+  - DISEÑO DEL DINOBOSS:
+    - Se mejoraron los efectos de fuego para la habilidad de "llamas en el suelo".
+    
+  - DISEÑO DEL JUGADOR:
+    - Se comenzó a configurar los Assets del player.
 
-  - Se corrigieron bugs:
-	- Se deshabilitaba la pausa cuando cambiabas de pantallas, como Cargar u Opciones.
-	- Cuando un enemigo NPC1 hacía contacto con una plataforma, saltaba un error.
-	- Otros bugs menores se corrigieron.
-
-_*Envio no 5:*_
+--------------------------------------------------------------------------
+*Envio no 5:*_
 
 22/01/2023
 SOBRE LAS TRAMPAS:
@@ -50,10 +50,25 @@ MEJORAS Y CORRECCION DE BUGS EN EL JUGADOR:
 - Se corrigieron bugs de incoherencia en el nuevo sistema modular de HABILIDADES.
 - Se configuró la habilidad de doble salto de manera modular (pendiente debug)
 
-----------------------------------------------------------------------------
-_*Envio no 6:*_
-  - DISEÑO DEL DINOBOSS:
-    - Se mejoraron los efectos de fuego para la habilidad de "llamas en el suelo".
-    
-  - DISEÑO DEL JUGADOR:
-    - Se comenzó a configurar los Assets del player.
+---------------------------------------------------------------------------------
+_*Envio no 4:*_
+
+  - Se le añaden efectos especiales al NPC1
+  
+  - Se añaden los Assets de la pantalla del menú principal
+
+  - Se configuraron algunos efectos sonoros a modo de prueba (botones de menú)
+
+  - Se corrigieron bugs:
+	- Se deshabilitaba la pausa cuando cambiabas de pantallas, como Cargar u Opciones.
+	- Cuando un enemigo NPC1 hacía contacto con una plataforma, saltaba un error.
+	- Otros bugs menores se corrigieron.
+
+-----------------------------------------------------------------------------------
+_*Envio no 3:*_
+
+  - Implementación del NPC 2 Robot con cohetes, ya disponible para su uso en el nivel.
+  
+  - Corrección en el Sistema de Archivos.
+  
+  - Corrección de Bugs.
