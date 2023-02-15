@@ -1,7 +1,6 @@
 extends Habilidad
 #Habilidad que le permite al jugador sujetarse y moverse por mallas.
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	mi_ente = get_parent().get_parent()
@@ -9,12 +8,18 @@ func _ready():
 	
 	_agregar_estado("espera")
 	_agregar_estado("en_malla")
+	_agregar_estado("camina_malla")
+	_agregar_estado("quieto_malla")
 	_agregar_estado("posible_fin")
 	_agregar_estado("termina")
 	
 	
 	poner_estado_deferred("espera")
 	call_deferred("DeshabilitarSelf")
+	
+	$MEF_movimientos_en_malla.ente = mi_ente
+	$MEF_movimientos_en_malla.anim = mi_ente.get_node("AnimationPlayer")
+	
 	pass # Replace with function body.
 
 
@@ -26,7 +31,7 @@ func _input(event):
 					if mi_ente.en_malla:
 						mef_ente.poner_estado_deferred("quieto")
 						call_deferred("DeshabilitarMEF")
-						
+						mef_ente.set_process_input(false)
 						get_parent().DesactivarHabilidadesDesactivables([self])
 						HabilitarSelf()
 				
@@ -45,7 +50,7 @@ func _physics_process(delta):
 			mi_ente.Girar()
 			
 			
-				
+			
 	pass
 #Logica para cambiar de estados:
 func _transiciones(delta):
@@ -56,6 +61,8 @@ func _transiciones(delta):
 			
 			if  mi_ente.is_on_floor():
 				return estados.posible_fin
+				
+			
 	return null
 #Se ejecuta dentro de un estado constantemente.
 func _process_estado(delta):
@@ -90,4 +97,16 @@ func Salir():
 		poner_estado_deferred(estados.termina)
 #Solo se ejecuta una vez cuando sale de un estado.
 func _salir_estado(viejo, nuevo):
+	pass
+
+func set_process(valor:bool):
+	.set_process(valor)
+	
+	$MEF_movimientos_en_malla.set_process(valor)
+	pass
+
+func set_physics_process(valor:bool):
+	.set_physics_process(valor)
+	
+	$MEF_movimientos_en_malla.set_physics_process(valor)
 	pass

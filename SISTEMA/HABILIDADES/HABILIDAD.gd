@@ -25,6 +25,7 @@ func DeshabilitarMEF():
 func HabilitarMEF(input:String = ""):
 	mef_ente.set_process(true)
 	mef_ente.set_physics_process(true)
+	mef_ente.set_process_input(true)
 	#mef_ente.set_process_input(true)
 	
 	if input != "":
