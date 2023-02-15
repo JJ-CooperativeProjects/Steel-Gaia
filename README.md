@@ -1,6 +1,17 @@
 ![Fondo1](https://user-images.githubusercontent.com/93017270/218015565-76ee7efa-6897-4339-ad89-103ced0d8335.png)
 # HISTORIAL DE CAMBIOS OFICIALES
 
+
+_*Envio no 8:*_
+  - NOVEDADES:
+    - Se está trabajando en conseguir:
+      - Un sistema de iluminación.(no conseguido aún)
+      - Un sistema de SpawnPoint para generar enemigos. (no terminado)
+
+  - CORRECCION DE BUGS:
+    - Se corrige un bug en las habilidades de Escalera y Malla, al cargar partida.
+
+
 _*Envio no 7:*_
   11/02/2023
   - DISEÑO DEL JUGADOR:

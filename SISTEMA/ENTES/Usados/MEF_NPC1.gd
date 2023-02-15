@@ -243,6 +243,9 @@ func _on_Area_detectar_jugador_body_entered(body):
 			ente.objetivo = body
 			if ente.estado == ente.estados.TRANQUILO:
 				ente.estado = ente.estados.ALERTA
+		else:
+			if ente.estado == ente.estados.TRANQUILO:
+				ente.estado = ente.estados.ALERTA
 	pass # Replace with function body.
 
 
