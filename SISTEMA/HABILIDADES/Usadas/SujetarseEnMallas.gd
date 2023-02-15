@@ -36,6 +36,8 @@ func _input(event):
 						HabilitarSelf()
 				
 						poner_estado_deferred(estados.en_malla)
+						$MEF_movimientos_en_malla.set_process(true)
+						$MEF_movimientos_en_malla.set_physics_process(true)
 
 			estados.en_malla:
 				if event.is_action_pressed("salto"):
@@ -82,6 +84,8 @@ func _entrar_estado(nuevo, viejo):
 			call_deferred("HabilitarMEF","")
 			poner_estado_deferred(estados.espera)
 			call_deferred("DeshabilitarSelf")
+			$MEF_movimientos_en_malla.set_process(false)
+			$MEF_movimientos_en_malla.set_physics_process(false)
 		
 		estados.posible_fin:
 			var timer:SceneTreeTimer = get_tree().create_timer(0.1)
@@ -102,11 +106,11 @@ func _salir_estado(viejo, nuevo):
 func set_process(valor:bool):
 	.set_process(valor)
 	
-	$MEF_movimientos_en_malla.set_process(valor)
+	#$MEF_movimientos_en_malla.set_process(valor)
 	pass
 
 func set_physics_process(valor:bool):
 	.set_physics_process(valor)
 	
-	$MEF_movimientos_en_malla.set_physics_process(valor)
+	#$MEF_movimientos_en_malla.set_physics_process(valor)
 	pass

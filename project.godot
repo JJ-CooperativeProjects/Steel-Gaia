@@ -280,6 +280,11 @@ _global_script_classes=[ {
 "path": "res://SISTEMA/GUI/Puzzle/Puzzle.gd"
 }, {
 "base": "Node2D",
+"class": "SpawnPoint",
+"language": "GDScript",
+"path": "res://SISTEMA/OBJETOS/SPAWN-POINT/SpawnPoint.gd"
+}, {
+"base": "Node2D",
 "class": "Trampa",
 "language": "GDScript",
 "path": "res://SISTEMA/OBJETOS/TRAMPAS/Trampa.gd"
@@ -369,6 +374,7 @@ _global_script_class_icons={
 "PlataformaFalsa": "",
 "PlataformaMovil": "",
 "Puzzle": "",
+"SpawnPoint": "",
 "Trampa": "",
 "TrampaAmetralladora": "",
 "TrampaLanzallamas": "",

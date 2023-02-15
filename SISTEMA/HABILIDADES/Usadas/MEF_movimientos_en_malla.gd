@@ -16,6 +16,7 @@ func _ready():
 
 
 func _transiciones(delta):
+	print("mmmmasdasd")
 	match estado:
 		estados.espera:
 			if !ente.QuietoEnMalla():

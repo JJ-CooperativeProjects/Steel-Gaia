@@ -734,7 +734,6 @@ position = Vector2( -0.5, 7.5 )
 shape = SubResource( 9 )
 
 [node name="Area_detectar_jugador" type="Area2D" parent="Cuerpo" index="6"]
-visible = false
 collision_layer = 2
 monitorable = false
 

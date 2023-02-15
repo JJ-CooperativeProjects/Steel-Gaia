@@ -40,6 +40,8 @@ func _input(event):
 						#mi_ente.set_deferred("global_position",Vector2(Memoria.punto_escalera.x,mi_ente.global_position.y))
 						
 						poner_estado_deferred(estados.en_escalera)
+						$Mef_movimiento_escalera.set_process(true)
+						$Mef_movimiento_escalera.set_physics_process(true)
 
 			estados.en_escalera:
 				if event.is_action_pressed("salto"):
@@ -87,6 +89,8 @@ func _entrar_estado(nuevo, viejo):
 			call_deferred("HabilitarMEF","")
 			poner_estado_deferred(estados.espera)
 			call_deferred("DeshabilitarSelf")
+			$Mef_movimiento_escalera.set_process(false)
+			$Mef_movimiento_escalera.set_physics_process(false)
 		
 		estados.posible_fin:
 			var timer:SceneTreeTimer = get_tree().create_timer(0.1)
@@ -104,13 +108,13 @@ func Salir():
 	else:
 		poner_estado_deferred(estados.termina)
 ##
-func set_process(valor:bool):
-	.set_process(valor)
-	
-	$Mef_movimiento_escalera.set_process(valor)
-
-func set_physics_process(valor:bool):
-	.set_physics_process(valor)
-	
-	$Mef_movimiento_escalera.set_physics_process(valor)
+#func set_process(valor:bool):
+#	.set_process(valor)
+#
+#	$Mef_movimiento_escalera.set_process(valor)
+#
+#func set_physics_process(valor:bool):
+#	.set_physics_process(valor)
+#
+#	$Mef_movimiento_escalera.set_physics_process(valor)
 	
