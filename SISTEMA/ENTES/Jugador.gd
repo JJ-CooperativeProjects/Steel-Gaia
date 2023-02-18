@@ -15,6 +15,13 @@ onready var efectp_polvo_ataque:PackedScene = preload("res://SISTEMA/EFECTOS/ESP
 onready var rayo_pared_derecho:RayCast2D = $RayPared1
 onready var rayo_pared_izqueierdo:RayCast2D = $RayPared2
 
+onready var pasos:Array = [
+	#"res://RECURSOS/SONIDOS/EFECTOS/Footsteps/zapatos_metal1.ogg",
+	#"res://RECURSOS/SONIDOS/EFECTOS/Footsteps/zapatos_metal3.ogg",
+	#"res://RECURSOS/SONIDOS/EFECTOS/Footsteps/zapatos_metal5.ogg",
+	"res://RECURSOS/SONIDOS/EFECTOS/Footsteps/zapatos_metal9.ogg"
+]
+
 var mi_control_camara = null
 #Segun la dirección que el usuario pulse:
 var direcciones:Vector2 = Vector2.ZERO
@@ -37,7 +44,7 @@ func _ready():
 #	if not Memoria.cambiando and not Memoria.es_nuevo:
 #		
 	
-	
+
 #METODOS========================================================================
 func _input(event):
 #	if event.is_action_pressed("ui_page_up"):
@@ -162,6 +169,13 @@ func CrearPolvoAtaque():
 	var polvo:EfectoEspecial = efectp_polvo_ataque.instance()
 	polvo.global_position = $Cuerpo/pos_golpes_pugnos.global_position
 	Memoria.nivel_actual.add_child(polvo)
+
+func ReproducirSonidoPasos():
+	$Pasos.stop()
+	var paso:AudioStreamOGGVorbis = load(pasos[randi()%pasos.size()])
+	
+	$Pasos.stream = paso
+	$Pasos.play()
 
 ####
 func Salvar(data_vacio:Dictionary= {})->Dictionary:

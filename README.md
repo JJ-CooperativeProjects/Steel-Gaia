@@ -2,6 +2,23 @@
 # HISTORIAL DE CAMBIOS OFICIALES
 
 
+
+_*Envio no. 9:*_
+  - NOVEDADES:
+    - Se trabaja en el sistema para la lluvia y los truenos. (en progreso. falta el efecto de los relampagos)
+      - Se introdujo cuetro tipos de lluvias basadas en intensidad: poca, ligera, moderada y fuerte
+      - Se implementó la opción de elegir si truena o no.
+  
+  - SOBRE EL PERSONAJE:
+    - Se trabaja en introducir los efectos sonoros.
+      - Se le puso sonido a los pasos
+      - Se le puso sonido a los ataques con puños.
+      - Se le puso sonido al saltar, tanto al despegar como al caer en el suelo.
+  
+  - CORRECCION DE BUGS:
+    - Se corrige un bug al disparar con la habilidad de escopeta, que se podía interrumpir con el salto. (error en la MEF)
+
+
 _*Envio no 8:*_
   - NOVEDADES:
     - Se está trabajando en conseguir:
