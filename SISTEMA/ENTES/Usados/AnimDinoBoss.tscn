@@ -19179,6 +19179,7 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_bone_": true
 }
+vitalidad = 1200
 
 [node name="Area_cuerpo" type="Area2D" parent="Base/pelvis_control/cuerpo"]
 visible = false
@@ -19208,7 +19209,7 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_bone_": true
 }
-vitalidad = 500
+vitalidad = 2000
 
 [node name="Area_pecho" type="Area2D" parent="Base/pelvis_control/cuerpo/Pecho"]
 visible = false
@@ -19265,7 +19266,7 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_bone_": true
 }
-vitalidad = 700
+vitalidad = 750
 
 [node name="Area_pala_der" type="Area2D" parent="Base/pelvis_control/cuerpo/Pecho/brazo_der/brazo_1_der/pala_1_der"]
 visible = false
@@ -19377,7 +19378,7 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_bone_": true
 }
-vitalidad = 120
+vitalidad = 400
 
 [node name="Area_cuello" type="Area2D" parent="Base/pelvis_control/cuerpo/Pecho/cuello_Control/cuello"]
 visible = false
@@ -19564,6 +19565,20 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="posiciones_explosion" type="Node2D" parent="Base/pelvis_control/cuerpo/Pecho"]
+
+[node name="Position2D" type="Position2D" parent="Base/pelvis_control/cuerpo/Pecho/posiciones_explosion"]
+position = Vector2( -19.2041, -16.3704 )
+
+[node name="Position2D2" type="Position2D" parent="Base/pelvis_control/cuerpo/Pecho/posiciones_explosion"]
+position = Vector2( -10.9006, -48.4337 )
+
+[node name="Position2D3" type="Position2D" parent="Base/pelvis_control/cuerpo/Pecho/posiciones_explosion"]
+position = Vector2( -51.4342, -53.5352 )
+
+[node name="Position2D4" type="Position2D" parent="Base/pelvis_control/cuerpo/Pecho/posiciones_explosion"]
+position = Vector2( -30.5373, -88.8242 )
+
 [node name="Particles2D" type="Particles2D" parent="Base/pelvis_control/cuerpo"]
 show_behind_parent = true
 material = SubResource( 10 )
@@ -19608,6 +19623,26 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="posiciones_explosion" type="Node2D" parent="Base/pelvis_control/cuerpo"]
+
+[node name="Position2D" type="Position2D" parent="Base/pelvis_control/cuerpo/posiciones_explosion"]
+position = Vector2( 21.0443, -25.4432 )
+
+[node name="Position2D2" type="Position2D" parent="Base/pelvis_control/cuerpo/posiciones_explosion"]
+position = Vector2( 23.7126, 28.5742 )
+
+[node name="Position2D3" type="Position2D" parent="Base/pelvis_control/cuerpo/posiciones_explosion"]
+position = Vector2( 48.1049, -7.17506 )
+
+[node name="Position2D4" type="Position2D" parent="Base/pelvis_control/cuerpo/posiciones_explosion"]
+position = Vector2( 95.5799, -24.2376 )
+
+[node name="Position2D5" type="Position2D" parent="Base/pelvis_control/cuerpo/posiciones_explosion"]
+position = Vector2( 69.0435, -75.7431 )
+
+[node name="Position2D6" type="Position2D" parent="Base/pelvis_control/cuerpo/posiciones_explosion"]
+position = Vector2( 77.1576, -122.851 )
+
 [node name="pierna_izq" type="Sprite" parent="Base/pelvis_control"]
 show_behind_parent = true
 material = SubResource( 67 )
@@ -19623,7 +19658,7 @@ __meta__ = {
 "_edit_bone_": true,
 "_edit_ik_": true
 }
-vitalidad = 450
+vitalidad = 2400
 
 [node name="Area_pierna_izq" type="Area2D" parent="Base/pelvis_control/pierna_izq"]
 visible = false
@@ -19653,7 +19688,7 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_bone_": true
 }
-vitalidad = 300
+vitalidad = 1500
 
 [node name="Area_pierna_2_izq" type="Area2D" parent="Base/pelvis_control/pierna_izq/pierna_2_izq"]
 visible = false
@@ -19695,7 +19730,7 @@ __meta__ = {
 "_edit_bone_": true,
 "_edit_group_": true
 }
-vitalidad = 560
+vitalidad = 900
 
 [node name="Area_pata_izq" type="Area2D" parent="Base/pelvis_control/pierna_izq/pierna_2_izq/tobillo_izq/pata_izq"]
 visible = false
@@ -19725,6 +19760,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="posiciones_explosion" type="Node2D" parent="Base/pelvis_control/pierna_izq"]
+
+[node name="Position2D" type="Position2D" parent="Base/pelvis_control/pierna_izq/posiciones_explosion"]
+position = Vector2( -26.9179, 6.73506 )
+
+[node name="Position2D2" type="Position2D" parent="Base/pelvis_control/pierna_izq/posiciones_explosion"]
+position = Vector2( -39.2488, 24.7614 )
+
 [node name="pierna_der" type="Sprite" parent="Base/pelvis_control"]
 material = SubResource( 67 )
 position = Vector2( 3, 3 )
@@ -19738,7 +19781,7 @@ __meta__ = {
 "_edit_bone_": true,
 "_edit_ik_": true
 }
-vitalidad = 450
+vitalidad = 10
 
 [node name="Area_pierna" type="Area2D" parent="Base/pelvis_control/pierna_der"]
 visible = false
@@ -19768,7 +19811,7 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_bone_": true
 }
-vitalidad = 300
+vitalidad = 1500
 
 [node name="Area_pierna_2_der" type="Area2D" parent="Base/pelvis_control/pierna_der/pierna_2_der"]
 visible = false
@@ -19810,7 +19853,7 @@ __meta__ = {
 "_edit_bone_": true,
 "_edit_group_": true
 }
-vitalidad = 560
+vitalidad = 900
 
 [node name="Area_pata_der" type="Area2D" parent="Base/pelvis_control/pierna_der/pierna_2_der/pierna_3_der/pata_der"]
 visible = false
@@ -19851,6 +19894,14 @@ script = ExtResource( 12 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Base/pelvis_control/pierna_der/pierna_2_der/pierna_3_der/pata_der/AreaDamage"]
 position = Vector2( -12.4932, -7.29448 )
 shape = SubResource( 84 )
+
+[node name="posiciones_explosion" type="Node2D" parent="Base/pelvis_control/pierna_der"]
+
+[node name="Position2D" type="Position2D" parent="Base/pelvis_control/pierna_der/posiciones_explosion"]
+position = Vector2( -26.9179, 6.73506 )
+
+[node name="Position2D2" type="Position2D" parent="Base/pelvis_control/pierna_der/posiciones_explosion"]
+position = Vector2( -39.2488, 24.7614 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Base"]
 playback_default_blend_time = 0.2

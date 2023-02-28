@@ -1,7 +1,14 @@
 ![Fondo1](https://user-images.githubusercontent.com/93017270/218015565-76ee7efa-6897-4339-ad89-103ced0d8335.png)
 # HISTORIAL DE CAMBIOS OFICIALES
 
-
+_*Envio no. 10*_
+  - NPC DINO BOSS:
+    -Se implementa el daño por piezas del cuerpo.
+    -Se configuran algunos efectos visuales de prototipo.
+    -Se le pone los Assets de DinoRoto
+    
+   - CORRECCION DE BUGS:
+    - Se corrige un bug en el ataque de puños del Jugador, que en ocasiones no se desactiva el area de colisión y sigue haciendo daño aunque no ataque.
 
 _*Envio no. 9:*_
   - NOVEDADES:

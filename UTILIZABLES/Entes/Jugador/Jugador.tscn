@@ -651,6 +651,18 @@ tracks/5/keys = {
 } ],
 "times": PoolRealArray( 0, 0.3 )
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("Cuerpo/AreaDamageNormal:monitoring")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=18]
 resource_name = "dash"
@@ -703,6 +715,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -29 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/AreaDamageNormal:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -816,6 +840,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Vector2( 0, -29 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("Cuerpo/AreaDamageNormal:monitoring")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=21]
 resource_name = "malla_caminar_left_right"
@@ -869,6 +905,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, -14 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/AreaDamageNormal:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -924,6 +972,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 1, -14 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/AreaDamageNormal:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=20]
 resource_name = "malla_quieto"
@@ -977,6 +1037,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, -14 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/AreaDamageNormal:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -1230,6 +1302,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0, -29 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/AreaDamageNormal:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "salto_cae"
@@ -1297,6 +1381,18 @@ tracks/4/keys = {
 "method": "PonerSaltoCiclo"
 } ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Cuerpo/AreaDamageNormal:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=16]
 resource_name = "salto_cae_ciclo"
@@ -1351,6 +1447,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0, -29 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/AreaDamageNormal:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=15]
 resource_name = "salto_sube"
@@ -1403,6 +1511,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -29 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cuerpo/AreaDamageNormal:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=2]
