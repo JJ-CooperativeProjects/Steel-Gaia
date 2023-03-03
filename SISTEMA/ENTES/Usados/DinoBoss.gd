@@ -34,7 +34,7 @@ func _ready():
 	control.connect("ataque_rocas",self,"AtaqueRocas")
 	
 	for i in piezas_cuerpo:
-		i.connect("RecibeDamage",get_node("MEF"),"LogicaMorir")
+		i.connect("RecibeDamageRoto",get_node("MEF"),"LogicaMorir")
 	
 	$CanvasLayer_BarraVida/GUI_miniboss/barra_vida.max_value = max_vitalidad
 	$CanvasLayer_BarraVida/GUI_miniboss/barra_vida.value = get_vitalidad()

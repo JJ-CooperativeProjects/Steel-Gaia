@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://SISTEMA/HABILIDADES/ControladorHabilidades.gd"
 }, {
+"base": "Node2D",
+"class": "ControladorLluvia",
+"language": "GDScript",
+"path": "res://SISTEMA/EFECTOS/ESPECIALES/ControladorLluvia.gd"
+}, {
 "base": "TextureRect",
 "class": "CuboPuzzle",
 "language": "GDScript",
@@ -332,6 +337,7 @@ _global_script_class_icons={
 "BotonSalva": "",
 "Carril": "",
 "ControladorHabilidades": "",
+"ControladorLluvia": "",
 "CuboPuzzle": "",
 "DashEffect": "",
 "DebuggInGame": "",

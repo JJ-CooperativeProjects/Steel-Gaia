@@ -34,6 +34,17 @@ func ReproducirAudioAumentarVolumen(stream:AudioStream, tiempo:float = 3.0):
 	tw.tween_property(self,"volumen_music",0.0,tiempo)
 	pass
 
+#poner un valor de volumen en alguno de los busses:
+func PonerVolumenBuss(buss:String,volumen:float):
+	var bus = AudioServer.get_bus_index(buss)
+	
+	AudioServer.set_bus_volume_db(bus,volumen)
+
+#Activar desacticar el efecto en alguno de los busses:
+func SetEfectoEnBuss(buss:String, efecto_ind:int, valor:bool):
+	var b = AudioServer.get_bus_index(buss)
+	AudioServer.set_bus_effect_enabled(b,efecto_ind,valor)
+
 #Baja el master:
 func BajarVolumenMaster(tiempo:float = 2.0):
 	var tw:SceneTreeTween = create_tween()

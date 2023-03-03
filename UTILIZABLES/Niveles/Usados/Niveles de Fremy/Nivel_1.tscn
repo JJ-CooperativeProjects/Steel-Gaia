@@ -17,8 +17,12 @@
 [ext_resource path="res://UTILIZABLES/Objetos/Cubo.tscn" type="PackedScene" id=16]
 [ext_resource path="res://UTILIZABLES/z0_Micelaneas/Escalera.tscn" type="PackedScene" id=17]
 [ext_resource path="res://UTILIZABLES/z0_Micelaneas/MallaDeSujecion.tscn" type="PackedScene" id=18]
+<<<<<<< HEAD
 [ext_resource path="res://UTILIZABLES/Entes/Enemigos/NPC2_robot_cohete.tscn" type="PackedScene" id=19]
 [ext_resource path="res://UTILIZABLES/Trampas/NanoBots.tscn" type="PackedScene" id=20]
+=======
+[ext_resource path="res://UTILIZABLES/z0_Micelaneas/EfectosEspeciales/ControladorLluvia.tscn" type="PackedScene" id=19]
+>>>>>>> 5dd239353d64601e05cdae2cdb5a48061d2177a5
 
 [node name="Nivel_PruebasFremy_heredado" instance=ExtResource( 1 )]
 
@@ -339,6 +343,9 @@ tile_data = PoolIntArray( 2031788, 1, 0, 2097324, 2, 0, 2162860, 2, 0, 2228396, 
 
 [node name="TileMap" parent="OTROS/MALLAS/MallaDeSujecion" index="0"]
 tile_data = PoolIntArray( 4456619, 1, 0, 4522155, 2, 0, 4522160, 3, 0, 4587691, 2, 0, 4587696, 3, 0, 4653196, 1, 0, 4653227, 2, 0, 4718732, 2, 0, 4718763, 2, 0, 4784268, 2, 0, 4784299, 2, 0, 4849804, 3, 0, 4849835, 3, 0 )
+
+[node name="ControladorLluvia" parent="OTROS" index="2" instance=ExtResource( 19 )]
+intensidad_tormenta = 2
 
 [editable path="OTROS/ESCALERAS/Escalera"]
 [editable path="OTROS/MALLAS/MallaDeSujecion"]

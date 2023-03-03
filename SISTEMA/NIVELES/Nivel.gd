@@ -45,6 +45,7 @@ func _ready():
 	
 	#Volumen:
 	AudioManagerGlobal.SubirVolumenMaster()
+	AudioManagerGlobal.audio_master.stop()
 	
 	pass
 

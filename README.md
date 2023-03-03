@@ -1,6 +1,30 @@
 ![Fondo1](https://user-images.githubusercontent.com/93017270/218015565-76ee7efa-6897-4339-ad89-103ced0d8335.png)
 # HISTORIAL DE CAMBIOS OFICIALES
 
+_*Envio no. 10*_
+  - NPC DINO BOSS:
+    -Se implementa el daño por piezas del cuerpo.
+    -Se configuran algunos efectos visuales de prototipo.
+    -Se le pone los Assets de DinoRoto
+    
+   - CORRECCION DE BUGS:
+    - Se corrige un bug en el ataque de puños del Jugador, que en ocasiones no se desactiva el area de colisión y sigue haciendo daño aunque no ataque.
+
+_*Envio no. 9:*_
+  - NOVEDADES:
+    - Se trabaja en el sistema para la lluvia y los truenos. (en progreso. falta el efecto de los relampagos)
+      - Se introdujo cuetro tipos de lluvias basadas en intensidad: poca, ligera, moderada y fuerte
+      - Se implementó la opción de elegir si truena o no.
+  
+  - SOBRE EL PERSONAJE:
+    - Se trabaja en introducir los efectos sonoros.
+      - Se le puso sonido a los pasos
+      - Se le puso sonido a los ataques con puños.
+      - Se le puso sonido al saltar, tanto al despegar como al caer en el suelo.
+  
+  - CORRECCION DE BUGS:
+    - Se corrige un bug al disparar con la habilidad de escopeta, que se podía interrumpir con el salto. (error en la MEF)
+
 
 _*Envio no 8:*_
   - NOVEDADES:

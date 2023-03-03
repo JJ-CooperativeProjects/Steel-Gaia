@@ -60,7 +60,8 @@ func _input(event):
 		
 		#Salto:
 		if event.is_action_pressed("salto") and ente.is_on_floor():
-			poner_estado_deferred(estados.salto_inicia)
+			if not estado == estados.escopeta:
+				poner_estado_deferred(estados.salto_inicia)
 	
 func _physics_process(delta):
 	if ![estados.en_pared,estados.dash,estados.atacar1,estados.atacar2,estados.escopeta, estados.en_escalera].has(estado):
@@ -105,6 +106,8 @@ func _transiciones(delta):
 		
 		estados.salto_cae,estados.salto_sube:
 			if ente.is_on_floor():
+				ente.get_node("saltos").stream = load("res://RECURSOS/SONIDOS/EFECTOS/Salto/salto_down_roca.ogg")
+				ente.get_node("saltos").play()
 				return estados.quieto
 		
 #			if Input.is_action_just_pressed("salto") and !ente.is_on_wall() and puede_doble_salto and ente.get_energia() >= consumo_energia_doble_salto:
@@ -136,8 +139,8 @@ func _transiciones(delta):
 #				return estados.quieto
 			
 			#ûede saltar:
-			if Input.is_action_just_pressed("salto"):
-				return estados.salto_inicia
+#			if Input.is_action_just_pressed("salto"):
+#				return estados.salto_inicia
 			#puede hacer dash:
 #			if Input.is_action_just_pressed("dash") and puede_dash and ente.get_energia() >= consumo_energia_dash:
 #				return estados.dash
@@ -208,6 +211,8 @@ func _entrar_estado(nuevo, viejo):
 		estados.salto_inicia:
 			ente.movimiento = Vector2.ZERO
 			ente.Saltar()
+			ente.get_node("saltos").stream = load("res://RECURSOS/SONIDOS/EFECTOS/Salto/salto_up.ogg")
+			ente.get_node("saltos").play()
 			#ente.SegundoSalto()
 		
 		estados.salto_sube:
